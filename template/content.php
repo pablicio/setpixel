@@ -2,11 +2,16 @@
 <div id="page-wrapper">
     <div class="container-fluid">
 
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">Page Title</h1>
-            </div>
-        </div>
+        <?php
+            $pagina = filter_input(INPUT_GET, 'rota');
+
+            if(isset($pagina)){
+                // faça um tratamento em "pagina" pra evitar qualquer ataque malicioso
+                include $pagina . '.php';
+            }
+
+        ?>
+
 
         <!-- ... Your content goes here ... -->
 
