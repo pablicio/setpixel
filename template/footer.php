@@ -10,4 +10,8 @@
 <!-- Custom Theme JavaScript -->
 <script src="/assets/js/startmin.js"></script>
 
+<!--<!--Geral-->-->
+<!--<script src="/assets/js/geral/setCoordenadas.js"></script>-->
 
+<!--Algoritmo DDA-->
+<script src="/assets/js/dda/dda.js"></script>

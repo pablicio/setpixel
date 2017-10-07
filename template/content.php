@@ -3,6 +3,9 @@
     <div class="container-fluid">
 
         <?php
+
+//            include 'tela/tela.php';
+
             $pagina = filter_input(INPUT_GET, 'rota');
 
             if(isset($pagina)){

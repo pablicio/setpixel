@@ -25,4 +25,7 @@
     <!-- Custom Fonts -->
     <link href="/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+    <!-- Style tela -->
+    <link href="/assets/css/geral/style.css" rel="stylesheet">
+
 </head>

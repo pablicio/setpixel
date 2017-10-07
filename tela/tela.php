@@ -9,7 +9,7 @@
 <div class="row">
 
     <div class="row">
-        <h4>Algorítimo do Círculo</h4>
+        <h4>Algorítimo DDA</h4>
 
         <div class="col-lg-3">
             <input placeholder="X1" id="x1" value="" type="text" class="form-control">
@@ -28,7 +28,7 @@
     <div class="row">
         <br>
         <div class="col-lg-3">
-            <button class="btn btn-info" id="add"> Desenhar</button>
+            <button class="btn btn-bitbucket" id="add">Adicionar</button>
         </div>
     </div>
 </div>
