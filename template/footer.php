@@ -11,7 +11,7 @@
 <script src="/assets/js/startmin.js"></script>
 
 <!--<!--Geral-->-->
-<!--<script src="/assets/js/geral/setCoordenadas.js"></script>-->
+<script src="/assets/js/geral/setpixel.js"></script>
 
 <!--Algoritmo DDA-->
 <script src="/assets/js/dda/dda.js"></script>
