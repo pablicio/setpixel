@@ -9,26 +9,24 @@
 <div class="row">
 
     <div class="row">
-        <h4>Algorítimo do Círculo</h4>
+        <h4>Algorítimo do DDA</h4>
 
         <div class="col-lg-3">
-            <input placeholder="X1" id="x1" value="" type="text" class="form-control">
+            <input placeholder="X0" id="x0" value="" type="text" class="form-control">
         </div>
         <div class="col-lg-3">
-            <input placeholder="Y1" id="y1" value="" type="text" class="form-control">
+            <input placeholder="Y0" id="y0" value="" type="text" class="form-control">
         </div>
         <div class="col-lg-3">
-            <input placeholder="X2" id="x2" value="" type="text" class="form-control">
+            <input placeholder="RAIO" id="raio" value="" type="text" class="form-control">
         </div>
-        <div class="col-lg-3">
-            <input placeholder="Y2" id="y2" value="" type="text" class="form-control">
-        </div>
+
     </div>
 
     <div class="row">
         <br>
         <div class="col-lg-3">
-            <button class="btn btn-info" id="add"> Desenhar</button>
+            <button class="btn btn-info" onclick="dCirculo();" id="add2">Desenhar</button>
         </div>
     </div>
 </div>

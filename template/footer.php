@@ -15,3 +15,6 @@
 
 <!--Algoritmo DDA-->
 <script src="/assets/js/dda/dda.js"></script>
+
+<!--Algoritmo do Circulo pelo Ponto Médio de Bresenhan's -->
+<script src="/assets/js/circulo/circulo.js"></script>
