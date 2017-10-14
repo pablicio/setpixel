@@ -24,6 +24,16 @@ function setOrigin(x, y) {
     return "<div style='position: absolute;top: " + y + "px;left: " + x + "px;font-size: 10px;'>0</div>";
 
 }
+$(document).on('click', '#apagar', function () {
+    apagarPixel();
+})
+
+function apagarPixel() {
+
+    $('.pixel').remove()
+
+
+}
 
 
 $(document).ready( function () {

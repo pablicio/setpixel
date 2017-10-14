@@ -14,13 +14,13 @@ $(document).on('click', '#add2', function () {
 
     var raioErro = (1.25 - x);
 
-    corpo2 = dCirculo(x0,y0,x,y,raioErro);
+    corpo2 = circulo(x0,y0,x,y,raioErro);
 
     $("#circulo").append(corpo2);
 
 });
 
-function dCirculo(x0,y0,x,y,raioErro) {
+function circulo(x0,y0,x,y,raioErro) {
 
 
     while(y >= x)

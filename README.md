@@ -26,5 +26,3 @@ então na pasta do projeto rode o comando via terminal.
 ## Abra no navegador a aplicação pelo endereço:
 
 [localhost:8000/index.php](localhost:8000/index.php)
-
-

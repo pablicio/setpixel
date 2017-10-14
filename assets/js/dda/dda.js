@@ -2,8 +2,6 @@
  * Created by pabliciotjg on 14/09/2017.
  */
 
-
-
 $(document).on('click', '#add', function () {
 
     var x1 = parseInt($('#x1').val());
@@ -46,6 +44,8 @@ function dda(x1, y1, x2, y2) {
 
     // setPixel(Math.round(x), Math.round(y));
 
+
+
     for (k = 0; k <= tamanho; k++) {
 
         setPixel(Math.round(x), Math.round(y));
@@ -57,8 +57,8 @@ function dda(x1, y1, x2, y2) {
 
         x += xinc;
         y += yinc;
+
+
     }
     return corpo;
 }
-
-

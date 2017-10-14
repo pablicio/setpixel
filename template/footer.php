@@ -21,3 +21,9 @@
 
 <!--mouse capt-->
 <script src="/assets/js/mouseclick/mouse.js"></script>
+
+<!--translacao-->
+<script src="/assets/js/transformacoes2D/translacao.js"></script>
+
+<!--ESCALA-->
+<script src="/assets/js/transformacoes2D/escala.js"></script>
