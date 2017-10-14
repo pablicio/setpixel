@@ -18,3 +18,6 @@
 
 <!--Algoritmo do Circulo pelo Ponto Médio de Bresenhan's -->
 <script src="/assets/js/circulo/circulo.js"></script>
+
+<!--mouse capt-->
+<script src="/assets/js/mouseclick/mouse.js"></script>
