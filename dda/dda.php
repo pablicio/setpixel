@@ -50,7 +50,6 @@
             <button class="btn btn-info" id="add"> Desenhar</button>
             <button class="btn btn-info" onclick="translation(); " id="trans"> Translacao</button>
             <button class="btn btn-info" onclick="escalaDDA(); " id="escala">Escala</button>
-            <button class="btn btn-info" id="apagar"> Apagar</button>
         </div>
     </div>
 

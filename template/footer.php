@@ -13,12 +13,6 @@
 <!--<!--Geral-->-->
 <script src="/assets/js/geral/setpixel.js"></script>
 
-<!--Algoritmo DDA-->
-<script src="/assets/js/dda/dda.js"></script>
-
-<!--Algoritmo do Circulo pelo Ponto Médio de Bresenhan's -->
-<script src="/assets/js/circulo/circulo.js"></script>
-
 <!--mouse capt-->
 <script src="/assets/js/mouseclick/mouse.js"></script>
 
@@ -27,3 +21,11 @@
 
 <!--ESCALA-->
 <script src="/assets/js/transformacoes2D/escala.js"></script>
+
+<!--ADICIONA DINAMICAMENTE O SCRIPT A PÁGINA-->
+<!--VAI APARECER COMO ERRO NA PÁGINA PORÉM VAI FUNCIONAR-->
+<?php
+$script = '/assets/js/' . filter_input(INPUT_GET, 'rota') . '.js';
+?>
+
+<script src="<?php echo $script; ?>"></script>

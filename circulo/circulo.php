@@ -36,7 +36,6 @@
         <div class="col-lg-3">
             <button class="btn btn-info" onclick="circulo();" id="add2">Desenhar</button>
             <button class="btn btn-info" onclick="escalaCirculo(); " id="escala">Escala</button>
-            <button class="btn btn-info" id="apagar"> Apagar</button>
         </div>
     </div>
 </div>

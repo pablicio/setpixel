@@ -12,7 +12,7 @@
 
         <!-- Top Navigation: Left Menu -->
         <ul class="nav navbar-nav navbar-left navbar-top-links">
-            <li><a href="#"><i class="fa fa-home fa-fw"></i> Website</a></li>
+            <li><a href="#" class="apagar"><i class="fa fa-home fa-fw"></i> limpar</a></li>
         </ul>
 
         <!-- Top Navigation: Right Menu -->

@@ -27,10 +27,16 @@
             </li>
 
             <li>
-                <a href="#"><i class="fa fa-sitemap fa-fw"></i> Conversões<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-sitemap fa-fw"></i> Ponto Médio<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">Second Level Item</a>
+                        <a href="/?rota=ponto_medio/reta/bresenham1">Reta 1</a>
+                    </li>
+                    <li>
+                        <a href="/?rota=ponto_medio/reta/bresenham2">Reta 2</a>
+                    </li>
+                    <li>
+                        <a href="/?rota=ponto_medio/circulo/circulo">Círculo</a>
                     </li>
                     <li>
                         <a href="#">Third Level <span class="fa arrow"></span></a>
