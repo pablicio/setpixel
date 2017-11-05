@@ -242,7 +242,7 @@
             raio = parseInt($("#raio").val());
 
             //funçoes que recebem  x e y e transforma em um só valor...
-            point = new point(x1, y1);
+            point = new Point(x1, y1);
 
             //recebe os pontos e retorna um array a ser desenhado no canvas
             points = circulo(point, raio);
@@ -255,7 +255,6 @@
 
             //adiciona os pontos na tabela
             addToTable(table, points);
-
         });
     });
 </SCRIPT>

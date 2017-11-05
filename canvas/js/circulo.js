@@ -1,8 +1,7 @@
-function point(xr,yr){
-	this.x=xr;
-	this.y=yr;
+function Point(xr,yr){
+	this.x = xr;
+	this.y = yr;
 }
-
 
 function circulo(points,raio) {
 
@@ -14,33 +13,22 @@ function circulo(points,raio) {
 
     while(y >= x)
     {
-        array.push({x:  x  ,y:  y });
-        array.push({x:  x  ,y: -y });
-        array.push({x: -x  ,y:  y });
-        array.push({x: -x  ,y: -y });
-        array.push({x:  y  ,y:  x });
-        array.push({x:  y  ,y: -x });
-        array.push({x: -y  ,y:  x });
-        array.push({x: -y  ,y: -x });
-
-
-        // array.push({y: y + points.y ,x: x + points.x});
-        // //
-        // array.push({x: -x + points.x ,y: y + points.y});
-        // //
-        // array.push({y: -y + points.x ,x: x + points.y});
-        //
-        // array.push({x: -x + points.x ,y: -y + points.y});
-        //
-        // array.push({y: -y + points.x ,x:  -x + points.y});
-        //
-        // array.push({x: x + points.x ,y: -y + points.y});
-        //
-        // array.push({y: y + points.x ,x: -x + points.y});
+        //Maravilha, setando todos os pontos por simetria
+        array.push(new Point( x + points.x,  y + points.y));
+        array.push(new Point( x + points.x, -y + points.y));
+        array.push(new Point(-x + points.x,  y + points.y));
+        array.push(new Point(-x + points.x, -y + points.y));
+        array.push(new Point( y + points.x,  x + points.y));
+        array.push(new Point( y + points.x, -x + points.y));
+        array.push(new Point(-y + points.x,  x + points.y));
+        array.push(new Point(-y + points.x, -x + points.y));
 
         x++;
+
         if(d<0)
+
             d += 2*x+3;
+
         else
         {
             y--;
@@ -48,6 +36,5 @@ function circulo(points,raio) {
         }
     }
 
-    console.log(array);
     return array;
 }
