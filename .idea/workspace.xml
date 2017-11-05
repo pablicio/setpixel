@@ -2,38 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d03e746-16df-46e0-9e71-19143eadf036" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/canvas/dda.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/canvas/js/reflexionvalidate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/canvas/js/rotacionvalidate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/canvas/js/traslacionvalidate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/canvasTeste/canvas.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/circulo/circulo.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dda/dda.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ponto_medio/circulo/circulo.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ponto_medio/reta/bresenham1.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ponto_medio/reta/bresenham2.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tela/tela.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/template/content.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/template/footer.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/template/header.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/template/nav_left.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/template/nav_top.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/template/template.php" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/translacao/translacao.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/translacao/translacao.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/canvas/js/2DTransforms.js" afterPath="$PROJECT_DIR$/canvas/js/2DTransforms.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/canvas/js/Elipse.js" afterPath="$PROJECT_DIR$/canvas/js/Elipse.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/canvas/js/bresenham.js" afterPath="$PROJECT_DIR$/canvas/js/bresenham.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/canvas/js/dda.js" afterPath="$PROJECT_DIR$/canvas/js/dda.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/canvas/js/drawing.js" afterPath="$PROJECT_DIR$/canvas/js/drawing.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/canvas/js/drawmanager.js" afterPath="$PROJECT_DIR$/canvas/js/drawmanager.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/canvas/js/escalacion.js" afterPath="$PROJECT_DIR$/canvas/js/escalacion.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/canvas/js/mousemanager.js" afterPath="$PROJECT_DIR$/canvas/js/mousemanager.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/canvas/js/puntomedio.js" afterPath="$PROJECT_DIR$/canvas/js/puntomedio.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/canvas/js/reflexion.js" afterPath="$PROJECT_DIR$/canvas/js/reflexion.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/canvas/js/rotacion.js" afterPath="$PROJECT_DIR$/canvas/js/rotacion.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/canvas/js/square.js" afterPath="$PROJECT_DIR$/canvas/js/square.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/canvas/js/todoenuno.js" afterPath="$PROJECT_DIR$/canvas/js/todoenuno.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/circulo/circulo.html" afterPath="$PROJECT_DIR$/circulo/circulo.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dda/dda.html" afterPath="$PROJECT_DIR$/dda/dda.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/desenho/desenho.html" afterPath="$PROJECT_DIR$/desenho/desenho.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -59,6 +33,16 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="circulo.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/circulo/circulo.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="243">
+              <caret line="124" column="30" lean-forward="false" selection-start-line="124" selection-start-column="30" selection-end-line="124" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Elipse.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/canvas/js/Elipse.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -79,7 +63,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="drawmanager.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="drawmanager.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/canvas/js/drawmanager.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="281">
@@ -89,14 +73,39 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="desenho.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/desenho/desenho.html">
+      <file leaf-file-name="translacao.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/translacao/translacao.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="97" column="37" lean-forward="false" selection-start-line="123" selection-start-column="19" selection-end-line="126" selection-end-column="25" />
+            <state relative-caret-position="2771">
+              <caret line="163" column="41" lean-forward="false" selection-start-line="163" selection-start-column="41" selection-end-line="163" selection-end-column="41" />
               <folding>
                 <element signature="n#style#0;n#h2#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="desenho.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/desenho/desenho.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="473">
+              <caret line="127" column="19" lean-forward="true" selection-start-line="127" selection-start-column="19" selection-end-line="130" selection-end-column="25" />
+              <folding>
+                <element signature="n#style#0;n#h2#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dda.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dda/dda.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="265">
+              <caret line="124" column="30" lean-forward="false" selection-start-line="124" selection-start-column="30" selection-end-line="124" selection-end-column="30" />
+              <folding>
+                <element signature="n#SCRIPT#5;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -132,36 +141,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="reflexion.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/canvas/js/reflexion.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="50" column="7" lean-forward="true" selection-start-line="50" selection-start-column="7" selection-end-line="50" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="rotacion.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/canvas/js/rotacion.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="square.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/canvas/js/square.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-144">
-              <caret line="26" column="33" lean-forward="true" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -191,9 +170,6 @@
         <option value="$PROJECT_DIR$/canvas/dda.html" />
         <option value="$PROJECT_DIR$/assets/js/circulo/circulo.js" />
         <option value="$PROJECT_DIR$/canvas/js/circulo.js" />
-        <option value="$PROJECT_DIR$/desenho/desenho.html" />
-        <option value="$PROJECT_DIR$/dda/dda.html" />
-        <option value="$PROJECT_DIR$/circulo/circulo.html" />
         <option value="$PROJECT_DIR$/canvas/js/bresenham.js" />
         <option value="$PROJECT_DIR$/canvas/js/dda.js" />
         <option value="$PROJECT_DIR$/canvas/js/drawing.js" />
@@ -208,6 +184,10 @@
         <option value="$PROJECT_DIR$/canvas/js/Elipse.js" />
         <option value="$PROJECT_DIR$/canvas/js/mousemanager.js" />
         <option value="$PROJECT_DIR$/canvas/js/drawmanager.js" />
+        <option value="$PROJECT_DIR$/desenho/desenho.html" />
+        <option value="$PROJECT_DIR$/dda/dda.html" />
+        <option value="$PROJECT_DIR$/circulo/circulo.html" />
+        <option value="$PROJECT_DIR$/translacao/translacao.html" />
       </list>
     </option>
   </component>
@@ -268,6 +248,20 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="translacao" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="setpixel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="setpixel" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="desenho" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -300,38 +294,6 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="setpixel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="setpixel" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="canvas" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="setpixel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="setpixel" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="canvas" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -350,11 +312,11 @@
       <recent name="C:\Users\Klynton Holmes\Documents\GitHub\Compilador\setpixel" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\dev\setpixel" />
       <recent name="C:\dev\setpixel\desenho" />
       <recent name="C:\dev\setpixel\canvas\js" />
       <recent name="C:\dev\setpixel\circulo" />
       <recent name="C:\dev\setpixel\dda" />
-      <recent name="C:\dev\setpixel\canvasTeste" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -470,12 +432,12 @@
       <workItem from="1509816660484" duration="1202000" />
       <workItem from="1509834350780" duration="4703000" />
       <workItem from="1509897261605" duration="11497000" />
-      <workItem from="1509916798398" duration="4344000" />
+      <workItem from="1509916798398" duration="5704000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33859000" />
+    <option name="totallyTimeSpent" value="35219000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1040" height="744" extended-state="6" />
@@ -515,20 +477,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/assets/js/geral/setpixel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="91" lean-forward="false" selection-start-line="23" selection-start-column="91" selection-end-line="23" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/geral/setpixel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="14" column="34" lean-forward="false" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/dda/dda.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -718,16 +666,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dda/dda.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="122" column="19" lean-forward="true" selection-start-line="122" selection-start-column="19" selection-end-line="125" selection-end-column="25" />
-          <folding>
-            <element signature="n#SCRIPT#5;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/canvas/js/rotacionvalidate.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -808,14 +746,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/circulo/circulo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1758">
-          <caret line="125" column="25" lean-forward="false" selection-start-line="125" selection-start-column="25" selection-end-line="125" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/canvas/js/todoenuno.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -880,17 +810,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/desenho/desenho.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="97" column="37" lean-forward="false" selection-start-line="123" selection-start-column="19" selection-end-line="126" selection-end-column="25" />
-          <folding>
-            <element signature="n#style#0;n#h2#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/canvas/js/puntomedio.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -904,6 +823,54 @@
         <state relative-caret-position="281">
           <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/translacao/translacao.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/desenho/desenho.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="473">
+          <caret line="127" column="19" lean-forward="true" selection-start-line="127" selection-start-column="19" selection-end-line="130" selection-end-column="25" />
+          <folding>
+            <element signature="n#style#0;n#h2#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dda/dda.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="124" column="30" lean-forward="false" selection-start-line="124" selection-start-column="30" selection-end-line="124" selection-end-column="30" />
+          <folding>
+            <element signature="n#SCRIPT#5;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/circulo/circulo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="124" column="30" lean-forward="false" selection-start-line="124" selection-start-column="30" selection-end-line="124" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/translacao/translacao.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2771">
+          <caret line="163" column="41" lean-forward="false" selection-start-line="163" selection-start-column="41" selection-end-line="163" selection-end-column="41" />
+          <folding>
+            <element signature="n#style#0;n#h2#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
