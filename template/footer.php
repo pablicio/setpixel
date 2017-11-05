@@ -24,8 +24,3 @@
 
 <!--ADICIONA DINAMICAMENTE O SCRIPT A PÁGINA-->
 <!--VAI APARECER COMO ERRO NA PÁGINA PORÉM VAI FUNCIONAR-->
-<?php
-$script = '/assets/js/' . filter_input(INPUT_GET, 'rota') . '.js';
-?>
-
-<script src="<?php echo $script; ?>"></script>

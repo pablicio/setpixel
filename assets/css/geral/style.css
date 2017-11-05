@@ -36,3 +36,8 @@
     z-index: 1000;
     margin-left: 600px;
 }
+
+#canvas{
+    margin-top: 30px;
+    margin-left: -40px;
+}
