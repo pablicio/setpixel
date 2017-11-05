@@ -8,59 +8,35 @@ function circulo(points,raio) {
 
     array=[];
 
-
-
     var y = raio, x = 0;  //y é o pivô
 
     var d = (1.25 - x);
 
     while(y >= x)
     {
-        // array.push({x: x ,y: y});
-        // array.push({y: y ,x: x});
-        // array.push({x: -x ,y: y});
-        // array.push({y: -y ,x: x});
+        array.push({x:  x  ,y:  y });
+        array.push({x:  x  ,y: -y });
+        array.push({x: -x  ,y:  y });
+        array.push({x: -x  ,y: -y });
+        array.push({x:  y  ,y:  x });
+        array.push({x:  y  ,y: -x });
+        array.push({x: -y  ,y:  x });
+        array.push({x: -y  ,y: -x });
+
+
+        // array.push({y: y + points.y ,x: x + points.x});
+        // //
+        // array.push({x: -x + points.x ,y: y + points.y});
+        // //
+        // array.push({y: -y + points.x ,x: x + points.y});
         //
-        // array.push({x: -x ,y: -y});
-        // array.push({y: -y ,x: -x});
-        // array.push({x: x ,y: -y});
-        // array.push({y: y ,x: -x});
-
-        array.push({x: x + points.x ,y: y + points.y});
-
-        array.push({y: y + points.x ,x: x + points.y});
-
-        array.push({x: -x + points.x ,y: y + points.y});
-
-        array.push({y: -y + points.x ,x: x + points.y});
-
-        array.push({x: -x + points.x ,y: -y + points.y});
-
-        array.push({y: -y + points.x ,x:  -x + points.y});
-
-        array.push({x: x + points.x ,y: -y + points.y});
-
-        array.push({y: y + points.x ,x: -x + points.y});
-
-        // array.push(new point(x + points.x, y + points.y));
-        // array.push(new point(y + points.x, x + points.y));
-        // array.push(new point(-x + points.x, y + points.y));
-        // array.push(new point(-y + points.x, x + points.y));
-
-        // array.push(new point(-x + points.x, -y + points.y));
-        // array.push(new point(-y + points.x, -x + points.y));
-        // array.push(new point(x + points.x, -y + points.y));
-        // array.push(new point(y + points.x, -x + points.y));
-
-        // setPixel(x + point.x, y + point.y);
-        // setPixel(y + point.x, x + point.y);
-        // setPixel(-x + point.x, y + point.y);
-        // setPixel(-y + point.x, x + point.y);
-
-        // setPixel(-x + point.x, -y + point.y);
-        // setPixel(-y + point.x, -x + point.y);
-        // setPixel(x + point.x, -y + point.y);
-        // setPixel(y + point.x, -x + point.y);
+        // array.push({x: -x + points.x ,y: -y + points.y});
+        //
+        // array.push({y: -y + points.x ,x:  -x + points.y});
+        //
+        // array.push({x: x + points.x ,y: -y + points.y});
+        //
+        // array.push({y: y + points.x ,x: -x + points.y});
 
         x++;
         if(d<0)
