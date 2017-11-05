@@ -1,4 +1,4 @@
-function point(xr,yr){
+function Point(xr,yr){
 	this.x = xr;
 	this.y = yr;
 }
@@ -26,7 +26,7 @@ function dda(point1,point2){
 	y = point1.y;
 
 	for(i=0; i<=tam ;i++){
-			array.push(new point(Math.round(x),Math.round(y)));
+			array.push(new Point(Math.round(x),Math.round(y)));
 			x += incx;
 			y += incy;
 		}

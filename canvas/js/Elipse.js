@@ -1,4 +1,4 @@
-function point(xr,yr){
+function Point(xr,yr){
 	this.x=xr;
 	this.y=yr;
 }
@@ -15,10 +15,10 @@ function puntomedioe(rx,ry,point1){
 	 y = ry;
 	 	xneg=x*-1;
 	    yneg=y*-1;
-	    array.push(new point(x,y));
-		array.push(new point(xneg,yneg));
-		array.push(new point(x,yneg));
-		array.push(new point(xneg,y));
+	    array.push(new Point(x,y));
+		array.push(new Point(xneg,yneg));
+		array.push(new Point(x,yneg));
+		array.push(new Point(xneg,y));
 	 p = ry2-(rx2*ry)+(0.25*rx2);
 	 while ((ry2*x)<(rx2*y)) { /* se cicla hasta trazar la región 1 */
 	   x = x + 1;
@@ -30,10 +30,10 @@ function puntomedioe(rx,ry,point1){
 	   }
 	    xneg=x*-1;
 	    yneg=y*-1;
-	    array.push(new point(x,y));
-		array.push(new point(xneg,yneg));
-		array.push(new point(x,yneg));
-		array.push(new point(xneg,y));
+	    array.push(new Point(x,y));
+		array.push(new Point(xneg,yneg));
+		array.push(new Point(x,yneg));
+		array.push(new Point(xneg,y));
 	 }
 	/* región 2 */
 	 p = (ry2)*Math.pow((x+0.5),2)+(rx2)*Math.pow((y-1),2)-(rx2*ry2);
@@ -48,10 +48,10 @@ function puntomedioe(rx,ry,point1){
 	   }
 	    xneg=x*-1;
 	    yneg=y*-1;
-	    array.push(new point(x,y));
-		array.push(new point(xneg,yneg));
-		array.push(new point(x,yneg));
-		array.push(new point(xneg,y));
+	    array.push(new Point(x,y));
+		array.push(new Point(xneg,yneg));
+		array.push(new Point(x,yneg));
+		array.push(new Point(xneg,y));
 	 }
 	 for(i=0;i<array.length;i++){
 		array[i].x += point1.x;

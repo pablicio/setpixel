@@ -32,8 +32,8 @@ function initializecanvas(context){
 	context.fillStyle = "rgb(128,128,128)";
 
 	context.fillRect (0, 0, 400, 280);
-	point1= new point(0,-140);
-		point2= new point(0, 140);
+	point1= new Point(0,-140);
+		point2= new Point(0, 140);
 		line1 = dda(point1,point2);
 		Data=context.getImageData(0,0,width,height);
 		i=0;
@@ -46,8 +46,8 @@ function initializecanvas(context){
 			putPixel(Data,line1[i].x,line1[i].y,color);
 			i++;	
 		};
-		point1= new point(-200,0);
-		point2= new point(200,0);
+		point1= new Point(-200,0);
+		point2= new Point(200,0);
 		line2 = dda(point1,point2);
 		context.putImageData(Data,0,0);
 		Data=context.getImageData(0,0,width,height);

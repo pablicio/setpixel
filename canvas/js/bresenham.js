@@ -1,4 +1,4 @@
-function point(xr,yr){
+function Point(xr,yr){
 	this.x=xr;
 	this.y=yr;
 }
@@ -18,7 +18,7 @@ function bresenham(point1,point2){
 		
 
 		do{
-			points.push(new point(x,y));
+			points.push(new Point(x,y));
 			x++;
 			eacum=eacum + (2*dy);
 			if (eacum>dx) {
@@ -27,7 +27,7 @@ function bresenham(point1,point2){
 			}
 
 		}while(x<point2.x);
-		points.push(new point(x,y));
+		points.push(new Point(x,y));
 		return points;
 	}else if(dy!=0){
 		if(point1.y>point2.y){
@@ -37,7 +37,7 @@ function bresenham(point1,point2){
 		
 
 		do{
-			points.push(new point(x,y));
+			points.push(new Point(x,y));
 			y++;
 			eacum=eacum + (2*dx);
 			if (eacum>dy) {
@@ -46,7 +46,7 @@ function bresenham(point1,point2){
 			}
 
 		}while(y<point2.y);
-		points.push(new point(x,y));
+		points.push(new Point(x,y));
 		return points;
 	}
 }

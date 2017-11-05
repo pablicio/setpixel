@@ -6,7 +6,7 @@
 	var points=[];
 	var mousemanager;
 
-	function point(xr,yr){
+	function Point(xr,yr){
 	this.x=xr;
 	this.y=yr;
 	}
