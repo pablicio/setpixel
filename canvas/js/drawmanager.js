@@ -54,7 +54,7 @@ function DrawManager(){
 				var puntos = puntomedio(height , point1)
 				draw(puntos,context)
 			}else{
-				var puntos = puntomedioe(width,height,point1)
+                var puntos = puntomedioe(width,height,point1)
 				draw(puntos,context)
 			}
 		}

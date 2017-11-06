@@ -22,9 +22,8 @@
 		mousemanager.setcanvas(canvas);
 		mousemanager.setdrawmanager();
 		mousemanager.setlisteners();
-		$("#figura").change(function(){
-			mousemanager.setshape($("#figura").val())
+		$(document).on('change','#figura',function(){
+			mousemanager.setshape($(this).val())
 		});
 	});
 
-	
