@@ -126,8 +126,24 @@
                             Desenho Livre</a>
                     </li>
                     <li>
-                        <a href="translacao.html" class="active"><i class="fa fa-dashboard fa-fw"></i>
+                        <a href="../translacao/translacao.html" class="active"><i class="fa fa-dashboard fa-fw"></i>
                             Translação</a>
+                    </li>
+                    <li>
+                        <a href="../escala/escala.html" class="active"><i class="fa fa-dashboard fa-fw"></i>
+                            Escala</a>
+                    </li>
+                    <li>
+                        <a href="../rotacao/rotacao.html" class="active"><i class="fa fa-dashboard fa-fw"></i>
+                            Rotação</a>
+                    </li>
+                    <li>
+                        <a href="../cisalhamento/cisalhamento.html" class="active"><i class="fa fa-dashboard fa-fw"></i>
+                            Cisalhamento</a>
+                    </li>
+                    <li>
+                        <a href="../reflexao/reflexao.html" class="active"><i class="fa fa-dashboard fa-fw"></i>
+                            Reflexão</a>
                     </li>
                 </ul>
 
@@ -138,42 +154,53 @@
     <!-- Page Content -->
     <div id="page-wrapper">
         <div class="container-fluid">
-
-
             <!-- ... Coonteúdo ... -->
-            <div class="span6" id="canvasdiv">
-                <canvas width=400 height=280 id="canvas" class="well">
-                </canvas>
-            </div>
-            <div class="span6">
-                <div class="well">
-                    <h2 style="text-align:center;"> Coordenadas</h2>
-                    <label>TX </label>
-                    <input type="text" id="x1" class="span3 control-group" placeholder="TX">
-                    <label>TY</label>
-                    <input type="text" id="y1" class="span3" placeholder="TY">
-                    <button id="submitbutton" class="btn btn-primary"><i class="icon-pencil icon-white"></i> Tansladar
-                    </button>
-                    <button id="erasebutton" class="btn btn-danger"><i class="icon-trash icon-white"></i> Apagar
-                    </button>
+            <div class="row">
+                <div class="span6" id="canvasdiv">
+                    <canvas width=400 height=280 id="canvas" class="well">
+                    </canvas>
+                </div>
+                <div class="span6">
+                    <div class="well" id="dibujar">
+                        <h2 style="text-align:center;"> Coordenadas</h2>
+                        <label>X</label>
+                        <input type="text" id="x" class="span3 control-group" placeholder="X">
+                        <label>Y</label>
+                        <input type="text" id="y" class="span3" placeholder="Y">
+                        <label>Tamanho dos Lados</label>
+                        <input type="text" id="size" class="span3" placeholder="Lado">
+                        <button id="drawbutton" class="btn btn-primary"><i class="icon-pencil icon-white"></i> Desenhar
+                        </button>
+                    </div>
+                    <div class="well" id="scalation" style="display:none;">
+                        <h2 style="text-align:center;"> Escalar Figura </h2>
+                        <label>SX</label>
+                        <input type="text" id="scalesx" class="span3 control-group" placeholder="SX">
+                        <label>SY</label>
+                        <input type="text" id="scalesy" class="span3 control-group" placeholder="SY">
+                        <button id="scalebutton" class="btn btn-primary"><i class="icon-pencil icon-white"></i>Escalar
+                        </button>
+                    </div>
+
+
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="span6 offset3 well" style="text-align:center;">
-                <h2 class="center">Pontos Calculados</h2>
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>X</th>
-                        <th>Y</th>
-                    </tr>
-                    </thead>
-                    <tbody id="tablebody">
-                    <!-- Aqui va el contenido de la tabla -->
-                    </tbody>
-                </table>
+            <div class="row">
+                <div class="span6 offset3 well" style="text-align:center;">
+                    <h2 class="center">Pontos Calculados</h2>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>X</th>
+                            <th>Y</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tablebody">
+                        <!-- Aqui va el contenido de la tabla -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
@@ -190,56 +217,16 @@
 
 <!--&lt;!&ndash;mouse capt&ndash;&gt;-->
 
-<SCRIPT TYPE="text/javascript" src="../canvas/js/Elipse.js"></SCRIPT>
-<SCRIPT TYPE="text/javascript" src="../canvas/js/2DTransforms.js"></SCRIPT>
+<SCRIPT TYPE="text/javascript" src="../canvas/js/puntomedio.js"></SCRIPT>
+<SCRIPT TYPE="text/javascript" src="../canvas/js/bresenham.js"></SCRIPT>
 <SCRIPT TYPE="text/javascript" src="../canvas/js/dda.js"></SCRIPT>
 <SCRIPT TYPE="text/javascript" src="../canvas/js/drawing.js"></SCRIPT>
 <SCRIPT TYPE="text/javascript" src="../canvas/js/jquery-1.7.2.js"></SCRIPT>
 <SCRIPT TYPE="text/javascript" src="../canvas/js/custom.js"></SCRIPT>
 <SCRIPT TYPE="text/javascript" src="../canvas/js/dynamictable.js"></SCRIPT>
-
-<SCRIPT TYPE="text/javascript">
-    var canvas;
-    var context;
-    var width;
-    var height;
-    var data;
-    var points = [];
-    var table;
-    $(document).ready(function () {
-        table = $("#pointtable");
-        canvas = document.getElementById("canvas");
-        context = canvas.getContext("2d");
-        width = parseInt(canvas.getAttribute("width"));
-        height = parseInt(canvas.getAttribute("height"));
-        initializecanvas(context);
-        point1 = new Point(0, 0);
-        points = puntomedioe(40, 100, point1);
-        draw(points, context);
-        table = $("#tablebody");
-
-
-        $("#erasebutton").click(function () {
-            initializecanvas(context);
-            point1 = new Point(0, 0);
-            points = puntomedioe(40, 100, point1);
-            draw(points, context);
-            initializeTable(table);
-            return false;
-        })
-        $("#submitbutton").click(function () {
-            x1 = parseInt($("#x1").val());
-            y1 = parseInt($("#y1").val());
-            dpoints = traslate(points, x1, y1);
-            initializecanvas(context);
-            draw(dpoints, context);
-            initializeTable(table);
-            points = dpoints;
-            addToTable(table, points);
-        });
-
-    });
-</SCRIPT>
+<SCRIPT TYPE="text/javascript" src="../canvas/js/escalacion.js"></SCRIPT>
+<SCRIPT TYPE="text/javascript" src="../canvas/js/square.js"></SCRIPT>
+<SCRIPT TYPE="text/javascript" src="../canvas/js/2DTransforms.js"></SCRIPT>
 
 </body>
 </html>
