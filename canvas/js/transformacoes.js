@@ -7,6 +7,19 @@ function Point(xr,yr){
     this.y = yr;
 }
 
+function triangulo(point1,point2, point3, context) {
+
+    linha1 = dda(point1, point2);
+
+    linha2 = dda(point2, point3);
+
+    linha3 = dda(point1, point3);
+
+    draw(linha1, context);
+    draw(linha2, context);
+    draw(linha3, context);
+}
+
 function retangulo(point1,point2, context) {
 
     ponto1 = new Point(point1.x,point1.y);

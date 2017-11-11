@@ -1,4 +1,7 @@
 function MouseManager() {
+
+    var poligono = [];
+
     var clicked = false
     var mousepos = null
     var drawmanager = null
@@ -19,7 +22,8 @@ function MouseManager() {
         }
         var mouseX = evt.clientX - left + window.pageXOffset - 222;
         var mouseY = -1 * (evt.clientY - top + window.pageYOffset - 162);
-        console.log("x: " + mouseX, "y: " + mouseY)
+
+        // console.log("x: " + mouseX, "y: " + mouseY)
         return new Point(mouseX, mouseY);
     }
 
@@ -43,12 +47,17 @@ function MouseManager() {
             canvas.addEventListener("mouseup", outclick, false);
         }
     }
+
     var onclick = function (evt) {
         clicked = true
-        var point1 = getMousePos(evt)
+        var point1 = getMousePos(evt);
+
+        poligono.push(point1);
+
         drawmanager.setpoint1(point1)
         drawmanager.savecanvas()
     }
+
     var mousemove = function (evt) {
         if (clicked) {
             drawmanager.restorecanvas()
@@ -63,6 +72,7 @@ function MouseManager() {
 
         }
     }
+
     var outclick = function (evt) {
         if (!out) {
             clicked = false
@@ -70,5 +80,9 @@ function MouseManager() {
             drawmanager.setpoint2(point2)
             drawmanager.draw(shape)
         }
+    }
+
+    function desenhaPoligono(context) {
+
     }
 }
