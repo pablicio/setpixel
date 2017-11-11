@@ -21,7 +21,8 @@ $(document).ready(function () {
     height = parseInt(canvas.getAttribute("height"));
     initializecanvas(context);
     drawbtn.click(function () {
-        object = new square(parseInt(size.val()), new Point(parseInt(xinp.val()), parseInt(yinp.val())));
+        object = new square(parseInt(size.val()),
+            new Point(parseInt(xinp.val()), parseInt(yinp.val())));
         object.calculatelines();
         object.calculatecenter();
         object.draw(context);

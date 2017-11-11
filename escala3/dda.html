@@ -118,8 +118,7 @@
                         <a href="../dda/dda.html" class="active"><i class="fa fa-dashboard fa-fw"></i> DDA</a>
                     </li>
                     <li>
-                        <a href="../circulo/circulo.html" class="active"><i class="fa fa-dashboard fa-fw"></i>
-                            Círculo</a>
+                        <a href="../circulo/circulo.html" class="active"><i class="fa fa-dashboard fa-fw"></i> Círculo</a>
                     </li>
                     <li>
                         <a href="../desenho/desenho.html" class="active"><i class="fa fa-dashboard fa-fw"></i>
@@ -150,49 +149,74 @@
             </div>
         </div>
     </nav>
-    <!-- Page   Content -->
+    <!-- Page Content -->
     <!-- Page Content -->
     <div id="page-wrapper">
         <div class="container-fluid">
 
 
+
             <!-- ... Coonteúdo ... -->
             <!--<div class="container" id="container">-->
-            <!--<div class="row">-->
-            <div class="span6" id="canvasdiv">
-                <canvas width=400 height=280 id="canvas" class="well">
-                </canvas>
-            </div>
-            <div class="span6">
-                <div class="well">
-                    <h2 style="text-align:center;"> Selecione o tipo de desenho</h2>
-                    <select name="figura" id="figura">
-                        <option value="linea">Linha</option>
-                        <option value="circulo">Circulo ou Elipse</option>
-                        <option value="retangulo">Retangulo</option>
-                    </select>
+                <!--<div class="row">-->
+                    <div class="span6" id="canvasdiv">
+                        <canvas width=400 height=280 id="canvas" class="well">
+                        </canvas>
+                    </div>
+                    <div class="span6">
+                        <div class="well">
+                            <h2 style="text-align:center;"> Coordenadas</h2>
+
+
+                            <div class="col-lg-2">
+                                <input type="text" id="x1" class="form-control" placeholder="x1">
+                            </div>
+                            <div class="col-lg-2">
+                                <input type="text" id="y1" class="form-control" placeholder="y1">
+                            </div>
+                            <div class="col-lg-2">
+                                <input type="text" id="x2" class="form-control" placeholder="x2">
+                            </div>
+                            <div class="col-lg-2">
+                                <input type="text" id="y2" class="form-control" placeholder="y2">
+                            </div>
+
+                            <div class="col-lg-6">
+                                <br>
+                                <button id="submitbutton" class="btn btn-primary">
+                                    <i class="icon-pencil icon-white"></i> Desenhar
+                                </button>
+                                <button id="erasebutton" class="btn btn-danger">
+                                    <i class="icon-trash icon-white"></i> Apagar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        <br>
+                <div class="row">
+                    <div class="span6 offset3 well" style="text-align:center;">
+                        <h2 class="center">Pontos Calculados</h2>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>X</th>
+                                <th>Y</th>
+                            </tr>
+                            </thead>
+                            <tbody id="tablebody">
+                            <!-- Aqui va el contenido de la tabla -->
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
+
         </div>
-        <div class="row">
-            <div class="span6 offset3 well" style="text-align:center;">
-                <h2 class="center">Pontos Calculados</h2>
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>X</th>
-                        <th>Y</th>
-                    </tr>
-                    </thead>
-                    <tbody id="tablebody">
-                    <!-- Aqui va el contenido de la tabla -->
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
+    <!--</div>-->
+<!--</div>-->
+
 <!-- jQuery -->
 <script src="../assets/js/jquery.min.js"></script>
 
@@ -204,18 +228,69 @@
 
 <!--&lt;!&ndash;mouse capt&ndash;&gt;-->
 
-<SCRIPT TYPE="text/javascript" src="../canvas/js/Elipse.js"></SCRIPT>
 <SCRIPT TYPE="text/javascript" src="../canvas/js/dda.js"></SCRIPT>
-<SCRIPT TYPE="text/javascript" src="../canvas/js/puntomedio.js"></SCRIPT>
 <SCRIPT TYPE="text/javascript" src="../canvas/js/drawing.js"></SCRIPT>
 <SCRIPT TYPE="text/javascript" src="../canvas/js/jquery-1.7.2.js"></SCRIPT>
 <SCRIPT TYPE="text/javascript" src="../canvas/js/custom.js"></SCRIPT>
 <SCRIPT TYPE="text/javascript" src="../canvas/js/dynamictable.js"></SCRIPT>
-<SCRIPT TYPE="text/javascript" src="../canvas/js/todoenuno.js"></SCRIPT>
-<SCRIPT TYPE="text/javascript" src="../canvas/js/2DTransforms.js"></SCRIPT>
-<SCRIPT TYPE="text/javascript" src="../canvas/js/mousemanager.js"></SCRIPT>
-<SCRIPT TYPE="text/javascript" src="../canvas/js/drawmanager.js"></SCRIPT>
 <SCRIPT TYPE="text/javascript" src="../canvas/js/transformacoes.js"></SCRIPT>
+
+<SCRIPT TYPE="text/javascript">
+    var canvas;
+    var context;
+    var width;
+    var height;
+    var data;
+    var points = [];
+    var table;
+    $(document).ready(function () {
+
+        //inicializa o html
+        table = $("#pointtable");
+        canvas = document.getElementById("canvas");
+        context = canvas.getContext("2d");
+        width = parseInt(canvas.getAttribute("width"));
+        height = parseInt(canvas.getAttribute("height"));
+        initializecanvas(context);
+        table = $("#tablebody");
+
+        //limpa tudo
+        $("#erasebutton").click(function () {
+            initializecanvas(context);
+            initializeTable(table);
+            return false;
+        });
+
+        $("#submitbutton").click(function () {
+
+            //pega os pontos pelo id
+            x1 = parseInt($("#x1").val());
+            x2 = parseInt($("#x2").val());
+            y1 = parseInt($("#y1").val());
+            y2 = parseInt($("#y2").val());
+
+
+            //funçoes que recebem dois valores de x e y e transforma em um só valor...
+            point1 = new Point(x1, y1);
+            point2 = new Point(x2, y2);
+
+            retangulo(point1,point2, context);
+
+            //recebe os pontos e retorna um array a ser desenhado no canvas
+            points = dda(point1, point2);
+
+            //desenha no canvas os pontos recebidos
+//            draw(points, context);
+
+            //gera a tabela
+            initializeTable(table);
+
+            //adiciona os pontos na tabela
+            addToTable(table, points);
+
+        });
+    });
+</SCRIPT>
 
 </body>
 </html>

@@ -1,25 +1,32 @@
 function square(rsize, rpoint1) {
+
     this.size = rsize;
-    this.point1 = rpoint1
+
+    this.point1 = rpoint1;
+
     this.point2 = new Point(rpoint1.x + this.size, rpoint1.y);
+
     this.point3 = new Point(rpoint1.x, rpoint1.y + this.size);
+
     this.point4 = new Point(rpoint1.x + this.size, rpoint1.y + this.size);
+
     this.line1 = [];
     this.line2 = [];
     this.line3 = [];
     this.line4 = [];
+
     this.calculatecenter = function () {
         this.center = new Point((this.point1.x + this.size / 2), (this.point1.y + (this.size / 2)));
 
     }
 
-    this.recalculatefromcenter = function () {
-        this.point1 = new Point(this.center.x - (this.size / 2), this.center.y - (this.size / 2));
-        this.point2 = new Point(this.point1.x + this.size, this.point1.y);
-        this.point3 = new Point(this.point1.x, this.point1.y + this.size);
-        this.point4 = new Point(this.point1.x + this.size, this.point1.y + this.size);
-
-    }
+    // this.recalculatefromcenter = function () {
+    //     this.point1 = new Point(this.center.x - (this.size / 2), this.center.y - (this.size / 2));
+    //     this.point2 = new Point(this.point1.x + this.size, this.point1.y);
+    //     this.point3 = new Point(this.point1.x, this.point1.y + this.size);
+    //     this.point4 = new Point(this.point1.x + this.size, this.point1.y + this.size);
+    //
+    // }
 
     this.calculatelines = function () {
         console.log("Entro en el Calculatelines");

@@ -35,7 +35,8 @@ function DrawManager(){
 	}
 
 	this.savecanvas = function(){
-		saveddata=context.getImageData(0,0,parseInt(canvas.getAttribute("width")),parseInt(canvas.getAttribute("height")));
+		saveddata=context.getImageData(0,0,parseInt(canvas.getAttribute("width")),
+			parseInt(canvas.getAttribute("height")));
 	}
 
 	this.restorecanvas = function(){
@@ -44,6 +45,9 @@ function DrawManager(){
 
 
 	this.draw = function(shape){
+        if(shape == "retangulo"){
+            retangulo(point1,point2, context)
+        }
 		if(shape == "linea"){
 			var puntos = dda(point1,point2)
 			draw(puntos,context)
