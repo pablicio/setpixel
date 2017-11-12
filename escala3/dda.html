@@ -273,11 +273,16 @@
             //funçoes que recebem dois valores de x e y e transforma em um só valor...
             point1 = new Point(x1, y1);
             point2 = new Point(x2, y2);
-            point3 = new Point(x1, y2);
 
-            triangulo(point1,point2, point3, context);
+//            triangulo(point1,point2, point3, context);
 
-//            retangulo(point1,point2, context);
+            rec = retangulo(point1,point2, context);
+
+            console.log(rec);
+
+            transformado = escalacao(rec, 2,2);
+
+            console.log(transformado)
 
             //recebe os pontos e retorna um array a ser desenhado no canvas
 //            points = dda(y2point1, point2);

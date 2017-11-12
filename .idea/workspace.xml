@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1d03e746-16df-46e0-9e71-19143eadf036" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/canvas/js/mousemanager.js" afterPath="$PROJECT_DIR$/canvas/js/mousemanager.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/canvas/js/transformacoes.js" afterPath="$PROJECT_DIR$/canvas/js/transformacoes.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/escala3/dda.html" afterPath="$PROJECT_DIR$/escala3/dda.html" />
     </list>
@@ -34,7 +33,7 @@
       <file leaf-file-name="escala.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/escala2/escala.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3876">
+            <state relative-caret-position="0">
               <caret line="228" column="32" lean-forward="false" selection-start-line="228" selection-start-column="32" selection-end-line="228" selection-end-column="32" />
               <folding />
             </state>
@@ -44,8 +43,8 @@
       <file leaf-file-name="desenho.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/desenho/desenho.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="192" column="14" lean-forward="true" selection-start-line="192" selection-start-column="14" selection-end-line="192" selection-end-column="14" />
+            <state relative-caret-position="323">
+              <caret line="210" column="71" lean-forward="false" selection-start-line="210" selection-start-column="71" selection-end-line="210" selection-end-column="71" />
               <folding>
                 <element signature="n#style#0;n#h2#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -54,11 +53,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="transformacoes.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="transformacoes.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/canvas/js/transformacoes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <state relative-caret-position="419">
+              <caret line="141" column="20" lean-forward="true" selection-start-line="141" selection-start-column="20" selection-end-line="141" selection-end-column="20" />
               <folding>
                 <element signature="n#!!doc;n#Point#0" expanded="false" />
               </folding>
@@ -66,11 +65,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="escalacion.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/canvas/js/escalacion.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="28" column="29" lean-forward="true" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="dda.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/escala3/dda.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="275" column="37" lean-forward="false" selection-start-line="275" selection-start-column="37" selection-end-line="275" selection-end-column="37" />
+            <state relative-caret-position="221">
+              <caret line="284" column="36" lean-forward="false" selection-start-line="284" selection-start-column="36" selection-end-line="284" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -79,48 +88,8 @@
       <file leaf-file-name="drawmanager.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/canvas/js/drawmanager.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="833">
+            <state relative-caret-position="193">
               <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mousemanager.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/canvas/js/mousemanager.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="451">
-              <caret line="85" column="8" lean-forward="true" selection-start-line="85" selection-start-column="8" selection-end-line="85" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dda.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dda/dda.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4590">
-              <caret line="270" column="12" lean-forward="false" selection-start-line="270" selection-start-column="12" selection-end-line="271" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dda.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/canvas/js/dda.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="28" lean-forward="false" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="square.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/canvas/js/square.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1088">
-              <caret line="64" column="7" lean-forward="true" selection-start-line="64" selection-start-column="7" selection-end-line="67" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -134,6 +103,14 @@
         <option value="JavaScript File" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>obj</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>rec</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -177,9 +154,9 @@
         <option value="$PROJECT_DIR$/canvas/js/square.js" />
         <option value="$PROJECT_DIR$/canvas/js/drawmanager.js" />
         <option value="$PROJECT_DIR$/desenho/desenho.html" />
-        <option value="$PROJECT_DIR$/canvas/js/transformacoes.js" />
-        <option value="$PROJECT_DIR$/escala3/dda.html" />
         <option value="$PROJECT_DIR$/canvas/js/mousemanager.js" />
+        <option value="$PROJECT_DIR$/escala3/dda.html" />
+        <option value="$PROJECT_DIR$/canvas/js/transformacoes.js" />
       </list>
     </option>
   </component>
@@ -221,8 +198,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -325,6 +300,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -462,18 +439,19 @@
       <workItem from="1509916798398" duration="10575000" />
       <workItem from="1509939687861" duration="796000" />
       <workItem from="1510407515147" duration="7704000" />
-      <workItem from="1510439172960" duration="2800000" />
+      <workItem from="1510439172960" duration="2889000" />
+      <workItem from="1510500198716" duration="6203000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51390000" />
+    <option name="totallyTimeSpent" value="57682000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1040" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27653062" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24489796" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959184" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -681,13 +659,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/canvas/js/escalacion.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="12" lean-forward="false" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/canvas/js/2DTransforms.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-510">
@@ -695,58 +666,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/canvas/js/dda.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="28" lean-forward="false" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/escala2/escala.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3876">
+        <state relative-caret-position="0">
           <caret line="228" column="32" lean-forward="false" selection-start-line="228" selection-start-column="32" selection-end-line="228" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dda/dda.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4590">
-          <caret line="270" column="12" lean-forward="false" selection-start-line="270" selection-start-column="12" selection-end-line="271" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/canvas/js/square.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
-          <caret line="64" column="7" lean-forward="true" selection-start-line="64" selection-start-column="7" selection-end-line="67" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/escala3/dda.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="275" column="37" lean-forward="false" selection-start-line="275" selection-start-column="37" selection-end-line="275" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/canvas/js/drawmanager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
-          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/desenho/desenho.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="192" column="14" lean-forward="true" selection-start-line="192" selection-start-column="14" selection-end-line="192" selection-end-column="14" />
+        <state relative-caret-position="323">
+          <caret line="210" column="71" lean-forward="false" selection-start-line="210" selection-start-column="71" selection-end-line="210" selection-end-column="71" />
           <folding>
             <element signature="n#style#0;n#h2#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -754,21 +685,69 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/canvas/js/transformacoes.js">
+    <entry file="file://$PROJECT_DIR$/canvas/js/escalacion.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc;n#Point#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="210">
+          <caret line="28" column="29" lean-forward="true" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/escala3/dda.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="284" column="36" lean-forward="false" selection-start-line="284" selection-start-column="36" selection-end-line="284" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/canvas/js/square.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="65" column="7" lean-forward="false" selection-start-line="65" selection-start-column="7" selection-end-line="65" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/canvas/js/dda.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="5" column="28" lean-forward="false" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dda/dda.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="270" column="12" lean-forward="false" selection-start-line="270" selection-start-column="12" selection-end-line="271" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/canvas/js/mousemanager.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="85" column="8" lean-forward="true" selection-start-line="85" selection-start-column="8" selection-end-line="85" selection-end-column="8" />
+        <state relative-caret-position="26">
+          <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/canvas/js/drawmanager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/canvas/js/transformacoes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="141" column="20" lean-forward="true" selection-start-line="141" selection-start-column="20" selection-end-line="141" selection-end-column="20" />
+          <folding>
+            <element signature="n#!!doc;n#Point#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
