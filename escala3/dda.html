@@ -189,6 +189,9 @@
                                 <button id="erasebutton" class="btn btn-danger">
                                     <i class="icon-trash icon-white"></i> Apagar
                                 </button>
+                                <button id="escalebutton" class="btn btn-warning">
+                                    <i class="icon-trash icon-white"></i> Escalar
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -257,6 +260,16 @@
         //limpa tudo
         $("#erasebutton").click(function () {
             initializecanvas(context);
+            initializeTable(table);
+            return false;
+        });
+
+        //limpa tudo
+        $("#escalebutton").click(function () {
+            initializecanvas(context);
+
+
+            retanguloEscalado(transformado, context);
             initializeTable(table);
             return false;
         });

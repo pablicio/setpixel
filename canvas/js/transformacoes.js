@@ -10,9 +10,9 @@ function Point(xr, yr) {
 function transladar(objeto, tx, ty) {
 
     var translacao = [
-        [ 1, 0,tx],
-        [ 0, 1,ty],
-        [ 0, 0, 1]
+        [1, 0, tx],
+        [0, 1, ty],
+        [0, 0, 1]
     ];
 
     return multiplicacao(escala, objeto)
@@ -22,11 +22,11 @@ function escalacao(objeto, sx, sy) {
 
     var escala = [
         [sx, 0, 0],
-        [ 0,sy, 0],
-        [ 0, 0, 1]
+        [0, sy, 0],
+        [0, 0, 1]
     ];
 
-    console.log(escala)
+    console.log(escala);
 
     return multiplicacao(escala, objeto)
 }
@@ -51,7 +51,28 @@ function triangulo(point1, point2, point3, context) {
     return trian;
 }
 
+function retanguloEscalado(objetoEscalado, context) {
+
+    objetoEscalado = matriz_transposta(objetoEscalado);
+
+    inicial = objetoEscalado[0];
+
+    for (i = 0; i < objetoEscalado.length; i++) {
+
+        linha = dda(new Point(objetoEscalado[i][0],objetoEscalado[i][1]),
+            new Point(objetoEscalado[i+1][0],objetoEscalado[i+1][1]));
+
+        console.log(linha)
+
+        // draw(linha, context);
+        final = objetoEscalado[i];
+    }
+
+    console.log(objetoEscalado)
+}
+
 function retangulo(point1, point2, context) {
+
     rec = [];
 
     A = new Point(point1.x, point1.y);
@@ -89,15 +110,7 @@ function multiplicacao(operador, objeto) {
 
     objTramsformado = [];
 
-
-    // objeto = [
-    //     [0,10,10,0],
-    //     [10,10,0,0],
-    //     [1, 1, 1,1]
-    // ];
-
     objeto = matriz_transposta(objeto);
-    console.log('operador', operador);
 
     console.log('objeto', objeto);
 
@@ -117,34 +130,19 @@ function multiplicacao(operador, objeto) {
     return objTramsformado;
 }
 
-function matriz_transposta2 (l, c, matriz) {
+function matriz_transposta(matriz) {
+
     var i, j, aux;
 
-    for (i = 0; i < l; i++) {
-        for (j = i + 1; j < c; j++) {
-            if (j !== i) {
-                aux = matriz[i][j];
-                matriz[i][j] = matriz[j][i];
-                matriz[j][i] = aux;
-            }
-        }
-    }
-    return matriz;
-}
-
-function matriz_transposta (matriz) {
-    var i, j, aux;
+    transposta = [];
 
     for (i = 0; i < matriz[0].length; i++) {
-        for (j = i+1; j < matriz.length; j++) {
-            if (j != i) {
-                aux = matriz[i][j];
-                matriz[i][j] = matriz[j][i];
-                matriz[j][i] = aux;
-            }
+        aux = [];
+        for (j = 0; j < matriz.length; j++) {
+            aux.push(matriz[j][i]);
         }
+        transposta.push(aux);
     }
 
-
-    return matriz
+    return transposta;
 }
