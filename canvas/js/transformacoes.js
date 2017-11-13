@@ -26,8 +26,6 @@ function escalacao(objeto, sx, sy) {
         [0, 0, 1]
     ];
 
-    console.log(escala);
-
     return multiplicacao(escala, objeto)
 }
 
@@ -125,9 +123,6 @@ function multiplicacao(operador, objeto) {
     objTramsformado = [];
 
     objeto = matriz_transposta(objeto);
-
-    console.log('objeto', objeto);
-
 
     for (i = 0; i < operador.length; i++) {
         r = [];

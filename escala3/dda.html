@@ -271,7 +271,11 @@
         $("#transladebutton").click(function () {
             initializecanvas(context);
 
-            retanguloEscalado(transladado, context);
+
+            transladado = transladar(rec, 30,10);
+
+            rec = retanguloEscalado(transladado, context);
+
             initializeTable(table);
             return false;
         });
@@ -279,10 +283,13 @@
 
         //limpa tudo
         $("#escalebutton").click(function () {
+
             initializecanvas(context);
 
+            escalado = escalacao(rec, 2,2);
 
-            retanguloEscalado(escalado, context);
+            rec = retanguloEscalado(escalado, context);
+
             initializeTable(table);
             return false;
         });
@@ -300,24 +307,10 @@
             point1 = new Point(x1, y1);
             point2 = new Point(x2, y2);
 
-//            triangulo(point1,point2, point3, context);
-
             rec = retangulo(point1,point2, context);
 
             console.log(rec);
 
-            escalado = escalacao(rec, 2,2);
-
-
-            transladado = transladar(rec, 20,0);
-
-            //recebe os pontos e retorna um array a ser desenhado no canvas
-//            points = dda(y2point1, point2);
-
-            //desenha no canvas os pontos recebidos
-//            draw(points, context);
-
-            //gera a tabela
             initializeTable(table);
 
             //adiciona os pontos na tabela
