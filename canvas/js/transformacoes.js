@@ -16,6 +16,7 @@ function transladar(objeto, tx, ty) {
     ];
 
     return multiplicacao(translacao, objeto)
+
 }
 
 function escalacao(objeto, sx, sy) {
@@ -27,6 +28,59 @@ function escalacao(objeto, sx, sy) {
     ];
 
     return multiplicacao(escala, objeto)
+}
+
+function reflexaoX(objeto) {
+
+    var reflexaox = [
+        [1, 0, 0],
+        [0, -1, 0],
+        [0, 0, 1]
+    ];
+
+    return multiplicacao(reflexaox, objeto)
+}
+
+function reflexaoY(objeto) {
+
+    var reflexaoy = [
+        [-1, 0, 0],
+        [0, 1, 0],
+        [0, 0, 1]
+    ];
+
+    return multiplicacao(reflexaoy, objeto)
+}
+function reflexaoXY(objeto) {
+
+    var reflexaoxy = [
+        [-1, 0, 0],
+        [0, -1, 0],
+        [0, 0, 1]
+    ];
+
+    return multiplicacao(reflexaoxy, objeto)
+}
+function reflexaoReta(objeto) {
+
+    var reflexaoreta = [
+        [0, 1, 0],
+        [1, 0, 0],
+        [0, 0, 1]
+    ];
+
+    return multiplicacao(reflexaoreta, objeto)
+}
+function rotacaoP(objeto, angulo) {
+    anguloRadian = angulo * (Math.PI / 180);
+
+    var rotacaoPositiva = [
+        [Math.cos(anguloRadian), -Math.sin(anguloRadian), 0],
+        [Math.sin(anguloRadian), Math.cos(anguloRadian), 0],
+        [0                , 0                , 1]
+    ];
+
+    return multiplicacao(rotacaoPositiva, objeto)
 }
 
 function triangulo(point1, point2, point3, context) {
@@ -49,7 +103,7 @@ function triangulo(point1, point2, point3, context) {
     return trian;
 }
 
-function retanguloEscalado(objetoEscalado, context) {
+function retanguloTransformado(objetoEscalado, context) {
 
     rec = [];
 
@@ -89,21 +143,18 @@ function retangulo(point1, point2, context) {
 
     A = new Point(point1.x, point1.y);
     B = new Point(point2.x, point1.y);
+    C = new Point(point2.x, point2.y);
+    D = new Point(point1.x, point2.y);
+
     linha1 = dda(A, B);
     rec.push([A.x, A.y, A.z]);
 
-    B = new Point(point2.x, point1.y);
-    C = new Point(point2.x, point2.y);
     linha2 = dda(B, C);
     rec.push([B.x, B.y, C.z]);
 
-    C = new Point(point2.x, point2.y);
-    D = new Point(point1.x, point2.y);
     linha3 = dda(C, D);
     rec.push([C.x, C.y, C.z]);
 
-    A = new Point(point1.x, point1.y);
-    D = new Point(point1.x, point2.y);
     linha4 = dda(A, D);
     rec.push([D.x, D.y, D.z]);
 

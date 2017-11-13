@@ -181,9 +181,16 @@
                                 <input type="text" id="y2" class="form-control" placeholder="y2">
                             </div>
 
+                            <div class="col-lg-2">
+                                <input type="text" id="sx" class="form-control" placeholder="Sx">
+                            </div>
+                            <div class="col-lg-2">
+                                <input type="text" id="sy" class="form-control" placeholder="Sy">
+                            </div>
+
                             <div class="col-lg-6">
                                 <br>
-                                <button id="submitbutton" class="btn btn-primary">
+                                <button id="botaodesenhar" class="btn btn-primary">
                                     <i class="icon-pencil icon-white"></i> Desenhar
                                 </button>
                                 <button id="erasebutton" class="btn btn-danger">
@@ -194,6 +201,12 @@
                                 </button>
                                 <button id="transladebutton" class="btn btn-info">
                                     <i class="icon-trash icon-white"></i> Transladar
+                                </button>
+                                <button id="refletirXbutton" class="btn btn-info">
+                                    <i class="icon-trash icon-white"></i> Refletir
+                                </button>
+                                <button id="rotacaoPbutton" class="btn btn-info">
+                                    <i class="icon-trash icon-white"></i> Rotacao
                                 </button>
                             </div>
                         </div>
@@ -271,10 +284,41 @@
         $("#transladebutton").click(function () {
             initializecanvas(context);
 
-
             transladado = transladar(rec, 30,10);
 
-            rec = retanguloEscalado(transladado, context);
+            rec = retanguloTransformado(transladado, context);
+
+            initializeTable(table);
+            return false;
+        });
+
+        $("#refletirXbutton").click(function () {
+            initializecanvas(context);
+
+            reflexaox = reflexaoX(rec);
+
+            rec = retanguloTransformado(reflexaox, context);  //fazer x e y
+
+            initializeTable(table);
+            return false;
+        });
+        $("#rotacaoPbutton").click(function () {
+
+            var auxX = $('#x1').val();
+            var auxY = $('#y1').val();
+
+            initializecanvas(context);
+
+            transladado = transladar(rec, -auxX, -auxY);
+            rec = retanguloTransformado(transladado, context);
+            initializecanvas(context);
+
+            rotacaoPositiva = rotacaoP(rec, 45);
+            rec = retanguloTransformado(rotacaoPositiva, context);  //fazer x e y
+            initializecanvas(context);
+
+            transladado2 = transladar(rec, auxX, auxY);
+            rec = retanguloTransformado(transladado2, context);
 
             initializeTable(table);
             return false;
@@ -284,17 +328,32 @@
         //limpa tudo
         $("#escalebutton").click(function () {
 
+            var auxX = $('#x1').val();
+            var auxY = $('#y1').val();
+
+            var auxSx = $('#sx').val();
+            var auxSy = $('#sy').val();
+
+
             initializecanvas(context);
 
-            escalado = escalacao(rec, 2,2);
+            transladado = transladar(rec, -auxX, -auxY);
+            rec = retanguloTransformado(transladado, context);
+            initializecanvas(context);
 
-            rec = retanguloEscalado(escalado, context);
+            escalado = escalacao(rec, auxSx, auxSy);
+            rec = retanguloTransformado(escalado, context);
+            initializecanvas(context);
+
+            transladado2 = transladar(rec, auxX, auxY);
+            rec = retanguloTransformado(transladado2, context);
+
 
             initializeTable(table);
             return false;
         });
 
-        $("#submitbutton").click(function () {
+        $("#botaodesenhar").click(function () {
 
             //pega os pontos pelo id
             x1 = parseInt($("#x1").val());
@@ -308,8 +367,6 @@
             point2 = new Point(x2, y2);
 
             rec = retangulo(point1,point2, context);
-
-            console.log(rec);
 
             initializeTable(table);
 
