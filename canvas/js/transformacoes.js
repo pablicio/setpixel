@@ -53,22 +53,36 @@ function triangulo(point1, point2, point3, context) {
 
 function retanguloEscalado(objetoEscalado, context) {
 
+    rec = [];
+
     objetoEscalado = matriz_transposta(objetoEscalado);
 
-    inicial = objetoEscalado[0];
+    A = new Point(objetoEscalado[0][0], objetoEscalado[0][1])
+    rec.push([A.x, A.y, A.z]);
 
-    for (i = 0; i < objetoEscalado.length; i++) {
+    B = new Point(objetoEscalado[1][0], objetoEscalado[1][1]);
+    rec.push([B.x, B.y, B.z]);
 
-        linha = dda(new Point(objetoEscalado[i][0],objetoEscalado[i][1]),
-            new Point(objetoEscalado[i+1][0],objetoEscalado[i+1][1]));
+    C = new Point(objetoEscalado[2][0], objetoEscalado[2][1]);
+    rec.push([C.x, C.y, C.z]);
 
-        console.log(linha)
+    D = new Point(objetoEscalado[3][0], objetoEscalado[3][1]);
+    rec.push([D.x, D.y, D.z]);
 
-        // draw(linha, context);
-        final = objetoEscalado[i];
-    }
+    linha1 = dda(A,B);
 
-    console.log(objetoEscalado)
+    linha2 = dda(B,C);
+
+    linha3 = dda(C,D);
+
+    linha4 = dda(A,D);
+
+    draw(linha1, context);
+    draw(linha2, context);
+    draw(linha3, context);
+    draw(linha4, context);
+
+    return rec;
 }
 
 function retangulo(point1, point2, context) {
