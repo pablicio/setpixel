@@ -192,6 +192,9 @@
                                 <button id="escalebutton" class="btn btn-warning">
                                     <i class="icon-trash icon-white"></i> Escalar
                                 </button>
+                                <button id="transladebutton" class="btn btn-info">
+                                    <i class="icon-trash icon-white"></i> Transladar
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -265,11 +268,21 @@
         });
 
         //limpa tudo
+        $("#transladebutton").click(function () {
+            initializecanvas(context);
+
+            retanguloEscalado(transladado, context);
+            initializeTable(table);
+            return false;
+        });
+
+
+        //limpa tudo
         $("#escalebutton").click(function () {
             initializecanvas(context);
 
 
-            retanguloEscalado(transformado, context);
+            retanguloEscalado(escalado, context);
             initializeTable(table);
             return false;
         });
@@ -293,9 +306,10 @@
 
             console.log(rec);
 
-            transformado = escalacao(rec, 2,2);
+            escalado = escalacao(rec, 2,2);
 
-            console.log(transformado)
+
+            transladado = transladar(rec, 20,0);
 
             //recebe os pontos e retorna um array a ser desenhado no canvas
 //            points = dda(y2point1, point2);

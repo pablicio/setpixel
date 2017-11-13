@@ -15,7 +15,7 @@ function transladar(objeto, tx, ty) {
         [0, 0, 1]
     ];
 
-    return multiplicacao(escala, objeto)
+    return multiplicacao(translacao, objeto)
 }
 
 function escalacao(objeto, sx, sy) {
