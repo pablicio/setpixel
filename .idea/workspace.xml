@@ -29,11 +29,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="transformacoes.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/canvas/js/transformacoes.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="276">
+              <caret line="163" column="52" lean-forward="false" selection-start-line="163" selection-start-column="52" selection-end-line="163" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="dda.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/escala3/dda.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="179" column="58" lean-forward="false" selection-start-line="179" selection-start-column="58" selection-end-line="179" selection-end-column="58" />
+            <state relative-caret-position="614">
+              <caret line="278" column="75" lean-forward="false" selection-start-line="278" selection-start-column="75" selection-end-line="278" selection-end-column="75" />
               <folding />
             </state>
           </provider>
@@ -69,11 +79,14 @@
       <find>fill</find>
       <find>3d</find>
       <find>CONTEXT</find>
+      <find>disabled=&quot;true&quot;</find>
+      <find>disabled</find>
     </findStrings>
     <replaceStrings>
       <replace>rec</replace>
       <replace>botaodesenhar</replace>
       <replace>retanguloTransformado</replace>
+      <replace>hidden</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -120,8 +133,8 @@
         <option value="$PROJECT_DIR$/canvas/js/transformacoes3d.js" />
         <option value="$PROJECT_DIR$/canvas/js/drawmanager.js" />
         <option value="$PROJECT_DIR$/canvas/js/drawing.js" />
-        <option value="$PROJECT_DIR$/canvas/js/transformacoes.js" />
         <option value="$PROJECT_DIR$/assets/css/geral/style.css" />
+        <option value="$PROJECT_DIR$/canvas/js/transformacoes.js" />
         <option value="$PROJECT_DIR$/escala3/dda.html" />
       </list>
     </option>
@@ -170,6 +183,17 @@
             <path>
               <item name="setpixel" type="b2602c69:ProjectViewProjectNode" />
               <item name="setpixel" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="setpixel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="setpixel" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="canvas" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="setpixel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="setpixel" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="canvas" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="setpixel" type="b2602c69:ProjectViewProjectNode" />
@@ -339,7 +363,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99600000" />
+    <option name="totallyTimeSpent" value="100606000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -643,14 +667,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/canvas/js/transformacoes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="160" column="0" lean-forward="true" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/css/geral/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="744">
@@ -659,10 +675,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/canvas/js/transformacoes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="163" column="52" lean-forward="false" selection-start-line="163" selection-start-column="52" selection-end-line="163" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/escala3/dda.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="179" column="58" lean-forward="false" selection-start-line="179" selection-start-column="58" selection-end-line="179" selection-end-column="58" />
+        <state relative-caret-position="614">
+          <caret line="278" column="75" lean-forward="false" selection-start-line="278" selection-start-column="75" selection-end-line="278" selection-end-column="75" />
           <folding />
         </state>
       </provider>

@@ -215,29 +215,28 @@
 
                             <!--------------------ESCALA---------------------------------------------------------------------------------------->
                             <br>
-                            <fieldset name="escala" id="escala" disabled="true" onshow="false" >
+                            <fieldset name="escala" id="escala" hidden="true" >
                             <legend>Escala</legend>
                             <div class="col-lg-2">
-                                <input type="text" id="sx" class="form-control" placeholder="Sx">
+                                <input type="number" id="sx" class="form-control" placeholder="Sx">
                             </div>
                             <div class="col-lg-2">
-                                <input type="text" id="sy" class="form-control" placeholder="Sy">
+                                <input type="number" id="sy" class="form-control" placeholder="Sy">
                             </div>
                                 <button id="escalebutton" class="btn btn-warning">
                                     <i class="icon-trash icon-white"></i> Escalar
                                 </button>
                             </fieldset>
-                            <br>
-                            <br>
 
                             <!--------------------TRANSLAÇÃO------------------------------------------------------------------------------------->
-                            <legend>Translação</legend>
-                            <fieldset name="translacao" id="translacao" disabled="true" >
+
+                            <fieldset name="translacao" id="translacao" disabled="true" hidden="true">
+                                <legend>Translação</legend>
                             <div class="col-lg-2">
-                                <input type="text" id="tx" class="form-control" placeholder="Tx">
+                                <input type="number" id="tx" class="form-control" placeholder="Tx">
                             </div>
                             <div class="col-lg-2">
-                                <input type="text" id="ty" class="form-control" placeholder="Ty">
+                                <input type="number" id="ty" class="form-control" placeholder="Ty">
                             </div>
                                 <button id="transladebutton" class="btn btn-info">
                                     <i class="icon-trash icon-white"></i> Transladar
@@ -247,12 +246,11 @@
                                 </button>
 
                             </fieldset>
-                            <br>
-                            <br>
 
                             <!--------------------REFLEXÃO---------------------------------------------------------------------------------------->
-                            <legend>Reflexão</legend>
-                            <fieldset name="reflexao" id="reflexao" disabled="true">
+
+                            <fieldset name="reflexao" id="reflexao" hidden="false">
+                                <legend>Reflexão</legend>
                                 <button id="refletirXbutton" class="btn btn-info">
                                     <i class="icon-trash icon-white"></i> Refletir em X
                                 </button>
@@ -263,12 +261,11 @@
                                     <i class="icon-trash icon-white"></i> Refletir em XY
                                 </button>
                             </fieldset>
-                            <br>
-                            <br>
 
                             <!--------------------ROTAÇÃO----------------------------------------------------------------------------------------->
-                            <legend>Rotação</legend>
-                            <fieldset name="rotacao" id="rotacao" disabled="true">
+
+                            <fieldset name="rotacao" id="rotacao" hidden="true">
+                                <legend>Rotação</legend>
                                 <button id="rotacaoPbutton" class="btn btn-info">
                                     <i class="icon-trash icon-white"></i> Rotacao Positiva
                                 </button>
@@ -276,14 +273,13 @@
                                     <i class="icon-trash icon-white"></i> Rotacao Negativa
                                 </button>
                             </fieldset>
-                            <br>
-                            <br>
 
                             <!--------------------CISALHAR----------------------------------------------------------------------------------------->
-                            <legend>Cisalhamento</legend>
-                            <fieldset name="cisalhamento" id="cisalhamento" disabled="true">
+
+                            <fieldset name="cisalhamento" id="cisalhamento" hidden="true">
+                                <legend>Cisalhamento</legend>
                                 <div class="col-lg-2">
-                                    <input type="text" id="cx" class="form-control" placeholder="Cx">
+                                    <input type="number" id="cx" class="form-control" placeholder="Cx">
                                 </div>
                                 <button id="cisalharbutton" class="btn btn-info">
                                     <i class="icon-trash icon-white"></i> Cisalhar
