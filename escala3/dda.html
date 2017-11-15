@@ -198,11 +198,24 @@
                                 </button>
                             </fieldset>
 
+
+                            <label for="transformacoes">Transformacoes</label>
+                            <select name="transformacoes" id="transformacoes" onchange="ativa(this.value)" >
+                                <option value="" ></option>
+                                <option value="Translacao" >Translacao</option>
+                                <option value="Escala">Escala</option>
+                                <option value="Rotacao" >Rotacao</option>
+                                <option value="Reflexao">Reflexao</option>
+                                <option value="Cisalhamento" >Cisalhamento</option>
+                            </select>
+                            <br><br>
+
+
                             <!--------------------ESCALA---------------------------------------------------------------------------------------->
                             <br>
-                            <p>ESCALA</p>
-                            <fieldset>
-                            <div class="col-lg-2">
+                            <fieldset name="escala" id="escala" disabled="true" onshow="false" >
+                                <p>ESCALA</p>
+                                <div class="col-lg-2">
                                 <input type="text" id="sx" class="form-control" placeholder="Sx">
                             </div>
                             <div class="col-lg-2">
@@ -216,7 +229,7 @@
 
                             <!--------------------TRANSLAÇÃO------------------------------------------------------------------------------------->
                             <p>TRANSLAÇÃO</p>
-                            <fieldset>
+                            <fieldset name="translacao" id="translacao" disabled="true" >
                             <div class="col-lg-2">
                                 <input type="text" id="tx" class="form-control" placeholder="Tx">
                             </div>
@@ -229,13 +242,13 @@
                                 <button id="transladeOrigbutton" class="btn btn-info">
                                     <i class="icon-trash icon-white"></i> Transladar para a origem
                                 </button>
-                              
+
                             </fieldset>
                             <br>
 
                             <!--------------------REFLEXÃO---------------------------------------------------------------------------------------->
                             <p>REFLEXÃO</p>
-                            <fieldset>
+                            <fieldset name="reflexao" id="reflexao" disabled="true">
                                 <button id="refletirXbutton" class="btn btn-info">
                                     <i class="icon-trash icon-white"></i> Refletir em X
                                 </button>
@@ -250,7 +263,7 @@
 
                             <!--------------------ROTAÇÃO----------------------------------------------------------------------------------------->
                             <p>ROTAÇÃO</p>
-                            <fieldset>
+                            <fieldset name="rotacao" id="rotacao" disabled="true">
                                 <button id="rotacaoPbutton" class="btn btn-info">
                                     <i class="icon-trash icon-white"></i> Rotacao Positiva
                                 </button>
@@ -262,7 +275,7 @@
 
                             <!--------------------CISALHAR----------------------------------------------------------------------------------------->
                             <p>CISALHAMENTO</p>
-                            <fieldset>
+                            <fieldset name="cisalhamento" id="cisalhamento" disabled="true">
                                 <div class="col-lg-2">
                                     <input type="text" id="cx" class="form-control" placeholder="Cx">
                                 </div>
