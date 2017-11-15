@@ -14,7 +14,7 @@ function DrawManager(){
 	}
 	this.setcontext = function(rcanvas){
 		canvas = rcanvas;
-		context = canvas.getContext("2d")
+		context = canvas.getContext("3d")
 	}
 	var calculatedifference = function (){
 		var x1 = point1.x;

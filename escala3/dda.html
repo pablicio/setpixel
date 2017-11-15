@@ -187,6 +187,9 @@
                             <div class="col-lg-2">
                                 <input type="text" id="y2" class="form-control" placeholder="y2">
                             </div>
+                                <div class="col-lg-2">
+                                    <input type="text" id="z" class="form-control" placeholder="z">
+                                </div>
                                 <button id="botaodesenhar" class="btn btn-primary">
                                     <i class="icon-pencil icon-white"></i> Desenhar
                                 </button>
@@ -223,6 +226,10 @@
                                 <button id="transladebutton" class="btn btn-info">
                                     <i class="icon-trash icon-white"></i> Transladar
                                 </button>
+                                <button id="transladeOrigbutton" class="btn btn-info">
+                                    <i class="icon-trash icon-white"></i> Transladar para a origem
+                                </button>
+                              
                             </fieldset>
                             <br>
 
@@ -343,6 +350,19 @@
             transladado = transladar(rec, auxX,auxY);
 
             rec = retanguloTransformado(transladado, context);
+
+            initializeTable(table);
+            return false;
+        });
+        $("#transladeOrigbutton").click(function () {
+            initializecanvas(context);
+            var auxX = $('#x1').val();
+            var auxY = $('#y1').val();
+
+
+            transladado = transladar(rec, -auxX,-auxY);
+
+            retanguloTransformado(transladado, context);
 
             initializeTable(table);
             return false;
