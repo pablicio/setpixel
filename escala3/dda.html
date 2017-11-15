@@ -160,57 +160,112 @@
             <!--<div class="container" id="container">-->
                 <!--<div class="row">-->
                     <div class="span6" id="canvasdiv">
-                        <canvas width=400 height=280 id="canvas" class="well">
+                        <canvas width=800 height=560 id="canvas" class="well">
                         </canvas>
                     </div>
                     <div class="span6">
                         <div class="well">
-                            <h2 style="text-align:center;"> Coordenadas</h2>
+                            <h2 style="text-align:center;">Transformações 2D</h2>
 
 
+
+                            <!--------------------DESENHA FIGURA------------------------------------------------------------------------------->
+                            <p>COORDENADAS</p>
+                            <fieldset>
                             <div class="col-lg-2">
                                 <input type="text" id="x1" class="form-control" placeholder="x1">
                             </div>
                             <div class="col-lg-2">
                                 <input type="text" id="y1" class="form-control" placeholder="y1">
                             </div>
+                            </fieldset>
+                            <br>
+                            <fieldset>
                             <div class="col-lg-2">
                                 <input type="text" id="x2" class="form-control" placeholder="x2">
                             </div>
                             <div class="col-lg-2">
                                 <input type="text" id="y2" class="form-control" placeholder="y2">
                             </div>
-
-                            <div class="col-lg-2">
-                                <input type="text" id="sx" class="form-control" placeholder="Sx">
-                            </div>
-                            <div class="col-lg-2">
-                                <input type="text" id="sy" class="form-control" placeholder="Sy">
-                            </div>
-
-                            <div class="col-lg-6">
-                                <br>
                                 <button id="botaodesenhar" class="btn btn-primary">
                                     <i class="icon-pencil icon-white"></i> Desenhar
                                 </button>
                                 <button id="erasebutton" class="btn btn-danger">
                                     <i class="icon-trash icon-white"></i> Apagar
                                 </button>
+                            </fieldset>
+
+                            <!--------------------ESCALA---------------------------------------------------------------------------------------->
+                            <br>
+                            <p>ESCALA</p>
+                            <fieldset>
+                            <div class="col-lg-2">
+                                <input type="text" id="sx" class="form-control" placeholder="Sx">
+                            </div>
+                            <div class="col-lg-2">
+                                <input type="text" id="sy" class="form-control" placeholder="Sy">
+                            </div>
                                 <button id="escalebutton" class="btn btn-warning">
                                     <i class="icon-trash icon-white"></i> Escalar
                                 </button>
+                            </fieldset>
+                            <br>
+
+                            <!--------------------TRANSLAÇÃO------------------------------------------------------------------------------------->
+                            <p>TRANSLAÇÃO</p>
+                            <fieldset>
+                            <div class="col-lg-2">
+                                <input type="text" id="tx" class="form-control" placeholder="Tx">
+                            </div>
+                            <div class="col-lg-2">
+                                <input type="text" id="ty" class="form-control" placeholder="Ty">
+                            </div>
                                 <button id="transladebutton" class="btn btn-info">
                                     <i class="icon-trash icon-white"></i> Transladar
                                 </button>
+                            </fieldset>
+                            <br>
+
+                            <!--------------------REFLEXÃO---------------------------------------------------------------------------------------->
+                            <p>REFLEXÃO</p>
+                            <fieldset>
                                 <button id="refletirXbutton" class="btn btn-info">
-                                    <i class="icon-trash icon-white"></i> Refletir
+                                    <i class="icon-trash icon-white"></i> Refletir em X
                                 </button>
+                                <button id="refletirYbutton" class="btn btn-info">
+                                    <i class="icon-trash icon-white"></i> Refletir em Y
+                                </button>
+                                <button id="refletirXYbutton" class="btn btn-info">
+                                    <i class="icon-trash icon-white"></i> Refletir em XY
+                                </button>
+                            </fieldset>
+                            <br>
+
+                            <!--------------------ROTAÇÃO----------------------------------------------------------------------------------------->
+                            <p>ROTAÇÃO</p>
+                            <fieldset>
                                 <button id="rotacaoPbutton" class="btn btn-info">
-                                    <i class="icon-trash icon-white"></i> Rotacao
+                                    <i class="icon-trash icon-white"></i> Rotacao Positiva
                                 </button>
-                            </div>
+                                <button id="rotacaoNbutton" class="btn btn-info">
+                                    <i class="icon-trash icon-white"></i> Rotacao Negativa
+                                </button>
+                            </fieldset>
+                            <br>
+
+                            <!--------------------CISALHAR----------------------------------------------------------------------------------------->
+                            <p>CISALHAMENTO</p>
+                            <fieldset>
+                                <div class="col-lg-2">
+                                    <input type="text" id="cx" class="form-control" placeholder="Cx">
+                                </div>
+                                <button id="cisalharbutton" class="btn btn-info">
+                                    <i class="icon-trash icon-white"></i> Cisalhar
+                                </button>
+                            </fieldset>
                         </div>
                     </div>
+                            <!---------------FIM DOS CAMPOS DE TRANSFORMAÇÕES 2D------------------------------------------------------------------->
                 </div>
         <br>
                 <div class="row">
@@ -250,7 +305,6 @@
 <SCRIPT TYPE="text/javascript" src="../canvas/js/dda.js"></SCRIPT>
 <SCRIPT TYPE="text/javascript" src="../canvas/js/drawing.js"></SCRIPT>
 <SCRIPT TYPE="text/javascript" src="../canvas/js/jquery-1.7.2.js"></SCRIPT>
-<SCRIPT TYPE="text/javascript" src="../canvas/js/custom.js"></SCRIPT>
 <SCRIPT TYPE="text/javascript" src="../canvas/js/dynamictable.js"></SCRIPT>
 <SCRIPT TYPE="text/javascript" src="../canvas/js/transformacoes.js"></SCRIPT>
 
@@ -283,8 +337,10 @@
         //limpa tudo
         $("#transladebutton").click(function () {
             initializecanvas(context);
+            var auxX = $('#tx').val();
+            var auxY = $('#ty').val();
 
-            transladado = transladar(rec, 30,10);
+            transladado = transladar(rec, auxX,auxY);
 
             rec = retanguloTransformado(transladado, context);
 
@@ -302,6 +358,26 @@
             initializeTable(table);
             return false;
         });
+        $("#refletirYbutton").click(function () {
+            initializecanvas(context);
+
+            reflexaoy = reflexaoY(rec);
+
+            rec = retanguloTransformado(reflexaoy, context);  //fazer x e y
+
+            initializeTable(table);
+            return false;
+        });
+        $("#refletirXYbutton").click(function () {
+            initializecanvas(context);
+
+            reflexaoxy = reflexaoXY(rec);
+
+            rec = retanguloTransformado(reflexaoxy, context);  //fazer x e y
+
+            initializeTable(table);
+            return false;
+        });
         $("#rotacaoPbutton").click(function () {
 
             var auxX = $('#x1').val();
@@ -315,6 +391,27 @@
 
             rotacaoPositiva = rotacaoP(rec, 45);
             rec = retanguloTransformado(rotacaoPositiva, context);  //fazer x e y
+            initializecanvas(context);
+
+            transladado2 = transladar(rec, auxX, auxY);
+            rec = retanguloTransformado(transladado2, context);
+
+            initializeTable(table);
+            return false;
+        });
+        $("#rotacaoNbutton").click(function () {
+
+            var auxX = $('#x1').val();
+            var auxY = $('#y1').val();
+
+            initializecanvas(context);
+
+            transladado = transladar(rec, -auxX, -auxY);
+            rec = retanguloTransformado(transladado, context);
+            initializecanvas(context);
+
+            rotacaoNegativa = rotacaoN(rec, 45);
+            rec = retanguloTransformado(rotacaoNegativa, context);  //fazer x e y
             initializecanvas(context);
 
             transladado2 = transladar(rec, auxX, auxY);
@@ -348,6 +445,19 @@
             transladado2 = transladar(rec, auxX, auxY);
             rec = retanguloTransformado(transladado2, context);
 
+
+            initializeTable(table);
+            return false;
+        });
+
+        $("#cisalharbutton").click(function () {
+
+            initializecanvas(context);
+
+            var auxCx = $('#cx').val();
+
+            cisalhado = cisalhamento(rec, auxCx);
+            rec = retanguloTransformado(cisalhado, context);
 
             initializeTable(table);
             return false;

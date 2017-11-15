@@ -41,10 +41,10 @@ function MouseManager() {
             canvas.addEventListener("mousedown", onclick, false);
         }
         if (mousemove != null) {
-            canvas.addEventListener("mousemove", mousemove, false);
+            canvas.addEventListener("mousemove", mousemove, false);  //apresenta o desenho da reta enquanto movimentar o mouse
         }
         if (outclick != null) {
-            canvas.addEventListener("mouseup", outclick, false);
+            canvas.addEventListener("mouseup", outclick, false); //para de desenhar qnd solta o botao do mouse
         }
     }
 

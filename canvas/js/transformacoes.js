@@ -16,7 +16,6 @@ function transladar(objeto, tx, ty) {
     ];
 
     return multiplicacao(translacao, objeto)
-
 }
 
 function escalacao(objeto, sx, sy) {
@@ -71,6 +70,17 @@ function reflexaoReta(objeto) {
 
     return multiplicacao(reflexaoreta, objeto)
 }
+function cisalhamento(objeto, cx) {
+
+    var cisalhar = [
+        [1, cx, 0],
+        [0, 1, 0],
+        [0, 0, 1]
+    ];
+
+    return multiplicacao(cisalhar, objeto)
+}
+
 function rotacaoP(objeto, angulo) {
     anguloRadian = angulo * (Math.PI / 180);
 
@@ -81,6 +91,17 @@ function rotacaoP(objeto, angulo) {
     ];
 
     return multiplicacao(rotacaoPositiva, objeto)
+}
+function rotacaoN(objeto, angulo) {
+    anguloRadian = angulo * (Math.PI / 180);
+
+    var rotacaoNegativa = [
+        [Math.cos(anguloRadian), Math.sin(anguloRadian), 0],
+        [-Math.sin(anguloRadian), Math.cos(anguloRadian), 0],
+        [0                , 0                , 1]
+    ];
+
+    return multiplicacao(rotacaoNegativa, objeto)
 }
 
 function triangulo(point1, point2, point3, context) {
