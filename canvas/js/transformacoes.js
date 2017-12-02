@@ -86,8 +86,8 @@ function rotacaoP(objeto, angulo) {
 
     var rotacaoPositiva = [
         [Math.cos(anguloRadian), -Math.sin(anguloRadian), 0],
-        [Math.sin(anguloRadian), Math.cos(anguloRadian), 0],
-        [0                , 0                , 1]
+        [Math.sin(anguloRadian), Math.cos(anguloRadian) , 0],
+        [0                     , 0                      , 1]
     ];
 
     return multiplicacao(rotacaoPositiva, objeto)
@@ -96,9 +96,9 @@ function rotacaoN(objeto, angulo) {
     anguloRadian = angulo * (Math.PI / 180);
 
     var rotacaoNegativa = [
-        [Math.cos(anguloRadian), Math.sin(anguloRadian), 0],
+        [Math.cos(anguloRadian) , Math.sin(anguloRadian), 0],
         [-Math.sin(anguloRadian), Math.cos(anguloRadian), 0],
-        [0                , 0                , 1]
+        [0                      , 0                     , 1]
     ];
 
     return multiplicacao(rotacaoNegativa, objeto)

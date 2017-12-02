@@ -168,7 +168,6 @@
                             <h2 style="text-align:center;">Transformações</h2>
 
 
-
                             <!--------------------DESENHA FIGURA------------------------------------------------------------------------------->
 
                             <fieldset>
@@ -195,26 +194,24 @@
                                     <i class="icon-trash icon-white"></i> Apagar
                                 </button>
                             </fieldset>
-
                             <br>
                             <br>
 
+                            <!---------------------Select para transformacoes 2d--------------------------------------------------------------->
                             <label for="transformacoes" >TRANSFORMAÇÕES 2D</label>
                             <br>
-                            <select name="transformacoes" id="transformacoes" onchange="ativa(this.value)" style="font-size: 150%" >
-                                <option value="" ></option>
-                                <option value="Translacao" >Translacao</option>
+                            <select name="transformacoes" id="transformacoes" onchange="ativa(this.value)" style="font-size: 130%" >
+                                <option value="" >--------------------</option>
+                                <option value="Translacao" >Translação</option>
                                 <option value="Escala">Escala</option>
-                                <option value="Rotacao" >Rotacao</option>
-                                <option value="Reflexao">Reflexao</option>
+                                <option value="Rotacao" >Rotação</option>
+                                <option value="Reflexao">Reflexão</option>
                                 <option value="Cisalhamento" >Cisalhamento</option>
                             </select>
                             <br>
                             <br>
-                            <br>
 
                             <!--------------------ESCALA---------------------------------------------------------------------------------------->
-                            <br>
                             <fieldset name="escala" id="escala" hidden="true" >
                             <legend>Escala</legend>
                             <div class="col-lg-2">
@@ -230,7 +227,7 @@
 
                             <!--------------------TRANSLAÇÃO------------------------------------------------------------------------------------->
 
-                            <fieldset name="translacao" id="translacao" disabled="true" hidden="true">
+                            <fieldset name="translacao" id="translacao" hidden="true">
                                 <legend>Translação</legend>
                             <div class="col-lg-2">
                                 <input type="number" id="tx" class="form-control" placeholder="Tx">
@@ -266,6 +263,9 @@
 
                             <fieldset name="rotacao" id="rotacao" hidden="true">
                                 <legend>Rotação</legend>
+                                <div class="col-lg-2">
+                                    <input type="number" id="ang" class="form-control" placeholder="Angulo">
+                                </div>
                                 <button id="rotacaoPbutton" class="btn btn-info">
                                     <i class="icon-trash icon-white"></i> Rotacao Positiva
                                 </button>
@@ -417,6 +417,7 @@
 
             var auxX = $('#x1').val();
             var auxY = $('#y1').val();
+            var auxA = $('#ang').val();
 
             initializecanvas(context);
 
@@ -424,7 +425,7 @@
             rec = retanguloTransformado(transladado, context);
             initializecanvas(context);
 
-            rotacaoPositiva = rotacaoP(rec, 45);
+            rotacaoPositiva = rotacaoP(rec, auxA);
             rec = retanguloTransformado(rotacaoPositiva, context);  //fazer x e y
             initializecanvas(context);
 
@@ -438,6 +439,7 @@
 
             var auxX = $('#x1').val();
             var auxY = $('#y1').val();
+            var auxA = $('#ang').val();
 
             initializecanvas(context);
 
@@ -445,7 +447,7 @@
             rec = retanguloTransformado(transladado, context);
             initializecanvas(context);
 
-            rotacaoNegativa = rotacaoN(rec, 45);
+            rotacaoNegativa = rotacaoN(rec, auxA);
             rec = retanguloTransformado(rotacaoNegativa, context);  //fazer x e y
             initializecanvas(context);
 
