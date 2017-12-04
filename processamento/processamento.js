@@ -144,7 +144,52 @@ function convolucao(mascara, array) {
     return image;
 }
 
-$('#aplicar').click(function () {
+function soma(img1, img2) {
+
+    img1 = img1.replace(/\n/ig, ' ');
+    img1 = img1.slice(15, -1);
+    img1 = img1.split(' ')
+
+    img2 = img2.replace(/\n/ig, ' ');
+    img2 = img2.slice(15, -1);
+    img2 = img2.split(' ')
+
+    console.log(img1)
+
+    img3 = ""
+
+    res = 0;
+
+    for(var i = 0; i < img1.length; i++){
+        res = parseInt(img2[i]) + parseInt(img1[i])
+
+        if(res < 0){
+            res = 0
+        }else if(res > 255){
+            res = 255
+        }
+
+        img3 += res + " "
+    }
+
+    return img3;
+}
+
+$('#operar').click(function () {
+
+    image = "P2 256 256 255 ";
+
+    final = image + soma(imagem1, imagem2)
+
+    console.log(final)
+
+    img = new Image(final);
+
+    addImage(img, '#image-alvo');
+
+})
+
+$('#filtro').click(function () {
 
     image = "P2 252 252 255 ";
 
