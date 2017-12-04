@@ -1,0 +1,51 @@
+
+body {
+	color: #657;
+	font-family: cambria, palatino, georgia, serif;
+}
+
+#grid {
+	width: 75px;
+	height: 150px;
+}
+
+#grid div {
+	width: 25px;
+	height: 25px;
+	/*outline: 1px solid;*/
+	float: left;
+	text-align: center;
+}
+
+.holder {
+	background: rgba(132, 157, 136, 0.08);
+	height: 300px;
+	width: 400px;
+	position: relative;
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+
+
+div.inner-holder {
+	height: 50%;
+	position: relative;
+	top: 50%;
+}
+
+
+li {
+	float: left;
+	position: relative;
+	margin-left: 45px;
+	height: 50%;
+}
+
+
+li img {
+	position: relative;
+	top: -130px;
+	left: 25px;
+}
+
+

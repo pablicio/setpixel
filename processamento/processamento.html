@@ -1,0 +1,116 @@
+<html>
+<head>
+    <title>Processamento de Imagem CG</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="reset.css"/>
+    <link rel="stylesheet" href="site.css"/>
+</head>
+<body>
+
+
+<div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-6 holder">
+        <div class="inner-holder">
+            <ul id="image-list"></ul>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <input type="file" id="inputCSV2" onchange="pegaCSV2(this)">
+
+        <input type="file" id="inputCSV" onchange="pegaCSV(this)">
+
+        <br>
+        <label>Filtros</label>
+        <select id="select_filtro" class="form-control">
+            <option value="">** Escolha o Filtro **</option>
+            <option value="passa-alta">Passa Alta</option>
+            <option value="media">Média</option>
+            <option value="mediana">Médiana</option>
+            <option value="prewitt-x">Prewitt X</option>
+            <option value="prewitt-y">Prewitt Y</option>
+            <option value="prewitt">Prewitt</option>
+            <option value="roberts-x">Roberts X</option>
+            <option value="roberts-y">Roberts Y</option>
+            <option value="roberts">Roberts</option>
+            <option value="alto-reforco">Alto reforço</option>
+        </select>
+
+        <label>Operações</label>
+        <select id="operacoes" class="form-control">
+            <option value="">** Escolha Operação **</option>
+            <option value="passa-alta">Somar Duas Imagens</option>
+            <option value="media">Subtrair Duas Imagens</option>
+            <option value="mediana">Multiplicar Duas Imagens</option>
+            <option value="prewit-x">Dividir Duas Imagens</option>
+            <option value="prewitt-y">And</option>
+            <option value="prewitt">Or</option>
+            <option value="roberts-x">Xor</option>
+            <option value="roberts-y">Not</option>
+            <option value="roberts">Escala</option>
+            <option value="rotacao-x">Rotação em X</option>
+            <option value="rotacao-y">Rotação em Y</option>
+            <option value="escala">Escala</option>
+            <option value="cisalhamento">Cisalhamento</option>
+            <option value="tranlacao">Translação</option>
+            <option value="reflexao-x">Reflexão em X</option>
+            <option value="reflexao-y">Reflexão em Y</option>
+            <option value="gamma">Gamma</option>
+            <option value="logaritmo">Logaritmo</option>
+            <option value="negativo">Negativo</option>
+        </select>
+        <br>
+        <div class="row">
+            <div class="col-lg-6">
+                <button id="aplicar" class="btn btn-sm btn-success">Aplicar</button>
+            </div>
+            <div class="col-lg-6">
+                <div id="grid">
+                    <!--<div><input type="text" value="-1" readonly style="width: 100%"></div>-->
+                    <!--<div><input type="text" value="-1" readonly style="width: 100%"></div>-->
+                    <!--<div><input type="text" value="-1" readonly style="width: 100%"></div>-->
+                    <!--<div><input type="text" value="-1" readonly style="width: 100%"></div>-->
+                    <!--<div><input type="text" value=" 8" readonly style="width: 100%"></div>-->
+                    <!--<div><input type="text" value="-1" readonly style="width: 100%"></div>-->
+                    <!--<div><input type="text" value="-1" readonly style="width: 100%"></div>-->
+                    <!--<div><input type="text" value="-1" readonly style="width: 100%"></div>-->
+                    <!--<div><input type="text" value="-1" readonly style="width: 100%"></div>-->
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="col-lg-6 holder">
+        <div class="inner-holder">
+            <ul id="image-alvo"></ul>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-6 holder">
+        <div class="inner-holder">
+            <ul id="image-soma"></ul>
+        </div>
+    </div>
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6 holder">
+        <div class="inner-holder">
+            <ul id="image-"></ul>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="../assets/js/jquery.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="../assets/js/bootstrap.min.js"></script>
+
+<script src="canvas2image.js"></script>
+<script src="processamento.js"></script>
+
+</body>
+</html>
