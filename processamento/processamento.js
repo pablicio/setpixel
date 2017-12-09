@@ -7,6 +7,7 @@ var imagem1 = ''
 var imagem2 = ''
 
 
+
 var mascara = []
 
 var leitorDeCSV = new FileReader();
@@ -21,7 +22,7 @@ function displayOperator(mascara) {
     $('#grid').append(operator)
 }
 
-
+//todos os filtros aqui
 $('#select_filtro').change(function (tipo) {
 
     tipo = $(this).val()
@@ -37,9 +38,9 @@ $('#select_filtro').change(function (tipo) {
             break;
         case 'media':
             mascara = [
-                1 / 9, 1 / 9, 1 / 9,
-                1 / 9, 1 / 9, 1 / 9,
-                1 / 9, 1 / 9, 1 / 9
+                1/9, 1/9, 1/9,
+                1/9, 1/9, 1/9,
+                1/9, 1/9, 1/9
             ];
             displayOperator(mascara)
             break;
@@ -88,6 +89,14 @@ $('#select_filtro').change(function (tipo) {
                 -1, -1, -1,
                 -1, 8, -1,
                 -1, -1, -1
+            ];
+            displayOperator(mascara)
+            break;
+        case 'sharpen':
+            mascara = [
+                0, -0.2, 0,
+                -0.2, 1.8, -0.2,
+                0, -0.2, 0
             ];
             displayOperator(mascara)
             break;
@@ -143,8 +152,56 @@ function convolucao(mascara, array) {
     }
     return image;
 }
+function walkmydog() {
+    //when the user starts entering
+    var dom = document.getElementById('WallSearch');
+    if(dom == null)
+    {
+        alert('sorry, WallSearch DOM cannot be found');
+        return false;
+    }
+
+    if(dom.value.length == 0) {
+        alert("nothing");
+    }
+}
+
+if (document.addEventListener) {
+    document.addEventListener("DOMContentLoaded", walkmydog, false);
+}
 
 function soma(img1, img2) {
+
+        img1 = img1.replace(/\n/ig, ' ');
+        img1 = img1.slice(15, -1);
+        img1 = img1.split(' ')
+
+        img2 = img2.replace(/\n/ig, ' ');
+        img2 = img2.slice(15, -1);
+        img2 = img2.split(' ')
+
+        // var decimal = '50';
+
+        img3 = ""
+
+        res = 0;
+
+        for(var i = 0; i < img1.length; i++){
+            res = parseInt(img2[i]) + parseInt(img1[i])
+
+            if(res < 0){
+                res = 0
+            }else if(res > 255){
+                res = 255
+            }
+
+            img3 += res + " "
+        }
+
+        return img3;
+
+}
+function subtracao(img1, img2) {
 
     img1 = img1.replace(/\n/ig, ' ');
     img1 = img1.slice(15, -1);
@@ -161,7 +218,7 @@ function soma(img1, img2) {
     res = 0;
 
     for(var i = 0; i < img1.length; i++){
-        res = parseInt(img2[i]) + parseInt(img1[i])
+        res = parseInt(img2[i]) - parseInt(img1[i])
 
         if(res < 0){
             res = 0
@@ -173,13 +230,211 @@ function soma(img1, img2) {
     }
 
     return img3;
+
 }
+function multiplicacaof(img1, img2) {
+
+    img1 = img1.replace(/\n/ig, ' ');
+    img1 = img1.slice(15, -1);
+    img1 = img1.split(' ')
+
+    img2 = img2.replace(/\n/ig, ' ');
+    img2 = img2.slice(15, -1);
+    img2 = img2.split(' ')
+
+    console.log(img1)
+
+    img3 = ""
+
+    res = 0;
+
+    for(var i = 0; i < img1.length; i++){
+        res = parseInt(img2[i]) * parseInt(img1[i])
+
+        if(res < 0){
+            res = 0
+        }else if(res > 255){
+            res = 255
+        }
+
+        img3 += res + " "
+    }
+
+    return img3;
+
+}
+function divisao(img1, img2) {
+
+    img1 = img1.replace(/\n/ig, ' ');
+    img1 = img1.slice(15, -1);
+    img1 = img1.split(' ')
+
+    img2 = img2.replace(/\n/ig, ' ');
+    img2 = img2.slice(15, -1);
+    img2 = img2.split(' ')
+
+    console.log(img1)
+
+    img3 = ""
+
+    res = 0;
+
+    for(var i = 0; i < img1.length; i++){
+        res = parseInt(img2[i]) / parseInt(img1[i])
+
+        if(res < 0){
+            res = 0
+        }else if(res > 255){
+            res = 255
+        }
+
+        img3 += res + " "
+    }
+
+    return img3;
+
+}
+function and(img1, img2) {
+
+    img1 = img1.replace(/\n/ig, ' ');
+    img1 = img1.slice(15, -1);
+    img1 = img1.split(' ')
+
+    img2 = img2.replace(/\n/ig, ' ');
+    img2 = img2.slice(15, -1);
+    img2 = img2.split(' ')
+
+    //decimal <-> binario
+    var i = 0;
+    do {
+        //decimal -> binario
+        img1 = parseInt(img1[i], 10).toString(2);
+        img2 = parseInt(img2[i], 10).toString(2);
+
+        i++;
+        img3 = (img1 && img2);
+        return img3;
+
+
+
+        // imagemAnd = parseInt(imagemBin2, 2);
+
+    } while (i < 65536);
+
+    console.log(img3);
+    // img3 = ""
+    //
+    // res = 0;
+    //
+    // for(var i = 0; i < img1.length; i++){
+    //     res = parseInt(img2[i]) / parseInt(img1[i])
+    //
+    //     if(res < 0){
+    //         res = 0
+    //     }else if(res > 255){
+    //         res = 255
+    //     }
+    //
+    //     img3 += res + " "
+    // }
+    //
+    // return img3;
+
+}
+
+function mat_transposta (l, c, matriz) {
+        var i, j, aux;
+        transposta = [];
+        for (i = 0; i < l; i++) {
+            for (j = i+1; j < c; j++) {
+                if (j != i) {
+                    aux = matriz[i][j];
+                    matriz[i][j] = matriz[j][i];
+                    matriz[j][i] = aux;
+                    aux.push(matriz[j][i]);
+                }
+                transposta.push(aux);
+
+            }
+        }
+
+        for (i = 0; i < l; i++) {
+            for (j = 0; j < c; j++) {
+
+            }
+            return transposta
+
+        }
+        console.log('Matriz transposta', transposta);
+}
+
+    // for generate random data
+    function generateRandom (min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min
+    }
+
+
+
+
+$('#operacoes').change(function (tipo) {
+
+    tipo = $(this).val()
+
+    switch (tipo) {
+        case 'soma':
+            mascara = soma(imagem1, imagem2);
+
+            displayOperator(mascara)
+            break;
+        case 'subtracao':
+            mascara = subtracao(imagem1, imagem2)
+            displayOperator(mascara)
+            break;
+        case 'multiplicacao':
+            mascara = multiplicacaof(imagem1, imagem2)
+            displayOperator(mascara)
+            break;
+        case 'and':
+            mascara = and(imagem1, imagem2)
+            displayOperator(mascara)
+            break;
+        case 'or':
+            mascara = divisao(imagem1, imagem2)
+            displayOperator(mascara)
+            break;
+        case 'xor':
+            mascara = divisao(imagem1, imagem2)
+            displayOperator(mascara)
+            break;
+        case 'divisao':
+            mascara = divisao(imagem1, imagem2)
+            displayOperator(mascara)
+            break;
+        case 'escala':
+            mascara = [
+                1.2, 0, 1,
+                0, 1.2, 1,
+                1, 1, 1
+            ];
+            displayOperator(mascara);
+            break;
+        case 'rotacao':
+            mascara = mat_transposta(255, 255, imagem1)
+            displayOperator(mascara);
+            break;
+        default:
+            throw new TypeError('Filtro não suportado. [' + tipo + ']');
+            return false;
+    }
+});
 
 $('#operar').click(function () {
 
     image = "P2 256 256 255 ";
 
-    final = image + soma(imagem1, imagem2)
+    final = image + mascara;
+
+    // final = image + convolucao(mascara, imagem1);
 
     console.log(final)
 
