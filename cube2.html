@@ -135,13 +135,13 @@
         this.y = y;
         this.z = z;
 
-        this.project = function (viewWidth, viewHeight, fov, viewDistance) {
-            var factor, x, y;
-            factor = fov / (viewDistance + this.z); //fator de distancia
-            x = this.x * factor + viewWidth / 2;
-            y = this.y * factor + viewHeight / 2;
-            return new Point3D(x, y, this.z);
-        }
+//        this.project = function (viewWidth, viewHeight, fov, viewDistance) {
+//            var factor, x, y;
+//            factor = fov / (viewDistance + this.z); //fator de distancia
+//            x = this.x * factor + viewWidth / 2;
+//            y = this.y * factor + viewHeight / 2;
+//            return new Point3D(x, y, this.z);
+//        }
     }
 
     function cubo() {
@@ -287,50 +287,6 @@
 
         return cub;
     }
-
-    //
-//    function facesCubo() {
-//// Define os vertices que compoem as 6 faces do cubo
-//        faces = [[A, B, C, D],
-//                 [B, F, G, C],
-//                 [F, E, H, G],
-//                 [E, A, D, H],
-//                 [A, E, F, B],
-//                 [D, C, G, H]];
-//
-//        angle = 0;
-//
-//    }
-
-//    function startDemo() {
-//        var t = new Array();
-//        for (var i = 0; i < vertices.length; i++) {
-//            var v = vertices[i];
-//
-//            var p = v.project(800, 400, 60, 100);
-//            t.push([p.x,p.y,p.z,1]);
-//
-//
-//        }
-//
-//        console.log(t);
-//
-//        t =  multiplicacao(t, rotY(2, 2, 2) );
-//        console.log(t);
-//        for (var i = 0; i < faces.length; i++) {
-//            var f = faces[i];
-//
-//            ctx.beginPath();
-//            ctx.moveTo(t[f[0]].x, t[f[0]].y);
-//            ctx.lineTo(t[f[1]].x, t[f[1]].y);
-//            ctx.lineTo(t[f[2]].x, t[f[2]].y);
-//            ctx.lineTo(t[f[3]].x, t[f[3]].y);
-//            ctx.closePath();
-//            ctx.stroke()
-//        }
-//        angle += 2;
-//    }
-
 
     function multiplicacao(operador, objeto) {
 

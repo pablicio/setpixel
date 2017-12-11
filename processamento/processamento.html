@@ -31,11 +31,16 @@
             <option value="prewitt-x">Prewitt X</option>
             <option value="prewitt-y">Prewitt Y</option>
             <option value="prewitt">Prewitt</option>
+            <option value="sobel-x">Sobel X</option>
+            <option value="sobel-y">Sobel Y</option>
+            <option value="sobel">Sobel</option>
             <option value="roberts-x">Roberts X</option>
             <option value="roberts-y">Roberts Y</option>
             <option value="roberts">Roberts</option>
             <option value="alto-reforco">Alto reforco</option>
             <option value="sharpen">Sharpen</option>
+            <option value="laplaciano">Laplaciano</option>
+
         </select>
 
         <label>Operacoes</label>
@@ -48,13 +53,13 @@
             <option value="and">And</option>
             <option value="or">Or</option>
             <option value="xor">Xor</option>
-            <option value="roberts-y">Not</option>
+            <option value="not">Not</option>
             <option value="escala">Escala</option>
             <option value="rotacao">Rotação em X</option>
             <option value="rotacao-y">Rotação em Y</option>
             <option value="escala">Escala</option>
             <option value="cisalhamento">Cisalhamento</option>
-            <option value="tranlacao">Translação</option>
+            <option value="translacao">Translação</option>
             <option value="reflexao-x">Reflexão em X</option>
             <option value="reflexao-y">Reflexão em Y</option>
             <option value="gamma">Gamma</option>
@@ -68,17 +73,11 @@
                 <button id="operar" class="btn btn-sm btn-info">Operacoes</button>
 
             </div>
+            <hr>
             <div class="col-lg-6">
+
                 <div id="grid">
-                    <!--<div><input type="text" value="-1" readonly style="width: 100%"></div>-->
-                    <!--<div><input type="text" value="-1" readonly style="width: 100%"></div>-->
-                    <!--<div><input type="text" value="-1" readonly style="width: 100%"></div>-->
-                    <!--<div><input type="text" value="-1" readonly style="width: 100%"></div>-->
-                    <!--<div><input type="text" value=" 8" readonly style="width: 100%"></div>-->
-                    <!--<div><input type="text" value="-1" readonly style="width: 100%"></div>-->
-                    <!--<div><input type="text" value="-1" readonly style="width: 100%"></div>-->
-                    <!--<div><input type="text" value="-1" readonly style="width: 100%"></div>-->
-                    <!--<div><input type="text" value="-1" readonly style="width: 100%"></div>-->
+
                 </div>
             </div>
 
@@ -86,6 +85,7 @@
 
     </div>
     <div class="col-lg-6 holder">
+
         <div class="inner-holder">
             <ul id="image-alvo"></ul>
         </div>
@@ -94,13 +94,17 @@
 
 <div class="row">
     <div class="col-lg-1"></div>
+    <div id="myDiv"></div>
+
     <div class="col-lg-6 holder">
+
         <div class="inner-holder">
             <ul id="image-soma"></ul>
         </div>
     </div>
     <div class="col-lg-3"></div>
     <div class="col-lg-6 holder">
+
         <div class="inner-holder">
             <ul id="image-"></ul>
         </div>
@@ -111,7 +115,7 @@
 <script src="../assets/js/jquery.min.js"></script>
 <!-- Bootstrap Core JavaScript -->
 <script src="../assets/js/bootstrap.min.js"></script>
-
+<script src="plotly.js"></script>
 <script src="canvas2image.js"></script>
 <script src="processamento.js"></script>
 

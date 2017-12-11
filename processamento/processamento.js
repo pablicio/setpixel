@@ -6,20 +6,37 @@ var imagem1 = ''
 
 var imagem2 = ''
 
-
-
 var mascara = []
+
+var tipo = ''
 
 var leitorDeCSV = new FileReader();
 var leitorDeCSV2 = new FileReader();
 
+
 function displayOperator(mascara) {
     $('#grid').empty()
     var operator = ""
-    $.each(mascara, function (index, value) {
-        operator += '<div><input type="text" value="'+ value +'" readonly style="width: 100%"></div>';
-    })
-    $('#grid').append(operator)
+
+    if (mascara.length == 2) {
+        var operator1 = ""
+        var operator2 = ""
+        $.each(mascara[0], function (index, value) {
+            operator1 += '<div><input type="text" value="' + value + '" readonly style="width: 100%"></div>';
+        })
+        $('#grid').append(operator1)
+        $('#grid').append("<div></div><div></div><div></div>")
+
+        $.each(mascara[1], function (index, value) {
+            operator2 += '<div><input type="text" value="' + value + '" readonly style="width: 100%"></div>';
+        })
+        $('#grid').append(operator2)
+    } else {
+        $.each(mascara, function (index, value) {
+            operator += '<div><input type="text" value="' + value + '" readonly style="width: 100%"></div>';
+        })
+        $('#grid').append(operator)
+    }
 }
 
 //todos os filtros aqui
@@ -38,11 +55,14 @@ $('#select_filtro').change(function (tipo) {
             break;
         case 'media':
             mascara = [
-                1/9, 1/9, 1/9,
-                1/9, 1/9, 1/9,
-                1/9, 1/9, 1/9
+                1 / 9, 1 / 9, 1 / 9,
+                1 / 9, 1 / 9, 1 / 9,
+                1 / 9, 1 / 9, 1 / 9
             ];
             displayOperator(mascara)
+            break;
+        case 'mediana':
+            mascara = 'mediana';
             break;
         case 'roberts-x':
             mascara = [
@@ -58,6 +78,12 @@ $('#select_filtro').change(function (tipo) {
                 0, 1, 0,
                 0, 0, 0
             ];
+            displayOperator(mascara)
+            break;
+        case 'roberts':
+            mascara = [-1, 0, -1,
+                0, 2, 0,
+                0, 0, 0];
             displayOperator(mascara)
             break;
         case 'prewitt-x':
@@ -76,19 +102,50 @@ $('#select_filtro').change(function (tipo) {
             ];
             displayOperator(mascara)
             break;
+        case 'prewitt':
+            mascara = [
+                [
+                    -1, -1, -1,
+                    0, 0, 0,
+                    1, 1, 1
+                ],
+                [
+                    1, 0, -1,
+                    1, 0, -1,
+                    1, 0, -1
+                ]
+            ];
+
+            displayOperator(mascara)
+            break;
         case 'sobel-x':
             mascara = [
-                -1, -1, -1,
-                -1, 8, -1,
-                -1, -1, -1
+                1, 2, 1,
+                0, 0, 0,
+                -1, -2, -1
             ];
             displayOperator(mascara)
             break;
         case 'sobel-y':
             mascara = [
-                -1, -1, -1,
-                -1, 8, -1,
-                -1, -1, -1
+                -1, 0, 1,
+                -2, 0, 2,
+                -1, 0, 1
+            ];
+            displayOperator(mascara)
+            break;
+        case 'sobel':
+            mascara = [
+                [
+                    1, 2, 1,
+                    0, 0, 0,
+                    -1, -2, -1
+                ],
+                [
+                    -1, 0, 1,
+                    -2, 0, 2,
+                    -1, 0, 1
+                ]
             ];
             displayOperator(mascara)
             break;
@@ -100,7 +157,20 @@ $('#select_filtro').change(function (tipo) {
             ];
             displayOperator(mascara)
             break;
-
+        case 'alto-reforco':
+            mascara = [
+                0, -0.2, 0,
+                -0.2, 1.8, -0.2,
+                0, -0.2, 0
+            ];
+            displayOperator(mascara)
+            break;
+        case 'laplaciano':
+            mascara = [0, -1, 0,
+                -1, 4, -1,
+                0, -1, 0]
+            displayOperator(mascara)
+            break;
         default:
             throw new TypeError('Filtro não suportado. [' + tipo + ']');
             return false;
@@ -116,6 +186,46 @@ function chunks(arr, chunkSize) {
     for (var i = 0, len = arr.length; i < len; i += chunkSize)
         R.push(arr.slice(i, i + chunkSize));
     return R;
+}
+
+//Aplica a mediana na imagem
+function mediana(img) {
+    cabecalho = img.substring(15, -1);
+    cabecalho = cabecalho.replace(/\n/ig, ' ');
+    console.log(cabecalho.split(' '));
+
+    if (cabecalho.split(' ')[1] == "243") {
+        objeto = chunks(img, 244);
+        image = "P2 239 239 255 ";
+    } else {
+        objeto = chunks(img, 257);
+        image = "P2 252 252 255 ";
+    }
+
+    rol = [];
+
+    for (var i = 2; i < objeto.length - 2; i++) {
+        for (var j = 2; j < objeto[i].length - 2; j++) {
+            rol[0] = parseInt(objeto[i - 1][j - 1]);
+            rol[1] = parseInt(objeto[i - 1][j + 1]);
+            rol[2] = parseInt(objeto[i + 1][j - 1]);
+            rol[3] = parseInt(objeto[i + 1][j + 1]);
+            rol[4] = parseInt(objeto[i][j]);
+            rol[5] = parseInt(objeto[i][j + 1]);
+            rol[6] = parseInt(objeto[i][j - 1]);
+            rol[7] = parseInt(objeto[i + 1][j]);
+            rol[8] = parseInt(objeto[i - 1][j]);
+
+            rol.sort(function (a, b) { //Array now becomes [7, 8, 25, 41]
+                return a - b
+            });
+
+            image += rol[4] + " ";
+        }
+
+
+    }
+    return image;
 }
 
 //Aplica a convolução na imagem
@@ -152,55 +262,58 @@ function convolucao(mascara, array) {
     }
     return image;
 }
-function walkmydog() {
-    //when the user starts entering
-    var dom = document.getElementById('WallSearch');
-    if(dom == null)
-    {
-        alert('sorry, WallSearch DOM cannot be found');
-        return false;
-    }
+/*
+ function walkmydog() {
+ //when the user starts entering
+ var dom = document.getElementById('WallSearch');
+ if (dom == null) {
 
-    if(dom.value.length == 0) {
-        alert("nothing");
-    }
-}
+ return false;
+ }
 
-if (document.addEventListener) {
-    document.addEventListener("DOMContentLoaded", walkmydog, false);
-}
+ if (dom.value.length == 0) {
+ alert("nothing");
+ }
+ }
+
+ if (document.addEventListener) {
+ document.addEventListener("DOMContentLoaded", walkmydog, false);
+ }
+ */
 
 function soma(img1, img2) {
 
-        img1 = img1.replace(/\n/ig, ' ');
-        img1 = img1.slice(15, -1);
-        img1 = img1.split(' ')
+    img1 = img1.replace(/\n/ig, ' ');
+    img1 = img1.slice(15, -1);
+    img1 = img1.split(' ')
 
-        img2 = img2.replace(/\n/ig, ' ');
-        img2 = img2.slice(15, -1);
-        img2 = img2.split(' ')
+    img2 = img2.replace(/\n/ig, ' ');
+    img2 = img2.slice(15, -1);
+    img2 = img2.split(' ')
 
-        // var decimal = '50';
+    // var decimal = '50';
 
-        img3 = ""
+    img3 = ""
 
-        res = 0;
+    res = 0;
 
-        for(var i = 0; i < img1.length; i++){
-            res = parseInt(img2[i]) + parseInt(img1[i])
+    for (var i = 0; i < img1.length; i++) {
+        res = parseInt(img2[i]) + parseInt(img1[i])
 
-            if(res < 0){
-                res = 0
-            }else if(res > 255){
-                res = 255
-            }
-
-            img3 += res + " "
+        if (res < 0) {
+            res = 0
+        } else if (res > 255) {
+            res = 255
         }
 
-        return img3;
+        img3 += res + " "
+    }
+
+    return img3;
 
 }
+
+
 function subtracao(img1, img2) {
 
     img1 = img1.replace(/\n/ig, ' ');
@@ -217,12 +330,12 @@ function subtracao(img1, img2) {
 
     res = 0;
 
-    for(var i = 0; i < img1.length; i++){
+    for (var i = 0; i < img1.length; i++) {
         res = parseInt(img2[i]) - parseInt(img1[i])
 
-        if(res < 0){
+        if (res < 0) {
             res = 0
-        }else if(res > 255){
+        } else if (res > 255) {
             res = 255
         }
 
@@ -232,7 +345,7 @@ function subtracao(img1, img2) {
     return img3;
 
 }
-function multiplicacaof(img1, img2) {
+function multiplicacao(img1, img2) {
 
     img1 = img1.replace(/\n/ig, ' ');
     img1 = img1.slice(15, -1);
@@ -248,12 +361,12 @@ function multiplicacaof(img1, img2) {
 
     res = 0;
 
-    for(var i = 0; i < img1.length; i++){
+    for (var i = 0; i < img1.length; i++) {
         res = parseInt(img2[i]) * parseInt(img1[i])
 
-        if(res < 0){
+        if (res < 0) {
             res = 0
-        }else if(res > 255){
+        } else if (res > 255) {
             res = 255
         }
 
@@ -279,12 +392,12 @@ function divisao(img1, img2) {
 
     res = 0;
 
-    for(var i = 0; i < img1.length; i++){
+    for (var i = 0; i < img1.length; i++) {
         res = parseInt(img2[i]) / parseInt(img1[i])
 
-        if(res < 0){
+        if (res < 0) {
             res = 0
-        }else if(res > 255){
+        } else if (res > 255) {
             res = 255
         }
 
@@ -294,6 +407,7 @@ function divisao(img1, img2) {
     return img3;
 
 }
+
 function and(img1, img2) {
 
     img1 = img1.replace(/\n/ig, ' ');
@@ -304,139 +418,317 @@ function and(img1, img2) {
     img2 = img2.slice(15, -1);
     img2 = img2.split(' ')
 
-    //decimal <-> binario
-    var i = 0;
-    do {
-        //decimal -> binario
-        img1 = parseInt(img1[i], 10).toString(2);
-        img2 = parseInt(img2[i], 10).toString(2);
+    img3 = ""
 
-        i++;
-        img3 = (img1 && img2);
-        return img3;
+    res = 0;
 
+    for (var i = 0; i < img1.length; i++) {
+        res = andBin(parseInt(img2[i]), parseInt(img1[i]));
 
+        if (res < 0) {
+            res = 0
+        } else if (res > 255) {
+            res = 255
+        }
 
-        // imagemAnd = parseInt(imagemBin2, 2);
+        img3 += res + " "
+    }
 
-    } while (i < 65536);
-
-    console.log(img3);
-    // img3 = ""
-    //
-    // res = 0;
-    //
-    // for(var i = 0; i < img1.length; i++){
-    //     res = parseInt(img2[i]) / parseInt(img1[i])
-    //
-    //     if(res < 0){
-    //         res = 0
-    //     }else if(res > 255){
-    //         res = 255
-    //     }
-    //
-    //     img3 += res + " "
-    // }
-    //
-    // return img3;
+    return img3;
 
 }
 
-function mat_transposta (l, c, matriz) {
-        var i, j, aux;
-        transposta = [];
-        for (i = 0; i < l; i++) {
-            for (j = i+1; j < c; j++) {
-                if (j != i) {
-                    aux = matriz[i][j];
-                    matriz[i][j] = matriz[j][i];
-                    matriz[j][i] = aux;
-                    aux.push(matriz[j][i]);
-                }
-                transposta.push(aux);
+function or(img1, img2) {
 
-            }
+    img1 = img1.replace(/\n/ig, ' ');
+    img1 = img1.slice(15, -1);
+    img1 = img1.split(' ')
+
+    img2 = img2.replace(/\n/ig, ' ');
+    img2 = img2.slice(15, -1);
+    img2 = img2.split(' ')
+
+    img3 = ""
+
+    res = 0;
+
+    for (var i = 0; i < img1.length; i++) {
+        res = orBin(parseInt(img2[i]), parseInt(img1[i]));
+
+        if (res < 0) {
+            res = 0
+        } else if (res > 255) {
+            res = 255
         }
 
-        for (i = 0; i < l; i++) {
-            for (j = 0; j < c; j++) {
+        img3 += res + " "
+    }
 
-            }
-            return transposta
+    return img3;
 
-        }
-        console.log('Matriz transposta', transposta);
 }
 
-    // for generate random data
-    function generateRandom (min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min
+function xor(img1, img2) {
+
+    img1 = img1.replace(/\n/ig, ' ');
+    img1 = img1.slice(15, -1);
+    img1 = img1.split(' ')
+
+    img2 = img2.replace(/\n/ig, ' ');
+    img2 = img2.slice(15, -1);
+    img2 = img2.split(' ')
+
+    img3 = ""
+
+    res = 0;
+
+    for (var i = 0; i < img1.length; i++) {
+        res = xorBin(parseInt(img2[i]), parseInt(img1[i]));
+
+        if (res < 0) {
+            res = 0
+        } else if (res > 255) {
+            res = 255
+        }
+
+        img3 += res + " "
     }
 
+    return img3;
 
+}
 
+function not(img1) {
 
-$('#operacoes').change(function (tipo) {
+    img1 = img1.replace(/\n/ig, ' ');
+    img1 = img1.slice(15, -1);
+    img1 = img1.split(' ')
 
-    tipo = $(this).val()
+    img3 = ""
 
-    switch (tipo) {
-        case 'soma':
-            mascara = soma(imagem1, imagem2);
+    res = 0;
 
-            displayOperator(mascara)
-            break;
-        case 'subtracao':
-            mascara = subtracao(imagem1, imagem2)
-            displayOperator(mascara)
-            break;
-        case 'multiplicacao':
-            mascara = multiplicacaof(imagem1, imagem2)
-            displayOperator(mascara)
-            break;
-        case 'and':
-            mascara = and(imagem1, imagem2)
-            displayOperator(mascara)
-            break;
-        case 'or':
-            mascara = divisao(imagem1, imagem2)
-            displayOperator(mascara)
-            break;
-        case 'xor':
-            mascara = divisao(imagem1, imagem2)
-            displayOperator(mascara)
-            break;
-        case 'divisao':
-            mascara = divisao(imagem1, imagem2)
-            displayOperator(mascara)
-            break;
-        case 'escala':
-            mascara = [
-                1.2, 0, 1,
-                0, 1.2, 1,
-                1, 1, 1
-            ];
-            displayOperator(mascara);
-            break;
-        case 'rotacao':
-            mascara = mat_transposta(255, 255, imagem1)
-            displayOperator(mascara);
-            break;
-        default:
-            throw new TypeError('Filtro não suportado. [' + tipo + ']');
-            return false;
+    for (var i = 0; i < img1.length; i++) {
+        res = notBin(parseInt(img1[i]));
+
+        if (res < 0) {
+            res = 0
+        } else if (res > 255) {
+            res = 255
+        }
+
+        img3 += res + " "
     }
+
+    return img3;
+
+}
+
+function negativo(img1) {
+
+    img1 = img1.replace(/\n/ig, ' ');
+    img1 = img1.slice(15, -1);
+    img1 = img1.split(' ');
+
+    img3 = ""
+
+    res = 0;
+
+    for (var i = 0; i < img1.length; i++) {
+        res = 255 - parseInt(img1[i]);
+
+        if (res < 0) {
+            res = 0
+        } else if (res > 255) {
+            res = 255
+        }
+
+        img3 += res + " "
+    }
+
+    return img3;
+
+}
+
+function gamma(img1, prop) {
+
+    img1 = img1.replace(/\n/ig, ' ');
+    img1 = img1.slice(15, -1);
+    img1 = img1.split(' ')
+
+    img3 = ""
+
+    res = 0;
+
+    for (var i = 0; i < img1.length; i++) {
+
+        res = parseInt(Math.pow(parseInt(img1[i]), prop));
+
+        if (res < 0) {
+            res = 0
+        } else if (res > 255) {
+            res = 255
+        }
+
+        img3 += res + " "
+    }
+
+    return img3;
+
+}
+
+
+function mat_transposta(l, c, matriz) {
+    var i, j, aux;
+    transposta = [];
+    for (i = 0; i < l; i++) {
+        for (j = i + 1; j < c; j++) {
+            if (j != i) {
+                aux = matriz[i][j];
+                matriz[i][j] = matriz[j][i];
+                matriz[j][i] = aux;
+                aux.push(matriz[j][i]);
+            }
+            transposta.push(aux);
+
+        }
+    }
+
+    for (i = 0; i < l; i++) {
+        for (j = 0; j < c; j++) {
+
+        }
+        return transposta
+
+    }
+}
+
+function andBin(number1, number2) {
+    valor1 = decbin(number1, 8);
+    valor2 = decbin(number2, 8);
+
+    resultado = ''
+    for (i in valor1)
+        resultado += valor1[i] & valor2[i]
+
+    return parseInt(resultado, 2);
+}
+
+function orBin(number1, number2) {
+    valor1 = decbin(number1, 8);
+    valor2 = decbin(number2, 8);
+
+    resultado = ''
+    for (i in valor1)
+        resultado += valor1[i] | valor2[i]
+    return parseInt(resultado, 2);
+}
+
+function xorBin(number1, number2) {
+    valor1 = decbin(number1, 8);
+    valor2 = decbin(number2, 8);
+
+    resultado = ''
+    for (i in valor1)
+        resultado += valor1[i] ^ valor2[i]
+    return parseInt(resultado, 2);
+}
+
+
+function notBin(numbem) {
+    vaor = decbin(numbem, 8);
+    resultado = ''
+    for (i in vaor)
+        if (vaor[i] == '0')
+            resultado += '1';
+        else
+            resultado += '0';
+
+    return parseInt(resultado, 2);
+}
+
+function decbin(dec, length) {
+    var out = "";
+    while (length--)
+        out += (dec >> length ) & 1;
+    return out;
+}
+
+$('#operacoes').change(function () {
+    tipo = $(this).val();
 });
+
+function rol(img1, total) {
+
+    img1 = img1.replace(/\n/ig, ' ');
+    img1 = img1.slice(15, -1);
+    img1 = img1.split(' ');
+
+
+    var countNum = img1.reduce(function (allNames, name) {
+        if (name in allNames) {
+            allNames[name]++;
+        }
+        else {
+            allNames[name] = 1;
+        }
+        return allNames;
+    }, []);
+
+    return countNum;
+}
+function totalPixels(imagem) {
+    var total = 0;
+    for (i in imagem){
+        total += imagem[i]
+    }
+    return total
+}
+
 
 $('#operar').click(function () {
 
+    countedNames = rol(imagem1)
+
+    total = totalPixels(countedNames)
+
+    var x = [];
+
+    console.log(countedNames)
+
+
+    $.each(countedNames, function (index, value) {
+        x[index] = value / total;
+    });
+
+
+    // for (var i = 0; i < countedNames.length; i ++) {
+    // }
+
+    console.log(x)
+
+    var trace = {
+        x: x,
+        type: 'histogram',
+    };
+
+    var cont = 0;
+    var aux = []
+
+    $.each(trace.x, function (index, value) {
+        cont += value
+        aux.push({index: cont})
+    });
+
+    console.log(aux)
+
+
+    var data = [trace];
+    Plotly.newPlot('myDiv', data);
+
     image = "P2 256 256 255 ";
 
-    final = image + mascara;
-
-    // final = image + convolucao(mascara, imagem1);
-
-    console.log(final)
+    final = image + operar(tipo);
 
     img = new Image(final);
 
@@ -444,17 +736,80 @@ $('#operar').click(function () {
 
 })
 
+
+function operar(tipo) {
+
+    switch (tipo) {
+        case 'soma':
+            return soma(imagem1, imagem2);
+            break;
+        case 'subtracao':
+            return subtracao(imagem1, imagem2);
+            break;
+        case 'multiplicacao':
+            return multiplicacao(imagem1, imagem2);
+            break;
+        case 'and':
+            return and(imagem1, imagem2);
+            break;
+        case 'or':
+            return or(imagem1, imagem2);
+            break;
+        case 'xor':
+            return xor(imagem1, imagem2);
+            break;
+        case 'not':
+            return not(imagem1);
+            break;
+        case 'negativo':
+            return negativo(imagem1);
+            break;
+        case 'escala':
+            return divisao(imagem1, imagem2);
+            break;
+        case 'rotacao':
+            return mat_transposta(255, 255, imagem1);
+            break;
+        case 'gamma':
+            return gamma(imagem1, 0.4);
+            break;
+        case 'translacao':
+            mascara = [
+                1, 0, 0,
+                0, 1, 0,
+                20, 20, 0
+            ];
+            return convolucao(mascara, imagem1)
+            break;
+        default:
+            throw new TypeError('Operação não suportada. [' + tipo + ']');
+            return false;
+    }
+}
+
+
 $('#filtro').click(function () {
 
     image = "P2 252 252 255 ";
 
-    final = image + convolucao(mascara, imagem1);
+    if (mascara.length == 2) {
+        img1 = convolucao(mascara[0], imagem1);
+
+        img2 = convolucao(mascara[1], imagem1);
+
+        final = image + soma(img2, img1)
+
+    } else if (mascara == 'mediana') {
+        final = mediana(imagem1)
+    } else {
+        final = image + convolucao(mascara, imagem1);
+    }
 
     img = new Image(image);
 
     addImage(img, '#image-alvo');
 
-})
+});
 
 
 window.onload = function init() {
