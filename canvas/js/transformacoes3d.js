@@ -1,237 +1,288 @@
-/**
- * Created by Lais on 11/11/2017.
- */
-function Point(xr, yr, zr) {
-    this.x = xr;
-    this.y = yr;
-    this.z = zr;
+// FUNCAO PONTO 3D    ##############################
+function Point3D(x, y, z) {
+    this.x = x;
+    this.y = y;
+    this.z = z;
+    this.w = 1;
 }
+// TRANSFORMACOES 3D  ##############################
+function transladar3d(objeto, tx, ty, tz) {
 
-function transladar(objeto, tx, ty, tz) {
-
-    var translacao = [
+    var trans3d = [
         [1, 0, 0, tx],
         [0, 1, 0, ty],
         [0, 0, 1, tz],
-        [0, 0, 0, 1 ]
+        [0, 0, 0, 1]
+
     ];
-
-    return multiplicacao(translacao, objeto)
+    return multiplicacao(trans3d, objeto)
 }
-
-function escalacao(objeto, sx, sy) {
+function escalar3d(objeto, sx, sy, sz) {
 
     var escala = [
-        [sx, 0, 0],
-        [0, sy, 0],
-        [0, 0, 1]
+        [sx, 0, 0, 0],
+        [0, sy, 0, 0],
+        [0, 0, sz, 0],
+        [0, 0, 0, 1 ]
     ];
 
     return multiplicacao(escala, objeto)
 }
 
-function reflexaoX(objeto) {
+function rotacaoX(objeto, angulo) {
 
-    var reflexaox = [
-        [1, 0, 0],
-        [0, -1, 0],
-        [0, 0, 1]
+    anguloRadian = angulo * (Math.PI / 180);
+
+    var rotx = [
+        [1,                 0,                      0,          0],
+        [0, Math.cos(anguloRadian), -Math.sin(anguloRadian),    0],
+        [0, Math.sin(anguloRadian), Math.cos(anguloRadian),     0],
+        [0,             0,                   0,                 1 ]
+
     ];
 
-    return multiplicacao(reflexaox, objeto)
+    return multiplicacao(rotx, objeto)
 }
+function rotacaoY(objeto, angulo) {
 
-function reflexaoY(objeto) {
+    anguloRadian = angulo * (Math.PI / 180);
 
-    var reflexaoy = [
-        [-1, 0, 0],
-        [0, 1, 0],
-        [0, 0, 1]
+    var roty = [
+        [Math.cos(anguloRadian), 0, Math.sin(anguloRadian), 0],
+        [0, 1, 0, 0],
+        [-Math.sin(anguloRadian), 0, Math.cos(anguloRadian), 0],
+        [0, 0, 0, 1]
     ];
-
-    return multiplicacao(reflexaoy, objeto)
+    return multiplicacao(roty, objeto)
 }
+function rotacaoZ(objeto, angulo) {
+
+    anguloRadian = angulo * (Math.PI / 180);
+
+    var rotz = [
+        [Math.cos(anguloRadian), -Math.sin(anguloRadian), 0, 0],
+        [Math.sin(anguloRadian), Math.cos(anguloRadian), 0, 0],
+        [0, 0, 1, 0],
+        [0, 0, 0, 1]
+    ];
+    return multiplicacao(rotz, objeto)
+}
+
 function reflexaoXY(objeto) {
 
-    var reflexaoxy = [
-        [-1, 0, 0],
-        [0, -1, 0],
-        [0, 0, 1]
+    var refxy = [
+        [1, 0, 0, 0],
+        [0, 1, 0, 0],
+        [0, 0,-1, 0],
+        [0, 0, 0, 1]
+
     ];
 
-    return multiplicacao(reflexaoxy, objeto)
+    return multiplicacao(refxy, objeto)
 }
-function reflexaoReta(objeto) {
+function reflexaoYZ(objeto) {
 
-    var reflexaoreta = [
-        [0, 1, 0],
-        [1, 0, 0],
-        [0, 0, 1]
+    var refyz = [
+        [1, 0, 0, 0],
+        [0, 1, 0, 0],
+        [0, 0, 1, 0],
+        [0, 0, 0, 1]
+
     ];
 
-    return multiplicacao(reflexaoreta, objeto)
+    return multiplicacao(refyz, objeto)
 }
-function cisalhamento(objeto, cx) {
+function reflexaoXZ(objeto) {
 
-    var cisalhar = [
-        [1, cx, 0],
-        [0, 1, 0],
-        [0, 0, 1]
+    var refxz = [
+        [1, 0, 0, 0],
+        [0, -1, 0, 0],
+        [0, 0, 1, 0],
+        [0, 0, 0, 1]
+
     ];
 
-    return multiplicacao(cisalhar, objeto)
+    return multiplicacao(refxz, objeto)
 }
 
-function rotacaoP(objeto, angulo) {
-    anguloRadian = angulo * (Math.PI / 180);
+function cisalharX(objeto, cx, cy, cz) {
 
-    var rotacaoPositiva = [
-        [Math.cos(anguloRadian), -Math.sin(anguloRadian), 0],
-        [Math.sin(anguloRadian), Math.cos(anguloRadian), 0],
-        [0                , 0                , 1]
+    var cisalhax = [
+        [1, 0, 0, 0],
+        [cy, 1, 0, 0],
+        [cz, 0, 1, 0],
+        [0, 0, 0, 1]
     ];
 
-    return multiplicacao(rotacaoPositiva, objeto)
+    return multiplicacao(cisalhax, objeto)
 }
-function rotacaoN(objeto, angulo) {
-    anguloRadian = angulo * (Math.PI / 180);
+function cisalharY(objeto, cx, cy, cz) {
 
-    var rotacaoNegativa = [
-        [Math.cos(anguloRadian), Math.sin(anguloRadian), 0],
-        [-Math.sin(anguloRadian), Math.cos(anguloRadian), 0],
-        [0                , 0                , 1]
+    var cisalhay = [
+        [cx, 0, 0, 0],
+        [0, 1, 0, 0],
+        [cz, 0, 1, 0],
+        [0, 0,  0, 1]
     ];
 
-    return multiplicacao(rotacaoNegativa, objeto)
+    return multiplicacao(cisalhay, objeto)
+}
+function cisalharZ(objeto, cx, cy, cz) {
+
+    var cisalhaz = [
+        [cx, 0, 0, 0],
+        [cy, 1, 0, 0],
+        [0, 0, 1, 0],
+        [0, 0,  0, 1]
+    ];
+
+    return multiplicacao(cisalhaz, objeto)
 }
 
-function triangulo(point1, point2, point3, context) {
-    trian = [];
+// fim das transf. -----------------------------
 
-    linha1 = dda(point1, point2);
-    trian.push([point1, point2]);
+function cubo(x1, x2, y1, y2, z1, ctx) {
+    this.w = 1;
+    cub = [];
 
-    linha2 = dda(point2, point3);
-    trian.push([point2, point3]);
-
-
-    linha3 = dda(point1, point3);
-    trian.push([point1, point3]);
-
-    draw(linha1, context);
-    draw(linha2, context);
-    draw(linha3, context);
-
-    return trian;
-}
-
-function retanguloTransformado(objetoEscalado, context) {
-
-    rec = [];
-
-    objetoEscalado = matriz_transposta(objetoEscalado);
-
-    A = new Point(objetoEscalado[0][0], objetoEscalado[0][1])
-    rec.push([A.x, A.y, A.z]);
-
-    B = new Point(objetoEscalado[1][0], objetoEscalado[1][1]);
-    rec.push([B.x, B.y, B.z]);
-
-    C = new Point(objetoEscalado[2][0], objetoEscalado[2][1]);
-    rec.push([C.x, C.y, C.z]);
-
-    D = new Point(objetoEscalado[3][0], objetoEscalado[3][1]);
-    rec.push([D.x, D.y, D.z]);
-
-    linha1 = dda(A,B);
-
-    linha2 = dda(B,C);
-
-    linha3 = dda(C,D);
-
-    linha4 = dda(A,D);
-
-    draw(linha1, context);
-    draw(linha2, context);
-    draw(linha3, context);
-    draw(linha4, context);
-
-    return rec;
-}
-
-function retangulo(point1, point2, point3, context) {
-
-    rec = [];
-
-    A = new Point(point1.x, point1.y);
-    B = new Point(point2.x, point1.y);
-    C = new Point(point2.x, point2.y);
-    D = new Point(point1.x, point2.y);
-
-    E = new Point(point1.x, point2.y, point3.z);
-    F = new Point(point2.x, point2.y, point3.z);
-    G = new Point(point2.x, point1.y, point3.z);
-    H = new Point(point1.x, point1.y, point3.z);
-
-
+    A = new Point3D(-x1, y1, -z1, w),      //No quadrilátero, temos uma matriz 4 x 2, ou seja, uma polígono com 4 vértices, em que cada vértice tem duas coordenadas.
+        B = new Point3D(x1, y1, -z1, w),       // No cubo, teríamos um prisma com 8 vértices, em que cada vértice teria três coordenadas. Assim, a matriz seria 8 x 3
+        C = new Point3D(x1, -y1, -z1, w),
+        D = new Point3D(-x1, -y1, -z1, w),
+        E = new Point3D(-x2, y2, z1, w),
+        F = new Point3D(x2, y2, z1, w),
+        G = new Point3D(x2, -y2, z1, w),
+        H = new Point3D(-x2, -y2, z1, w)
 
     linha1 = dda(A, B);
-    rec.push([A.x, A.y, A.z]);
+    cub.push([A.x, A.y, A.z, w]);
 
     linha2 = dda(B, C);
-    rec.push([B.x, B.y, C.z]);
+    cub.push([B.x, B.y, C.z, w]);
 
     linha3 = dda(C, D);
-    rec.push([C.x, C.y, C.z]);
+    cub.push([C.x, C.y, C.z, w]);
 
     linha4 = dda(A, D);
-    rec.push([D.x, D.y, D.z]);
+    cub.push([D.x, D.y, D.z, w]);
 
+    linha5 = dda(A, E);
+    cub.push([A.x, A.y, E.z, w]);
 
-    linha5 = dda(D, E);
-    rec.push([D.x, D.y, D.z]);
+    linha6 = dda(B, F);
+    cub.push([B.x, B.y, F.z, w]);
 
-    linha6 = dda(A, H);
-    rec.push([A.x, A.y, H.z]);
+    linha7 = dda(C, G);
+    cub.push([C.x, C.y, G.z, w]);
 
-    linha7 = dda(B, G);
-    rec.push([B.x, B.y, G.z]);
+    linha8 = dda(D, H);
+    cub.push([D.x, D.y, H.z, w]);
 
-    linha8 = dda(C, F);
-    rec.push([C.x, C.y, F.z]);
+    linha9 = dda(E, F);
+    cub.push([E.x, E.y, E.z, w]);
+//
+    linha10 = dda(F, G);
+    cub.push([F.x, F.y, G.z, w]);
+//
+    linha11 = dda(G, H);
+    cub.push([G.x, G.y, G.z, w]);
 
-    //
-    // linha9 = dda(E, H);
-    // rec.push([A.x, A.y, A.z]);
-    //
-    // linha10 = dda(F, G);
-    // rec.push([B.x, B.y, C.z]);
-    //
-    // linha11 = dda(E, F);
-    // rec.push([C.x, C.y, C.z]);
-    //
-    // linha12 = dda(H, G);
-    // rec.push([D.x, D.y, D.z]);
+    linha12 = dda(E, H);
+    cub.push([H.x, H.y, H.z, w]);
 
+    draw(linha1, ctx);
+    draw(linha2, ctx);
+    draw(linha3, ctx);
+    draw(linha4, ctx);
 
-    draw(linha1, context);
-    draw(linha2, context);
-    draw(linha3, context);
-    draw(linha4, context);
+    draw(linha5, ctx);
+    draw(linha6, ctx);
+    draw(linha7, ctx);
+    draw(linha8, ctx);
 
-    draw(linha5, context);
-    draw(linha6, context);
-    draw(linha7, context);
-    draw(linha8, context);
+    draw(linha9, ctx);
+    draw(linha10, ctx);
+    draw(linha11, ctx);
+    draw(linha12, ctx);
 
-    // draw(linha9, context);
-    // draw(linha10, context);
-    // draw(linha11, context);
-    // draw(linha12, context);
+    return cub;
 
-    return rec;
 }
 
+function cuboTransformado(objetoEscalado, ctx) {
+
+    cub = [];
+
+    A = new Point3D(objetoEscalado[0][0], objetoEscalado[1][0], objetoEscalado[2][0]);
+//
+    B = new Point3D(objetoEscalado[0][1], objetoEscalado[1][1], objetoEscalado[2][1]);
+//
+    C = new Point3D(objetoEscalado[0][2], objetoEscalado[1][2], objetoEscalado[2][2]);
+
+    D = new Point3D(objetoEscalado[0][3], objetoEscalado[1][3], objetoEscalado[2][3]);
+
+    E = new Point3D(objetoEscalado[0][8], objetoEscalado[1][8], objetoEscalado[2][4]);
+
+    F = new Point3D(objetoEscalado[0][9], objetoEscalado[1][9], objetoEscalado[2][5]);
+
+    G = new Point3D(objetoEscalado[0][10], objetoEscalado[1][10], objetoEscalado[2][6]);
+
+    H = new Point3D(objetoEscalado[0][11], objetoEscalado[1][11], objetoEscalado[2][7]);
+
+    linha1 = dda(A, B);
+    cub.push([A.x, A.y, A.z, w]);
+
+    linha2 = dda(B, C);
+    cub.push([B.x, B.y, C.z, w]);
+
+    linha3 = dda(C, D);
+    cub.push([C.x, C.y, C.z, w]);
+
+    linha4 = dda(A, D);
+    cub.push([D.x, D.y, D.z, w]);
+
+    linha5 = dda(A, E);
+    cub.push([A.x, A.y, E.z, w]);
+
+    linha6 = dda(B, F);
+    cub.push([B.x, B.y, F.z, w]);
+
+    linha7 = dda(C, G);
+    cub.push([C.x, C.y, G.z, w]);
+
+    linha8 = dda(D, H);
+    cub.push([D.x, D.y, H.z, w]);
+
+    linha9 = dda(E, F);
+    cub.push([E.x, E.y, E.z, w]);
+//
+    linha10 = dda(F, G);
+    cub.push([F.x, F.y, G.z, w]);
+//
+    linha11 = dda(G, H);
+    cub.push([G.x, G.y, G.z, w]);
+
+    linha12 = dda(E, H);
+    cub.push([H.x, H.y, H.z, w]);
+
+    draw(linha1, ctx);
+    draw(linha2, ctx);
+    draw(linha3, ctx);
+    draw(linha4, ctx);
+
+    draw(linha5, ctx);
+    draw(linha6, ctx);
+    draw(linha7, ctx);
+    draw(linha8, ctx);
+
+    draw(linha9, ctx);
+    draw(linha10, ctx);
+    draw(linha11, ctx);
+    draw(linha12, ctx);
+
+    return cub;
+
+}
 
 function multiplicacao(operador, objeto) {
 

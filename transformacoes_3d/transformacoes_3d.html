@@ -153,26 +153,23 @@
 
                 <p>Cubo 3D</p>
 
-                <!--------------------DESENHA FIGURA------------------------------------------------------------------------------->
+                <!--------------------DESENHA FIGURA------------------------->
                 <fieldset>
                     <div class="col-lg-2">
-                        <input type="text" id="x1" value="100" class="form-control" placeholder="x1">
+                        <input type="text" id="x1" value="50" class="form-control" placeholder="x1">
                     </div>
                     <div class="col-lg-2">
-                        <input type="text" id="y1" value="100" class="form-control" placeholder="y1">
+                        <input type="text" id="y1" value="50" class="form-control" placeholder="y1">
                     </div>
                     <div class="col-lg-2">
-                        <input type="text" id="z1" value="40" class="form-control" placeholder="z1">
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <div class="col-lg-2">
-                        <input type="text" id="x2" value="100" class="form-control" placeholder="x2">
+                        <input type="text" id="z1" value="20" class="form-control" placeholder="z1">
                     </div>
                     <div class="col-lg-2">
-                        <input type="text" id="y2" value="100" class="form-control" placeholder="y2">
+                        <input type="text" id="x2" value="35" class="form-control" placeholder="x2">
                     </div>
-
+                    <div class="col-lg-2">
+                        <input type="text" id="y2" value="35" class="form-control" placeholder="y2">
+                    </div>
                     <button id="botaodesenhar" class="btn btn-primary">
                         <i class="icon-pencil icon-white"></i> Desenhar
                     </button>
@@ -180,6 +177,91 @@
                         <i class="icon-trash icon-white"></i> Apagar
                     </button>
                 </fieldset>
+
+                <!---------------ESCALA--------------->
+                <fieldset name="escala" id="escala" >
+                    <legend>Escala</legend>
+                    <div class="col-lg-2">
+                        <input type="number" id="sx" value="1.2" class="form-control" placeholder="Sx">
+                    </div>
+                    <div class="col-lg-2">
+                        <input type="number" id="sy" value="1.2" class="form-control" placeholder="Sy">
+                    </div>
+                    <div class="col-lg-2">
+                        <input type="number" id="sz" value="1.2" class="form-control" placeholder="Sz">
+                    </div>
+                    <button id="escalabutton" class="btn btn-warning">
+                        <i class="icon-trash icon-white"></i> Escalar
+                    </button>
+                </fieldset>
+                <!---------------ROTACAO--------------->
+                <fieldset name="rotacaoX" id="rotacaoX" >
+                    <legend>Rotacao</legend>
+                    <div class="col-lg-2">
+                        <input type="number" id="ang" value="45" class="form-control" placeholder="Angulo">
+                    </div>
+                    <button id="rotacaoXbutton" class="btn btn-warning">
+                        <i class="icon-trash icon-white"></i> Rotacao - X
+                    </button>
+                    <button id="rotacaoYbutton" class="btn btn-warning">
+                        <i class="icon-trash icon-white"></i> Rotacao - Y
+                    </button>
+                    <button id="rotacaoZbutton" class="btn btn-warning">
+                        <i class="icon-trash icon-white"></i> Rotacao - Y
+                    </button>
+                </fieldset>
+                <!---------------REFLEXAO--------------->
+                <fieldset name="reflexao" id="reflexao" >
+                    <legend>Reflexao</legend>
+
+                    <button id="reflexaoXYbutton" class="btn btn-warning">
+                        <i class="icon-trash icon-white"></i> Reflexao - XY
+                    </button>
+                    <button id="reflexaoYZbutton" class="btn btn-warning">
+                        <i class="icon-trash icon-white"></i> Reflexao - YZ
+                    </button>
+                    <button id="reflexaoXZbutton" class="btn btn-warning">
+                        <i class="icon-trash icon-white"></i> Reflexao - XZ
+                    </button>
+                </fieldset>
+
+                <fieldset>
+                <!--------------------TRANSLAÇÃO-------------------------->
+                    <div id="translacao">
+                        <legend>Translação</legend>
+                        <input type="number" id="tx" value="20" class="form-control" placeholder="Tx">
+                        <input type="number" id="ty" value="20" class="form-control" placeholder="Ty">
+                        <input type="number" id="tz" value="20" class="form-control" placeholder="Tz">
+
+                        <button id="transladebutton"  class="btn btn-sm btn-info">
+                            Transladar
+                        </button>
+
+                    </div>
+                </fieldset>
+                <!---------------CISALHA--------------->
+                <fieldset name="cisalha" id="cisalha" >
+                    <legend>Cisalhamento</legend>
+                    <div class="col-lg-2">
+                        <input type="number" id="cx" value="0.5" class="form-control" placeholder="Cx">
+                    </div>
+                    <div class="col-lg-2">
+                        <input type="number" id="cy" value="0.5" class="form-control" placeholder="Cy">
+                    </div>
+                    <div class="col-lg-2">
+                        <input type="number" id="cz" value="0.5" class="form-control" placeholder="Cz">
+                    </div>
+                    <button id="cisalhaXbutton" class="btn btn-warning">
+                        <i class="icon-trash icon-white"></i> Cisalhar - X
+                    </button>
+                    <button id="cisalhaYbutton" class="btn btn-warning">
+                        <i class="icon-trash icon-white"></i> Cisalhar - Y
+                    </button>
+                    <button id="cisalhaZbutton" class="btn btn-warning">
+                        <i class="icon-trash icon-white"></i> Cisalhar - Z
+                    </button>
+                </fieldset>
+
             </div>
         </div>
 
@@ -208,157 +290,233 @@
         <SCRIPT TYPE="text/javascript" src="../canvas/js/transformacoes.js"></SCRIPT>
 
 
+        <SCRIPT TYPE="text/javascript" src="../canvas/js/transformacoes3d.js"></SCRIPT>
+
         <script type="text/javascript">
-
-
-            var canvas;
-            var context;
             var width;
             var height;
-            var points = [];
-            $(document).ready(function () {
 
-                //inicializa o html
+            $(document).ready(function () {
                 canvas = document.getElementById("canvas");
-                context = canvas.getContext("2d");
+                ctx = canvas.getContext("2d");
+                ctx.fillStyle = "rgb(0,0,0)";
                 width = parseInt(canvas.getAttribute("width"));
                 height = parseInt(canvas.getAttribute("height"));
-                initializecanvas(context);
+                ctx.fillRect(0, 0, 800, 400);
+                ctx.strokeStyle = "rgb(255,55,255)"
+                initializecanvas(ctx);
 
-                $("#botaodesenhar").click(function () {
-
-                    var vertice = vertices();
-
-                    proj = proJParalela(1);
-
-                    projetado = projecao(proj, vertice)
-
-                    linhasCubo = linhas(projetado);
-
-                    cubo(linhasCubo);
-
-                    console.log(linhasCubo)
-
-                });
-
-                function rotY(tx, ty, tz) {
-
-                    var roty = [
-                        [1, 1, 0, tx],
-                        [0, 1, 0, ty],
-                        [0, 0, 1, tz],
-                        [0, 0, 0, 1]
-
-                    ];
-                    return roty;
-                }
-
-                function proJParalela(d) {
-
-                    var proj = [
-                        [1, 1, 0, 0],
-                        [0, 1, 0, 0],
-                        [0, 0, 0, 0],
-                        [0, 0, d, 1]
-
-                    ];
-                    return proj;
-                }
-
-                function Point3D(vertice) {
-                    this.x = vertice[0];
-                    this.y = vertice[1];
-                    this.z = vertice[2];
-                    this.w = 1;
-                }
-
-                function projecao(proj, vertice) {
-
-                    return multiplicacao(proj, vertice)
-                }
-
-                function vertices() {
-                    return [
-                        [0, 20, 20, 0, 0, 20, 20, 0],
-                        [0, 0, 30, 30, 0, 0, 30, 30],
-                        [10, 10, 10, 10, 0, 0, 0, 0],
-                        [1, 1, 1, 1, 1, 1, 1, 1]
-                    ];
-                }
-
-                function linhas(vertices) {
-
-                    vertices = matriz_transposta(vertices);
-                    return [
-                        [new Point3D(vertices[0]), new Point3D(vertices[0])],
-                        [new Point3D(vertices[0]), new Point3D(vertices[3])],
-                        [new Point3D(vertices[0]), new Point3D(vertices[4])],
-                        [new Point3D(vertices[1]), new Point3D(vertices[2])],
-                        [new Point3D(vertices[1]), new Point3D(vertices[5])],
-                        [new Point3D(vertices[2]), new Point3D(vertices[3])],
-                        [new Point3D(vertices[2]), new Point3D(vertices[6])],
-                        [new Point3D(vertices[3]), new Point3D(vertices[7])],
-                        [new Point3D(vertices[4]), new Point3D(vertices[5])],
-                        [new Point3D(vertices[4]), new Point3D(vertices[7])],
-                        [new Point3D(vertices[5]), new Point3D(vertices[6])],
-                        [new Point3D(vertices[6]), new Point3D(vertices[7])]
-                    ];
-                }
-
-                function cubo(linhas) {
-
-                    console.log(linhas[0][0])
-                    //desenha no canvas os pontos recebidos
-                    for (var i = 0; i < 12; i++) {
-                        ponto1 = new  Point(linhas[i][0].x, linhas[i][1].x);
-                        ponto2 = new Point(linhas[i][1].y, linhas[i][1].y);
-                        linha = dda(ponto1, ponto2);
-                        points.push(linha)
-                    }
-                    draw(points, context)
-                }
-
-
-                function multiplicacao(operador, objeto) {
-
-                    var objTramsformado, i, r, j, s, k;
-
-                    objTramsformado = [];
-
-                    for (i = 0; i < operador.length; i++) {
-                        r = [];
-                        for (j = 0; j < objeto[0].length; j++) {
-                            s = 0;
-                            for (k = 0; k < objeto.length; k++) {
-                                s += operador[i][k] * objeto[k][j];
-                            }
-                            r.push(s);
-                        }
-                        objTramsformado.push(r);
-                    }
-
-                    return objTramsformado;
-                }
-
-                function matriz_transposta(matriz) {
-
-                    var i, j, aux;
-
-                    transposta = [];
-
-                    for (i = 0; i < matriz[0].length; i++) {
-                        aux = [];
-                        for (j = 0; j < matriz.length; j++) {
-                            aux.push(matriz[j][i]);
-                        }
-                        transposta.push(aux);
-                    }
-
-                    return transposta;
-                }
             });
+
+            // FUNCOES DOS BOTOES ##############################
+            $("#erasebutton").click(function () {
+                initializecanvas(ctx);
+                return false;
+            });
+            $("#botaodesenhar").click(function () {
+
+                x1 = parseFloat($("#x1").val());
+                x2 = parseFloat($("#x2").val());
+                y1 = parseFloat($("#y1").val());
+                y2 = parseFloat($("#y2").val());
+                z1 = parseFloat($("#z1").val());
+
+
+                cub = cubo(x1, x2, y1, y2, z1, ctx);
+                initializecanvas(ctx);
+                transladado = transladar3d(cub, x1, y1+5, 100);
+                cub = cuboTransformado(transladado, ctx);
+                initializecanvas(ctx)
+                transladado = rotacaoY(cub, 45);
+                cub = cuboTransformado(transladado, ctx);
+                initializecanvas(ctx)
+                transladado = rotacaoY(cub, 45);
+                cub = cuboTransformado(transladado, ctx);
+                initializecanvas(ctx)
+                transladado = rotacaoY(cub, 45);
+                cub = cuboTransformado(transladado, ctx);
+                initializecanvas(ctx)
+                transladado = transladar3d(cub, x1/2.5, 0, 0);
+                cub = cuboTransformado(transladado, ctx);
+
+
+
+
+            });
+            $("#transladebutton").click(function () {
+                initializecanvas(ctx);
+                var auxX = $('#tx').val();
+                var auxY = $('#ty').val();
+                var auxZ = $('#tz').val();
+
+                transladado = transladar3d(cub, auxX, auxY, auxZ);
+
+                cub = cuboTransformado(transladado, ctx);
+
+                return false;
+            });
+            $("#escalabutton").click(function () {
+                initializecanvas(ctx);
+
+                var auxX = $('#x1').val();
+                var auxY = $('#y1').val();
+
+                var auxSX = $('#sx').val();
+                var auxSY = $('#sy').val();
+                var auxSZ = $('#sz').val();
+
+                transladado = transladar3d(cub, -auxX, -auxY, 1);
+                cub = cuboTransformado(transladado, ctx);
+                initializecanvas(ctx);
+
+                escalado = escalar3d(cub, auxSX, auxSY, auxSZ);
+                cub = cuboTransformado(escalado, ctx);
+                initializecanvas(ctx);
+
+                transladado2 = transladar3d(cub, auxX, auxY, 1);
+                cub = cuboTransformado(transladado2, ctx);
+                console.log('aqui')
+//
+//        escalado = escalar3d(cub, auxSX, auxSY, auxSZ);
+//
+//        cub = cuboTransformado(escalado, ctx);
+
+                return false;
+            });
+            $("#reflexaoXZbutton").click(function () {
+                initializecanvas(ctx);
+
+                reflexaoxz = reflexaoXZ(cub);
+
+                cub = cuboTransformado(reflexaoxz, ctx);
+
+                console.log(cub)
+
+                return false;
+            });
+            $("#reflexaoYZbutton").click(function () {
+                initializecanvas(ctx);
+                reflexaoyz = reflexaoYZ(cub);
+
+                cub = cuboTransformado(reflexaoyz, ctx);
+
+                return false;
+            });
+            $("#reflexaoXYbutton").click(function () {
+                initializecanvas(ctx);
+                reflexaoxy = reflexaoXY(cub);
+
+                cub = cuboTransformado(reflexaoxy, ctx);
+
+                return false;
+            });
+            $("#rotacaoXbutton").click(function () {
+
+                var auxX = $('#x1').val();
+                var auxY = $('#y1').val();
+                var auxA = $('#ang').val();
+
+                initializecanvas(ctx);
+
+                transladado = transladar3d(cub, -auxX, -auxY, 1);
+                cub = cuboTransformado(transladado, ctx);
+                initializecanvas(ctx);
+
+                rotacaoM = rotacaoX(cub, auxA);
+                cub = cuboTransformado(rotacaoM, ctx);
+                initializecanvas(ctx);
+
+                transladado2 = transladar3d(cub, auxX, auxY, 1);
+                cub = cuboTransformado(transladado2, ctx);
+
+                return false;
+            });
+            $("#rotacaoYbutton").click(function () {
+
+
+                var auxX = $('#x1').val();
+                var auxY = $('#y1').val();
+                var auxA = $('#ang').val();
+
+                initializecanvas(ctx);
+
+                transladado = transladar3d(cub, -auxX, -auxY, 1);
+                cub = cuboTransformado(transladado, ctx);
+                initializecanvas(ctx);
+
+                rotacaoM = rotacaoY(cub, auxA);
+                console.log(rotacaoM)
+                cub = cuboTransformado(rotacaoM, ctx);  //fazer x e y
+                initializecanvas(ctx);
+
+                transladado2 = transladar3d(cub, auxX, auxY, 1);
+                cub = cuboTransformado(transladado2, ctx);
+
+                return false;
+            });
+            $("#rotacaoZbutton").click(function () {
+
+
+                var auxX = $('#x1').val();
+                var auxY = $('#y1').val();
+                var auxA = $('#ang').val();
+
+                initializecanvas(ctx);
+
+                transladado = transladar3d(cub, -auxX, -auxY, 1);
+                cub = cuboTransformado(transladado, ctx);
+                initializecanvas(ctx);
+
+                rotacaoM = rotacaoZ(cub, auxA);
+                console.log(rotacaoM)
+                cub = cuboTransformado(rotacaoM, ctx);  //fazer x e y
+                initializecanvas(ctx);
+
+                transladado2 = transladar3d(cub, auxX, auxY, 1);
+                cub = cuboTransformado(transladado2, ctx);
+
+                return false;
+            });
+            $("#cisalhaXbutton").click(function () {
+
+                initializecanvas(ctx)
+                var auxX = $('#cx').val();
+                var auxY = $('#cy').val();
+                var auxZ = $('#cz').val();
+
+                cisalhado = cisalharX(cub, auxX, auxY, auxZ);
+                cub = cuboTransformado(cisalhado, ctx);
+
+
+            })
+            $("#cisalhaYbutton").click(function () {
+
+                initializecanvas(ctx)
+                var auxX = $('#cx').val();
+                var auxY = $('#cy').val();
+                var auxZ = $('#cz').val();
+
+                cisalhado = cisalharY(cub, auxX, auxY, auxZ);
+                cub = cuboTransformado(cisalhado, ctx);
+
+
+            })
+            $("#cisalhaZbutton").click(function () {
+
+                initializecanvas(ctx)
+                var auxX = $('#cx').val();
+                var auxY = $('#cy').val();
+                var auxZ = $('#cz').val();
+
+                cisalhado = cisalharZ(cub, auxX, auxY, auxZ);
+                cub = cuboTransformado(cisalhado, ctx);
+
+
+            })
 
         </script>
 
+    </div>
+    </div>
 </body>
 </html>
