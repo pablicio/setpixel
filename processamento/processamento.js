@@ -262,24 +262,6 @@ function convolucao(mascara, array) {
     }
     return image;
 }
-/*
- function walkmydog() {
- //when the user starts entering
- var dom = document.getElementById('WallSearch');
- if (dom == null) {
-
- return false;
- }
-
- if (dom.value.length == 0) {
- alert("nothing");
- }
- }
-
- if (document.addEventListener) {
- document.addEventListener("DOMContentLoaded", walkmydog, false);
- }
- */
 
 function soma(img1, img2) {
 
@@ -686,7 +668,7 @@ function totalPixels(imagem) {
 }
 
 
-$('#operar').click(function () {
+$('#histograma').click(function () {
 
     countedNames = rol(imagem1)
 
@@ -694,18 +676,9 @@ $('#operar').click(function () {
 
     var x = [];
 
-    console.log(countedNames)
-
-
     $.each(countedNames, function (index, value) {
         x[index] = value / total;
     });
-
-
-    // for (var i = 0; i < countedNames.length; i ++) {
-    // }
-
-    console.log(x)
 
     var trace = {
         x: x,
@@ -720,11 +693,22 @@ $('#operar').click(function () {
         aux.push({index: cont})
     });
 
-    console.log(aux)
-
-
     var data = [trace];
+
     Plotly.newPlot('myDiv', data);
+
+    // image = "P2 256 256 255 ";
+    //
+    // final = image + operar(tipo);
+    //
+    // img = new Image(final);
+    //
+    // addImage(img, '#image-alvo');
+
+})
+
+
+$('#operar').click(function () {
 
     image = "P2 256 256 255 ";
 
@@ -734,7 +718,7 @@ $('#operar').click(function () {
 
     addImage(img, '#image-alvo');
 
-})
+});
 
 
 function operar(tipo) {
@@ -748,6 +732,9 @@ function operar(tipo) {
             break;
         case 'multiplicacao':
             return multiplicacao(imagem1, imagem2);
+            break;
+        case 'divisao':
+            return divisao(imagem1, imagem2);
             break;
         case 'and':
             return and(imagem1, imagem2);

@@ -134,6 +134,24 @@
                             Transformações 3D
                         </a>
                     </li>
+                    <li>
+                        <a href="../recorte/recorte.html" class="active"><i
+                                class="fa fa-dashboard fa-fw"></i>
+                            Recorte
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../processamento/processamento.html" class="active"><i
+                                class="fa fa-dashboard fa-fw"></i>
+                            Processamento
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../gato/gato.html" class="active"><i
+                                class="fa fa-dashboard fa-fw"></i>
+                            Gato de Arnold
+                        </a>
+                    </li>
                 </ul>
 
             </div>
@@ -149,10 +167,10 @@
             <!-- ... Coonteúdo ... -->
             <!--<div class="container" id="container">-->
                 <!--<div class="row">-->
-                    <div class="span6" id="canvasdiv">
-                        <canvas width=400 height=280 id="canvas" class="well">
-                        </canvas>
-                    </div>
+            <div id="canvasdiv">
+                <canvas width=700 height=500 id="canvas" class="well">
+                </canvas>
+            </div>
                     <div class="span6">
                         <div class="well">
                             <h2 style="text-align:center;"> Coordenadas</h2>
@@ -183,25 +201,6 @@
                         </div>
                     </div>
                 </div>
-        <br>
-                <div class="row">
-                    <div class="span6 offset3 well" style="text-align:center;">
-                        <h2 class="center">Pontos Calculados</h2>
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>X</th>
-                                <th>Y</th>
-                            </tr>
-                            </thead>
-                            <tbody id="tablebody">
-                            <!-- Aqui va el contenido de la tabla -->
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
 
         </div>
     <!--</div>-->
@@ -217,18 +216,17 @@
 <script src="../assets/js/geral/setpixel.js"></script>
 
 <!--&lt;!&ndash;mouse capt&ndash;&gt;-->
-
+<script src="../assets/js/geral/setpixel.js"></script>
 <SCRIPT TYPE="text/javascript" src="../canvas/js/dda.js"></SCRIPT>
 <SCRIPT TYPE="text/javascript" src="../canvas/js/drawing.js"></SCRIPT>
 <SCRIPT TYPE="text/javascript" src="../canvas/js/jquery-1.7.2.js"></SCRIPT>
-<SCRIPT TYPE="text/javascript" src="../canvas/js/custom.js"></SCRIPT>
 <SCRIPT TYPE="text/javascript" src="../canvas/js/dynamictable.js"></SCRIPT>
+<SCRIPT TYPE="text/javascript" src="../canvas/js/transformacoes.js"></SCRIPT>
 <SCRIPT TYPE="text/javascript">
     var canvas;
     var context;
     var width;
     var height;
-    var data;
     var points = [];
     var table;
     $(document).ready(function () {

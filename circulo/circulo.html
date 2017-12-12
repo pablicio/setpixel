@@ -121,17 +121,38 @@
                         <a href="../dda/dda.html" class="active"><i class="fa fa-dashboard fa-fw"></i> Círculo</a>
                     </li>
                     <li>
-                        <a href="../desenho_livre/desenho_livre.html" class="active"><i class="fa fa-dashboard fa-fw"></i>
+                        <a href="../desenho_livre/desenho_livre.html" class="active"><i
+                                class="fa fa-dashboard fa-fw"></i>
                             Desenho Livre</a>
                     </li>
-					<li>
-                        <a href="../transformacoes_2d/transformacoes_2d.html" class="active"><i class="fa fa-dashboard fa-fw"></i>
+                    <li>
+                        <a href="../transformacoes_2d/transformacoes_2d.html" class="active"><i
+                                class="fa fa-dashboard fa-fw"></i>
                             Transformações 2D
                         </a>
                     </li>
-					<li>
-                        <a href="../transformacoes_3d/transformacoes_3d.html" class="active"><i class="fa fa-dashboard fa-fw"></i>
+                    <li>
+                        <a href="../transformacoes_3d/transformacoes_3d.html" class="active"><i
+                                class="fa fa-dashboard fa-fw"></i>
                             Transformações 3D
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../recorte/recorte.html" class="active"><i
+                                class="fa fa-dashboard fa-fw"></i>
+                            Recorte
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../processamento/processamento.html" class="active"><i
+                                class="fa fa-dashboard fa-fw"></i>
+                            Processamento
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../gato/gato.html" class="active"><i
+                                class="fa fa-dashboard fa-fw"></i>
+                            Gato de Arnold
                         </a>
                     </li>
                 </ul>
@@ -145,63 +166,62 @@
         <div class="container-fluid">
 
 
-
             <!-- ... Coonteúdo ... -->
             <!--<div class="container" id="container">-->
-                <!--<div class="row">-->
-                    <div class="span6" id="canvasdiv">
-                        <canvas width=400 height=280 id="canvas" class="well">
-                        </canvas>
+            <!--<div class="row">-->
+            <div id="canvasdiv">
+                <canvas width=700 height=500 id="canvas" class="well">
+                </canvas>
+            </div>
+            <div class="span6">
+                <div class="well">
+                    <h2 style="text-align:center;"> Coordenadas</h2>
+
+
+                    <div class="col-lg-2">
+                        <input type="text" id="x1" class="form-control" placeholder="x1">
                     </div>
-                    <div class="span6">
-                        <div class="well">
-                            <h2 style="text-align:center;"> Coordenadas</h2>
-
-
-                            <div class="col-lg-2">
-                                <input type="text" id="x1" class="form-control" placeholder="x1">
-                            </div>
-                            <div class="col-lg-2">
-                                <input type="text" id="y1" class="form-control" placeholder="y1">
-                            </div>
-                            <div class="col-lg-2">
-                                <input type="text" id="raio" class="form-control" placeholder="raio">
-                            </div>
-
-                            <div class="col-lg-6">
-                                <br>
-                                <button id="submitbutton" class="btn btn-primary">
-                                    <i class="icon-pencil icon-white"></i> Desenhar
-                                </button>
-                                <button id="erasebutton" class="btn btn-danger">
-                                    <i class="icon-trash icon-white"></i> Apagar
-                                </button>
-                            </div>
-                        </div>
+                    <div class="col-lg-2">
+                        <input type="text" id="y1" class="form-control" placeholder="y1">
                     </div>
-                </div>
-        <br>
-                <div class="row">
-                    <div class="span6 offset3 well" style="text-align:center;">
-                        <h2 class="center">Pontos Calculados</h2>
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>X</th>
-                                <th>Y</th>
-                            </tr>
-                            </thead>
-                            <tbody id="tablebody">
-                            <!-- Aqui va el contenido de la tabla -->
-                            </tbody>
-                        </table>
+                    <div class="col-lg-2">
+                        <input type="text" id="raio" class="form-control" placeholder="raio">
+                    </div>
+
+                    <div class="col-lg-6">
+                        <br>
+                        <button id="submitbutton" class="btn btn-primary">
+                            <i class="icon-pencil icon-white"></i> Desenhar
+                        </button>
+                        <button id="erasebutton" class="btn btn-danger">
+                            <i class="icon-trash icon-white"></i> Apagar
+                        </button>
                     </div>
                 </div>
             </div>
-
         </div>
-    <!--</div>-->
+        <br>
+        <div class="row">
+            <div class="span6 offset3 well" style="text-align:center;">
+                <h2 class="center">Pontos Calculados</h2>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>X</th>
+                        <th>Y</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tablebody">
+                    <!-- Aqui va el contenido de la tabla -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--</div>-->
 <!--</div>-->
 
 <!-- jQuery -->
