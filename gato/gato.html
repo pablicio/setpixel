@@ -13,7 +13,7 @@
         window.onload = function () {
             var img = new Image();
 
-            img.src = "hh.jpg";
+            img.src = "cat1.jpg";
 
             img.onload = function () {
                 var canvas = document.getElementById("catmap");
@@ -30,6 +30,7 @@
         };
 
         var mapper = function () {
+
             var canvas = document.getElementById("catmap");
             var ctx = canvas.getContext("2d");
 
@@ -41,17 +42,23 @@
             //initialize array copy
             var now = Array.prototype.slice.call(next);
 
+
             var toFlat = function(c,w,h) {
                 return c.x + w*(c.y);
+
             };
             var fromFlat = function(c,w,h) {
                 return {
                     x: c % w,
                     y: Math.floor(c/w)
+
+
+
                 };
             };
-
+            // For : corta a imagem pelas tamanho de suas dimensoes
             for (i = 0; i < 4*w*h; i++) {
+
                 var c = Math.floor(i/4),
                     r = i % 4,
                     before = fromFlat(c, w, h),
@@ -59,12 +66,11 @@
                 before = 4*toFlat(before, w, h) + r;
                 after = 4*toFlat(after, w, h) + r;
                 next[after] = now[before];
-                if (image.shape == image.shape('hh.jpeg')){
-                    break
-                }
+
+
             }
             ctx.putImageData(image, 0, 0);
-            setTimeout(mapper, 15)
+            setTimeout(mapper, 350)
         }
 
     </script>
