@@ -46,20 +46,20 @@ function DrawManager(){
 
 	this.draw = function(shape){
         if(shape == "retangulo"){
-            retangulo(point1,point2, context)
+            retangulo(point1,point2, context);
         }
 		if(shape == "linea"){
-			var puntos = dda(point1,point2)
-			draw(puntos,context)
+			var pontos = dda(point1,point2);
+			draw(pontos,context)
 		}
 		if(shape == "circulo"){
-			calculatedifference()
+			calculatedifference();
 			if(height == width){
-				var puntos = puntomedio(height , point1)
-				draw(puntos,context)
+				var pontos = puntomedio(height , point1);
+				draw(pontos,context)
 			}else{
-                var puntos = puntomedioe(width,height,point1)
-				draw(puntos,context)
+                var pontos = puntomedioe(width,height,point1);
+				draw(pontos,context)
 			}
 		}
 	}

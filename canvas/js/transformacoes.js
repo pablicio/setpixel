@@ -86,8 +86,8 @@ function rotacaoP(objeto, angulo) {
 
     var rotacaoPositiva = [
         [Math.cos(anguloRadian), -Math.sin(anguloRadian), 0],
-        [Math.sin(anguloRadian), Math.cos(anguloRadian) , 0],
-        [0                     , 0                      , 1]
+        [Math.sin(anguloRadian), Math.cos(anguloRadian), 0],
+        [0                , 0                , 1]
     ];
 
     return multiplicacao(rotacaoPositiva, objeto)
@@ -96,9 +96,9 @@ function rotacaoN(objeto, angulo) {
     anguloRadian = angulo * (Math.PI / 180);
 
     var rotacaoNegativa = [
-        [Math.cos(anguloRadian) , Math.sin(anguloRadian), 0],
+        [Math.cos(anguloRadian), Math.sin(anguloRadian), 0],
         [-Math.sin(anguloRadian), Math.cos(anguloRadian), 0],
-        [0                      , 0                     , 1]
+        [0                , 0                , 1]
     ];
 
     return multiplicacao(rotacaoNegativa, objeto)
@@ -158,37 +158,36 @@ function retanguloTransformado(objetoEscalado, context) {
     return rec;
 }
 function ativa(valor){
-
     if( valor == "Translacao" ){
-        document.getElementById("translacao").hidden = false;
-        document.getElementById("escala").hidden = true;
-        document.getElementById("reflexao").hidden = true;
-        document.getElementById("rotacao").hidden = true;
-        document.getElementById("cisalhamento").hidden = true;
+        $("#translacao").show();
+        $("#escala").hide();
+        $("#reflexao").hide();
+        $("#rotacao").hide();
+        $("#cisalhamento").hide();
     }else if( valor == "Escala" ){
-        document.getElementById("translacao").hidden = true;
-        document.getElementById("escala").hidden = false;
-        document.getElementById("reflexao").hidden = true;
-        document.getElementById("rotacao").hidden = true;
-        document.getElementById("cisalhamento").hidden = true;
+        $("#translacao").hide();
+        $("#escala").show();
+        $("#reflexao").hide();
+        $("#rotacao").hide();
+        $("#cisalhamento").hide();
     }else if( valor == "Reflexao" ){
-        document.getElementById("translacao").hidden = true;
-        document.getElementById("escala").hidden = true;
-        document.getElementById("reflexao").hidden = false;
-        document.getElementById("rotacao").hidden = true;
-        document.getElementById("cisalhamento").hidden = true;
+        $("#translacao").hide();
+        $("#escala").hide();
+        $("#reflexao").show();
+        $("#rotacao").hide();
+        $("#cisalhamento").hide();
     }else if( valor == "Rotacao" ){
-        document.getElementById("translacao").hidden = true;
-        document.getElementById("escala").hidden = true;
-        document.getElementById("reflexao").hidden = true;
-        document.getElementById("rotacao").hidden = false;
-        document.getElementById("cisalhamento").hidden = true;
+        $("#translacao").hide();
+        $("#escala").hide();
+        $("#reflexao").hide();
+        $("#rotacao").show();
+        $("#cisalhamento").hide();
     }else if( valor == "Cisalhamento" ){
-        document.getElementById("translacao").hidden = true;
-        document.getElementById("escala").hidden = true;
-        document.getElementById("reflexao").hidden = true;
-        document.getElementById("rotacao").hidden = true;
-        document.getElementById("cisalhamento").hidden = false;
+        $("#translacao").hide();
+        $("#escala").hide();
+        $("#reflexao").hide();
+        $("#rotacao").hide();
+        $("#cisalhamento").show();
     }
 }
 

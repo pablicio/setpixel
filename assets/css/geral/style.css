@@ -51,3 +51,14 @@ fieldset {
     padding-right: 0.75em;
 
 }
+
+.formularios{
+    float: right;
+    margin-top: 200px;
+}
+
+.selectMenu{
+    float: right;
+    margin-top: 30px;
+    clear: both;
+}

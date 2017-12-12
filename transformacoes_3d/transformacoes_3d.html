@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Computação Gráfica</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../assets/css/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <link href="../assets/css/timeline.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../assets/css/startmin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="../assets/css/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Style tela -->
+    <link href="../assets/css/geral/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div id="wrapper">
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Computação Gráfica</a>
+        </div>
+
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+
+        <!-- Top Navigation: Left Menu -->
+        <ul class="nav navbar-nav navbar-left navbar-top-links">
+            <li><a href="#" class="apagar"><i class="fa fa-home fa-fw"></i> limpar</a></li>
+        </ul>
+
+        <!-- Top Navigation: Right Menu -->
+        <ul class="nav navbar-right navbar-top-links">
+            <li class="dropdown navbar-inverse">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-bell fa-fw"></i> <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu dropdown-alerts">
+                    <li>
+                        <a href="#">
+                            <div>
+                                <i class="fa fa-comment fa-fw"></i> New Comment
+                                <span class="pull-right text-muted small">4 minutes ago</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a class="text-center" href="#">
+                            <strong>See All Alerts</strong>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-user fa-fw"></i> Usuário <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <!-- Sidebar -->
+        <!-- Sidebar -->
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+
+                <ul class="nav" id="side-menu">
+                    <li class="sidebar-search">
+                        <div class="input-group custom-search-form">
+                            <input type="text" class="form-control" placeholder="Buscar...">
+                            <span class="input-group-btn">
+                                    <button class="btn btn-primary" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a href="/" class="active"><i class="fa fa-dashboard fa-fw"></i> Início</a>
+                    </li>
+
+
+                    <li>
+                        <a href="../dda/dda.html" class="active"><i class="fa fa-dashboard fa-fw"></i> DDA</a>
+                    </li>
+                    <li>
+                        <a href="../circulo/circulo.html" class="active"><i class="fa fa-dashboard fa-fw"></i>
+                            Círculo</a>
+                    </li>
+                    <li>
+                        <a href="../desenho_livre/desenho_livre.html" class="active"><i class="fa fa-dashboard fa-fw"></i>
+                            Desenho Livre</a>
+                    </li>
+                   <li>
+                        <a href="../transformacoes_2d/transformacoes_2d.html" class="active"><i class="fa fa-dashboard fa-fw"></i>
+                            Transformações 2D
+                        </a>
+                    </li>
+					<li>
+                        <a href="../transformacoes_3d/transformacoes_3d.html" class="active"><i class="fa fa-dashboard fa-fw"></i>
+                            Transformações 3D
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <!-- Page   Content -->
+    <div id="page-wrapper">
+        <div class="container-fluid">
+
+            <div class="span6" id="canvasdiv">
+                <canvas width=700 height=500 id="canvas" class="well">
+                </canvas>
+            </div>
+            <div class="well">
+                <h2 style="text-align:center;"> Transformações 3D</h2>
+
+                <p>Cubo 3D</p>
+
+                <!--------------------DESENHA FIGURA------------------------------------------------------------------------------->
+                <fieldset>
+                    <div class="col-lg-2">
+                        <input type="text" id="x1" value="100" class="form-control" placeholder="x1">
+                    </div>
+                    <div class="col-lg-2">
+                        <input type="text" id="y1" value="100" class="form-control" placeholder="y1">
+                    </div>
+                    <div class="col-lg-2">
+                        <input type="text" id="z1" value="40" class="form-control" placeholder="z1">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="col-lg-2">
+                        <input type="text" id="x2" value="100" class="form-control" placeholder="x2">
+                    </div>
+                    <div class="col-lg-2">
+                        <input type="text" id="y2" value="100" class="form-control" placeholder="y2">
+                    </div>
+
+                    <button id="botaodesenhar" class="btn btn-primary">
+                        <i class="icon-pencil icon-white"></i> Desenhar
+                    </button>
+                    <button id="erasebutton" class="btn btn-danger">
+                        <i class="icon-trash icon-white"></i> Apagar
+                    </button>
+                </fieldset>
+            </div>
+        </div>
+
+        <!-- jQuery -->
+        <script src="../assets/js/jquery.min.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="../assets/js/bootstrap.min.js"></script>
+
+        <!--<!--Geral-->-->
+        <script src="../assets/js/geral/setpixel.js"></script>
+
+        <!--&lt;!&ndash;mouse capt&ndash;&gt;-->
+
+        <SCRIPT TYPE="text/javascript" src="../canvas/js/Elipse.js"></SCRIPT>
+        <SCRIPT TYPE="text/javascript" src="../canvas/js/dda.js"></SCRIPT>
+        <SCRIPT TYPE="text/javascript" src="../canvas/js/puntomedio.js"></SCRIPT>
+        <SCRIPT TYPE="text/javascript" src="../canvas/js/drawing.js"></SCRIPT>
+        <SCRIPT TYPE="text/javascript" src="../canvas/js/jquery-1.7.2.js"></SCRIPT>
+        <SCRIPT TYPE="text/javascript" src="../canvas/js/custom.js"></SCRIPT>
+        <SCRIPT TYPE="text/javascript" src="../canvas/js/dynamictable.js"></SCRIPT>
+        <SCRIPT TYPE="text/javascript" src="../canvas/js/todoenuno.js"></SCRIPT>
+        <SCRIPT TYPE="text/javascript" src="../canvas/js/2DTransforms.js"></SCRIPT>
+        <SCRIPT TYPE="text/javascript" src="../canvas/js/mousemanager.js"></SCRIPT>
+        <SCRIPT TYPE="text/javascript" src="../canvas/js/drawmanager.js"></SCRIPT>
+        <SCRIPT TYPE="text/javascript" src="../canvas/js/transformacoes.js"></SCRIPT>
+
+
+        <script type="text/javascript">
+
+
+            var canvas;
+            var context;
+            var width;
+            var height;
+            var points = [];
+            $(document).ready(function () {
+
+                //inicializa o html
+                canvas = document.getElementById("canvas");
+                context = canvas.getContext("2d");
+                width = parseInt(canvas.getAttribute("width"));
+                height = parseInt(canvas.getAttribute("height"));
+                initializecanvas(context);
+
+                $("#botaodesenhar").click(function () {
+
+                    var vertice = vertices();
+
+                    proj = proJParalela(1);
+
+                    projetado = projecao(proj, vertice)
+
+                    linhasCubo = linhas(projetado);
+
+                    cubo(linhasCubo);
+
+                    console.log(linhasCubo)
+
+                });
+
+                function rotY(tx, ty, tz) {
+
+                    var roty = [
+                        [1, 1, 0, tx],
+                        [0, 1, 0, ty],
+                        [0, 0, 1, tz],
+                        [0, 0, 0, 1]
+
+                    ];
+                    return roty;
+                }
+
+                function proJParalela(d) {
+
+                    var proj = [
+                        [1, 1, 0, 0],
+                        [0, 1, 0, 0],
+                        [0, 0, 0, 0],
+                        [0, 0, d, 1]
+
+                    ];
+                    return proj;
+                }
+
+                function Point3D(vertice) {
+                    this.x = vertice[0];
+                    this.y = vertice[1];
+                    this.z = vertice[2];
+                    this.w = 1;
+                }
+
+                function projecao(proj, vertice) {
+
+                    return multiplicacao(proj, vertice)
+                }
+
+                function vertices() {
+                    return [
+                        [0, 20, 20, 0, 0, 20, 20, 0],
+                        [0, 0, 30, 30, 0, 0, 30, 30],
+                        [10, 10, 10, 10, 0, 0, 0, 0],
+                        [1, 1, 1, 1, 1, 1, 1, 1]
+                    ];
+                }
+
+                function linhas(vertices) {
+
+                    vertices = matriz_transposta(vertices);
+                    return [
+                        [new Point3D(vertices[0]), new Point3D(vertices[0])],
+                        [new Point3D(vertices[0]), new Point3D(vertices[3])],
+                        [new Point3D(vertices[0]), new Point3D(vertices[4])],
+                        [new Point3D(vertices[1]), new Point3D(vertices[2])],
+                        [new Point3D(vertices[1]), new Point3D(vertices[5])],
+                        [new Point3D(vertices[2]), new Point3D(vertices[3])],
+                        [new Point3D(vertices[2]), new Point3D(vertices[6])],
+                        [new Point3D(vertices[3]), new Point3D(vertices[7])],
+                        [new Point3D(vertices[4]), new Point3D(vertices[5])],
+                        [new Point3D(vertices[4]), new Point3D(vertices[7])],
+                        [new Point3D(vertices[5]), new Point3D(vertices[6])],
+                        [new Point3D(vertices[6]), new Point3D(vertices[7])]
+                    ];
+                }
+
+                function cubo(linhas) {
+
+                    console.log(linhas[0][0])
+                    //desenha no canvas os pontos recebidos
+                    for (var i = 0; i < 12; i++) {
+                        ponto1 = new  Point(linhas[i][0].x, linhas[i][1].x);
+                        ponto2 = new Point(linhas[i][1].y, linhas[i][1].y);
+                        linha = dda(ponto1, ponto2);
+                        points.push(linha)
+                    }
+                    draw(points, context)
+                }
+
+
+                function multiplicacao(operador, objeto) {
+
+                    var objTramsformado, i, r, j, s, k;
+
+                    objTramsformado = [];
+
+                    for (i = 0; i < operador.length; i++) {
+                        r = [];
+                        for (j = 0; j < objeto[0].length; j++) {
+                            s = 0;
+                            for (k = 0; k < objeto.length; k++) {
+                                s += operador[i][k] * objeto[k][j];
+                            }
+                            r.push(s);
+                        }
+                        objTramsformado.push(r);
+                    }
+
+                    return objTramsformado;
+                }
+
+                function matriz_transposta(matriz) {
+
+                    var i, j, aux;
+
+                    transposta = [];
+
+                    for (i = 0; i < matriz[0].length; i++) {
+                        aux = [];
+                        for (j = 0; j < matriz.length; j++) {
+                            aux.push(matriz[j][i]);
+                        }
+                        transposta.push(aux);
+                    }
+
+                    return transposta;
+                }
+            });
+
+        </script>
+
+</body>
+</html>

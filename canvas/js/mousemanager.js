@@ -20,8 +20,8 @@ function MouseManager() {
             left += obj.offsetLeft;
             obj = obj.offsetParent;
         }
-        var mouseX = evt.clientX - left + window.pageXOffset - 222;
-        var mouseY = -1 * (evt.clientY - top + window.pageYOffset - 162);
+        var mouseX = evt.clientX - left + window.pageXOffset - 368;
+        var mouseY = -1 * (evt.clientY - top + window.pageYOffset - 268);
 
         // console.log("x: " + mouseX, "y: " + mouseY)
         return new Point(mouseX, mouseY);

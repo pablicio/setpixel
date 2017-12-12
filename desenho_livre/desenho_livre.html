@@ -118,7 +118,8 @@
                         <a href="../dda/dda.html" class="active"><i class="fa fa-dashboard fa-fw"></i> DDA</a>
                     </li>
                     <li>
-                        <a href="../circulo/circulo.html" class="active"><i class="fa fa-dashboard fa-fw"></i> Círculo</a>
+                        <a href="../circulo/circulo.html" class="active"><i class="fa fa-dashboard fa-fw"></i>
+                            Círculo</a>
                     </li>
                     <li>
                         <a href="../desenho/desenho.html" class="active"><i class="fa fa-dashboard fa-fw"></i>
@@ -149,170 +150,119 @@
             </div>
         </div>
     </nav>
-    <!-- Page Content -->
+    <!-- Page   Content -->
     <!-- Page Content -->
     <div id="page-wrapper">
         <div class="container-fluid">
 
 
+            <div class="row">
 
-            <!-- ... Coonteúdo ... -->
-            <!--<div class="container" id="container">-->
-                <!--<div class="row">-->
-                    <div class="span6" id="canvasdiv">
-                        <canvas width=800 height=560 id="canvas" class="well">
+
+                <div class="col-lg-8 col-sm-9">
+                    <div id="canvasdiv">
+                        <canvas width=700 height=500 id="canvas" class="well">
                         </canvas>
                     </div>
-                    <div class="span6">
-                        <div class="well">
-                            <h2 style="text-align:center;">Transformações</h2>
-
-
-                            <!--------------------DESENHA FIGURA------------------------------------------------------------------------------->
-
-                            <fieldset>
-                                <legend>Coordenadas</legend>
-                            <div class="col-lg-2">
-                                <input type="text" id="x1" class="form-control" placeholder="x1">
-                            </div>
-                            <div class="col-lg-2">
-                                <input type="text" id="y1" class="form-control" placeholder="y1">
-                            </div>
-                            </fieldset>
-                            <br>
-                            <fieldset>
-                            <div class="col-lg-2">
-                                <input type="text" id="x2" class="form-control" placeholder="x2">
-                            </div>
-                            <div class="col-lg-2">
-                                <input type="text" id="y2" class="form-control" placeholder="y2">
-                            </div>
-                                <button id="botaodesenhar" class="btn btn-primary">
-                                    <i class="icon-pencil icon-white"></i> Desenhar
-                                </button>
-                                <button id="erasebutton" class="btn btn-danger">
-                                    <i class="icon-trash icon-white"></i> Apagar
-                                </button>
-                            </fieldset>
-                            <br>
-                            <br>
-
-                            <!---------------------Select para transformacoes 2d--------------------------------------------------------------->
-                            <label for="transformacoes" >TRANSFORMAÇÕES 2D</label>
-                            <br>
-                            <select name="transformacoes" id="transformacoes" onchange="ativa(this.value)" style="font-size: 130%" >
-                                <option value="" >--------------------</option>
-                                <option value="Translacao" >Translação</option>
-                                <option value="Escala">Escala</option>
-                                <option value="Rotacao" >Rotação</option>
-                                <option value="Reflexao">Reflexão</option>
-                                <option value="Cisalhamento" >Cisalhamento</option>
-                            </select>
-                            <br>
-                            <br>
-
-                            <!--------------------ESCALA---------------------------------------------------------------------------------------->
-                            <fieldset name="escala" id="escala" hidden="true" >
-                            <legend>Escala</legend>
-                            <div class="col-lg-2">
-                                <input type="number" id="sx" class="form-control" placeholder="Sx">
-                            </div>
-                            <div class="col-lg-2">
-                                <input type="number" id="sy" class="form-control" placeholder="Sy">
-                            </div>
-                                <button id="escalebutton" class="btn btn-warning">
-                                    <i class="icon-trash icon-white"></i> Escalar
-                                </button>
-                            </fieldset>
-
-                            <!--------------------TRANSLAÇÃO------------------------------------------------------------------------------------->
-
-                            <fieldset name="translacao" id="translacao" hidden="true">
-                                <legend>Translação</legend>
-                            <div class="col-lg-2">
-                                <input type="number" id="tx" class="form-control" placeholder="Tx">
-                            </div>
-                            <div class="col-lg-2">
-                                <input type="number" id="ty" class="form-control" placeholder="Ty">
-                            </div>
-                                <button id="transladebutton" class="btn btn-info">
-                                    <i class="icon-trash icon-white"></i> Transladar
-                                </button>
-                                <button id="transladeOrigbutton" class="btn btn-info">
-                                    <i class="icon-trash icon-white"></i> Transladar para a origem
-                                </button>
-
-                            </fieldset>
-
-                            <!--------------------REFLEXÃO---------------------------------------------------------------------------------------->
-
-                            <fieldset name="reflexao" id="reflexao" hidden="false">
-                                <legend>Reflexão</legend>
-                                <button id="refletirXbutton" class="btn btn-info">
-                                    <i class="icon-trash icon-white"></i> Refletir em X
-                                </button>
-                                <button id="refletirYbutton" class="btn btn-info">
-                                    <i class="icon-trash icon-white"></i> Refletir em Y
-                                </button>
-                                <button id="refletirXYbutton" class="btn btn-info">
-                                    <i class="icon-trash icon-white"></i> Refletir em XY
-                                </button>
-                            </fieldset>
-
-                            <!--------------------ROTAÇÃO----------------------------------------------------------------------------------------->
-
-                            <fieldset name="rotacao" id="rotacao" hidden="true">
-                                <legend>Rotação</legend>
-                                <div class="col-lg-2">
-                                    <input type="number" id="ang" class="form-control" placeholder="Angulo">
-                                </div>
-                                <button id="rotacaoPbutton" class="btn btn-info">
-                                    <i class="icon-trash icon-white"></i> Rotacao Positiva
-                                </button>
-                                <button id="rotacaoNbutton" class="btn btn-info">
-                                    <i class="icon-trash icon-white"></i> Rotacao Negativa
-                                </button>
-                            </fieldset>
-
-                            <!--------------------CISALHAR----------------------------------------------------------------------------------------->
-
-                            <fieldset name="cisalhamento" id="cisalhamento" hidden="true">
-                                <legend>Cisalhamento</legend>
-                                <div class="col-lg-2">
-                                    <input type="number" id="cx" class="form-control" placeholder="Cx">
-                                </div>
-                                <button id="cisalharbutton" class="btn btn-info">
-                                    <i class="icon-trash icon-white"></i> Cisalhar
-                                </button>
-                            </fieldset>
-                        </div>
-                    </div>
-                            <!---------------FIM DOS CAMPOS DE TRANSFORMAÇÕES 2D------------------------------------------------------------------->
                 </div>
-        <br>
-                <div class="row">
-                    <div class="span6 offset3 well" style="text-align:center;">
-                        <h2 class="center">Pontos Calculados</h2>
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>X</th>
-                                <th>Y</th>
-                            </tr>
-                            </thead>
-                            <tbody id="tablebody">
-                            <!-- Aqui va el contenido de la tabla -->
-                            </tbody>
-                        </table>
+
+                <div class="col-lg-1 col-sm-1"></div>
+
+                <div class="col-lg-3 col-sm-6">
+                    <br><br>
+                    <!-- Form sample -->
+                    <label>Desenhar</label><br>
+					<div class="span6">
+						<div class="well">
+							<h5 style="text-align:center;"> Selecione o tipo de desenho</h2>
+							<select name="figura" id="figura" class="form-control">
+								<option value="linea">Linha</option>
+								<option value="circulo">Circulo ou Elipse</option>
+								<option value="retangulo">Retangulo</option>
+							</select>
+						</div>
+					</div>
+                    <button id="erasebutton" style="width: 100%" class="btn btn-sm btn-danger">
+                        Apagar
+                    </button>
+                    <!-- /form sample -->
+                    <hr>
+
+                    <label for="transformacoes">TRANSFORMAÇÕES 2D</label>
+                    <select name="transformacoes" id="transformacoes" onchange="ativa(this.value)" class="form-control">
+                        <option value="">** Selecione a transformação **</option>
+                        <option value="Translacao">Translacao</option>
+                        <option value="Escala">Escala</option>
+                        <option value="Rotacao">Rotacao</option>
+                        <option value="Reflexao">Reflexao</option>
+                        <option value="Cisalhamento">Cisalhamento</option>
+                    </select>
+                    <hr>
+					
+
+                    <!--------------------ESCALA---------------------------------------------------------------------------------------->
+                    <div id="escala" hidden="false">
+                        <legend>Escala</legend>
+                            <input type="number" id="sx" style="width: 100%" class="form-control" placeholder="Sx">
+
+                            <input type="number" id="sy" style="width: 100%" class="form-control" placeholder="Sy">
+                        <button id="escalebutton" style="width: 100%" class="btn btn-sm btn-warning">
+                            Escalar
+                        </button>
+                    </div>
+                    <!--------------------TRANSLAÇÃO------------------------------------------------------------------------------------->
+                    <div id="translacao" hidden="true">
+                        <legend>Translação</legend>
+                            <input type="number" id="tx" style="width: 100%" class="form-control" placeholder="Tx">
+                            <input type="number" id="ty" style="width: 100%" class="form-control" placeholder="Ty">
+
+                        <button id="transladebutton" style="width: 100%" class="btn btn-sm btn-info">
+                            Transladar
+                        </button>
+                        <button id="transladeOrigbutton" style="width: 100%" class="btn btn-sm btn-info">
+                            Transladar para a origem
+                        </button>
+                    </div>
+                    <!--------------------REFLEXÃO---------------------------------------------------------------------------------------->
+                    <div id="reflexao" hidden="false">
+                        <legend>Reflexão</legend>
+                        <button id="refletirXbutton" style="width: 100%" class="btn btn-sm btn-info">
+                            Refletir em X
+                        </button>
+                        <button id="refletirYbutton" style="width: 100%" class="btn btn-sm btn-info">
+                            Refletir em Y
+                        </button>
+                        <button id="refletirXYbutton" style="width: 100%" class="btn btn-sm btn-info">
+                            Refletir em XY
+                        </button>
+                    </div>
+                    <!--------------------ROTAÇÃO----------------------------------------------------------------------------------------->
+                    <div id="rotacao" hidden="true">
+                        <legend>Rotação</legend>
+                        <button id="rotacaoPbutton" style="width: 100%" class="btn btn-sm btn-info">
+                            Rotacao Positiva
+                        </button>
+                        <button id="rotacaoNbutton" style="width: 100%" class="btn btn-sm btn-info">
+                            Rotacao Negativa
+                        </button>
+                    </div>
+                    <!--------------------CISALHAR----------------------------------------------------------------------------------------->
+                    <div id="cisalhamento" hidden="true">
+                        <legend>Cisalhamento</legend>
+                        <input type="number" id="cx" style="width: 100%" class="form-control" placeholder="Cx">
+
+                        <button id="cisalharbutton" style="width: 100%" class="btn btn-sm btn-info">
+                            Cisalhar
+                        </button>
                     </div>
                 </div>
             </div>
-
         </div>
-    <!--</div>-->
-<!--</div>-->
 
+    </div>
+      
+    </div>
+</div>
 <!-- jQuery -->
 <script src="../assets/js/jquery.min.js"></script>
 
@@ -324,11 +274,18 @@
 
 <!--&lt;!&ndash;mouse capt&ndash;&gt;-->
 
+<SCRIPT TYPE="text/javascript" src="../canvas/js/Elipse.js"></SCRIPT>
 <SCRIPT TYPE="text/javascript" src="../canvas/js/dda.js"></SCRIPT>
+<SCRIPT TYPE="text/javascript" src="../canvas/js/puntomedio.js"></SCRIPT>
 <SCRIPT TYPE="text/javascript" src="../canvas/js/drawing.js"></SCRIPT>
 <SCRIPT TYPE="text/javascript" src="../canvas/js/jquery-1.7.2.js"></SCRIPT>
+<SCRIPT TYPE="text/javascript" src="../canvas/js/custom.js"></SCRIPT>
 <SCRIPT TYPE="text/javascript" src="../canvas/js/dynamictable.js"></SCRIPT>
+<SCRIPT TYPE="text/javascript" src="../canvas/js/todoenuno.js"></SCRIPT>
+<SCRIPT TYPE="text/javascript" src="../canvas/js/mousemanager.js"></SCRIPT>
+<SCRIPT TYPE="text/javascript" src="../canvas/js/drawmanager.js"></SCRIPT>
 <SCRIPT TYPE="text/javascript" src="../canvas/js/transformacoes.js"></SCRIPT>
+
 
 <SCRIPT TYPE="text/javascript">
     var canvas;
@@ -347,7 +304,6 @@
         width = parseInt(canvas.getAttribute("width"));
         height = parseInt(canvas.getAttribute("height"));
         initializecanvas(context);
-        table = $("#tablebody");
 
         //limpa tudo
         $("#erasebutton").click(function () {
@@ -362,11 +318,9 @@
             var auxX = $('#tx').val();
             var auxY = $('#ty').val();
 
-            transladado = transladar(rec, auxX,auxY);
+            transladado = transladar(rec, auxX, auxY);
 
             rec = retanguloTransformado(transladado, context);
-
-            initializeTable(table);
             return false;
         });
         $("#transladeOrigbutton").click(function () {
@@ -375,11 +329,9 @@
             var auxY = $('#y1').val();
 
 
-            transladado = transladar(rec, -auxX,-auxY);
+            transladado = transladar(rec, -auxX, -auxY);
 
             retanguloTransformado(transladado, context);
-
-            initializeTable(table);
             return false;
         });
 
@@ -389,8 +341,6 @@
             reflexaox = reflexaoX(rec);
 
             rec = retanguloTransformado(reflexaox, context);  //fazer x e y
-
-            initializeTable(table);
             return false;
         });
         $("#refletirYbutton").click(function () {
@@ -399,8 +349,6 @@
             reflexaoy = reflexaoY(rec);
 
             rec = retanguloTransformado(reflexaoy, context);  //fazer x e y
-
-            initializeTable(table);
             return false;
         });
         $("#refletirXYbutton").click(function () {
@@ -409,15 +357,12 @@
             reflexaoxy = reflexaoXY(rec);
 
             rec = retanguloTransformado(reflexaoxy, context);  //fazer x e y
-
-            initializeTable(table);
             return false;
         });
         $("#rotacaoPbutton").click(function () {
 
             var auxX = $('#x1').val();
             var auxY = $('#y1').val();
-            var auxA = $('#ang').val();
 
             initializecanvas(context);
 
@@ -425,21 +370,18 @@
             rec = retanguloTransformado(transladado, context);
             initializecanvas(context);
 
-            rotacaoPositiva = rotacaoP(rec, auxA);
+            rotacaoPositiva = rotacaoP(rec, 45);
             rec = retanguloTransformado(rotacaoPositiva, context);  //fazer x e y
             initializecanvas(context);
 
             transladado2 = transladar(rec, auxX, auxY);
             rec = retanguloTransformado(transladado2, context);
-
-            initializeTable(table);
             return false;
         });
         $("#rotacaoNbutton").click(function () {
 
             var auxX = $('#x1').val();
             var auxY = $('#y1').val();
-            var auxA = $('#ang').val();
 
             initializecanvas(context);
 
@@ -447,14 +389,12 @@
             rec = retanguloTransformado(transladado, context);
             initializecanvas(context);
 
-            rotacaoNegativa = rotacaoN(rec, auxA);
+            rotacaoNegativa = rotacaoN(rec, 45);
             rec = retanguloTransformado(rotacaoNegativa, context);  //fazer x e y
             initializecanvas(context);
 
             transladado2 = transladar(rec, auxX, auxY);
             rec = retanguloTransformado(transladado2, context);
-
-            initializeTable(table);
             return false;
         });
 
@@ -481,9 +421,6 @@
 
             transladado2 = transladar(rec, auxX, auxY);
             rec = retanguloTransformado(transladado2, context);
-
-
-            initializeTable(table);
             return false;
         });
 
@@ -495,8 +432,6 @@
 
             cisalhado = cisalhamento(rec, auxCx);
             rec = retanguloTransformado(cisalhado, context);
-
-            initializeTable(table);
             return false;
         });
 
@@ -513,13 +448,7 @@
             point1 = new Point(x1, y1);
             point2 = new Point(x2, y2);
 
-            rec = retangulo(point1,point2, context);
-
-            initializeTable(table);
-
-            //adiciona os pontos na tabela
-            addToTable(table, points);
-
+            rec = retangulo(point1, point2, context);
         });
     });
 </SCRIPT>

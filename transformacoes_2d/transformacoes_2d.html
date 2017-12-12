@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Computação Gráfica</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="../assets/css/metisMenu.min.css" rel="stylesheet">
+    <!-- Timeline CSS -->
+    <link href="../assets/css/timeline.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="../assets/css/startmin.css" rel="stylesheet">
+    <!-- Morris Charts CSS -->
+    <link href="../assets/css/morris.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="../assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- Style tela -->
+    <link href="../assets/css/geral/style.css" rel="stylesheet">
+</head>
+
+<body>
+<div id="wrapper">
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Computação Gráfica</a>
+        </div>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+
+        <!-- Top Navigation: Left Menu -->
+        <ul class="nav navbar-nav navbar-left navbar-top-links">
+            <!--<li><a href="#" class="apagar"><i class="fa fa-home fa-fw"></i> limpar</a></li>-->
+        </ul>
+
+        <!-- Top Navigation: Right Menu -->
+        <ul class="nav navbar-right navbar-top-links">
+            <li class="dropdown navbar-inverse">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-bell fa-fw"></i> <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu dropdown-alerts">
+                    <li>
+                        <a href="#">
+                            <div>
+                                <i class="fa fa-comment fa-fw"></i> New Comment
+                                <span class="pull-right text-muted small">4 minutes ago</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a class="text-center" href="#">
+                            <strong>See All Alerts</strong>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-user fa-fw"></i> Usuário <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <!-- Sidebar -->
+        <!-- Sidebar -->
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+
+                <ul class="nav" id="side-menu">
+                    <li>
+                        <a href="/" class="active"><i class="fa fa-dashboard fa-fw"></i>
+                            Início
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../dda/dda.html" class="active"><i class="fa fa-dashboard fa-fw"></i>
+                            DDA
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../circulo/circulo.html" class="active"><i class="fa fa-dashboard fa-fw"></i>
+                            Círculo</a>
+                    </li>
+                    <li>
+                        <a href="../desenho_livre/desenho_livre.html" class="active"><i class="fa fa-dashboard fa-fw"></i>
+                            Desenho Livre</a>
+                    </li>
+                    <li>
+                        <a href="../transformacoes_2d/transformacoes_2d.html" class="active"><i class="fa fa-dashboard fa-fw"></i>
+                            Transformações 2D
+                        </a>
+                    </li>
+					<li>
+                        <a href="../transformacoes_3d/transformacoes_3d.html" class="active"><i class="fa fa-dashboard fa-fw"></i>
+                            Transformações 3D
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <!-- Page Content -->
+    <div id="page-wrapper">
+        <div class="container-fluid">
+
+
+            <div class="row">
+
+
+                <div class="col-lg-8 col-sm-9">
+                    <div id="canvasdiv">
+                        <canvas width=700 height=500 id="canvas" class="well">
+                        </canvas>
+                    </div>
+                </div>
+
+                <div class="col-lg-1 col-sm-1"></div>
+
+                <div class="col-lg-3 col-sm-6">
+                    <br><br>
+                    <!-- Form sample -->
+                    <label>Desenhar</label><br>
+                        <input type="text" id="x1" class="form-control" placeholder="x1">
+                        <input type="text" id="y1" class="form-control" placeholder="y1">
+                        <input type="text" id="x2" class="form-control" placeholder="x2">
+                        <input type="text" id="y2" class="form-control" placeholder="y2">
+                    <button id="botaodesenhar" style="width: 100%" class="btn btn-sm btn-primary">
+                        Desenhar
+                    </button>
+                    <button id="erasebutton" style="width: 100%" class="btn btn-sm btn-danger">
+                        Apagar
+                    </button>
+                    <!-- /form sample -->
+                    <hr>
+
+                    <label for="transformacoes">TRANSFORMAÇÕES 2D</label>
+                    <select name="transformacoes" id="transformacoes" onchange="ativa(this.value)" class="form-control">
+                        <option value="">** Selecione a transformação **</option>
+                        <option value="Translacao">Translacao</option>
+                        <option value="Escala">Escala</option>
+                        <option value="Rotacao">Rotacao</option>
+                        <option value="Reflexao">Reflexao</option>
+                        <option value="Cisalhamento">Cisalhamento</option>
+                    </select>
+                    <hr>
+
+                    <!--------------------ESCALA---------------------------------------------------------------------------------------->
+                    <div id="escala" hidden="false">
+                        <legend>Escala</legend>
+                            <input type="number" id="sx" style="width: 100%" class="form-control" placeholder="Sx">
+
+                            <input type="number" id="sy" style="width: 100%" class="form-control" placeholder="Sy">
+                        <button id="escalebutton" style="width: 100%" class="btn btn-sm btn-warning">
+                            Escalar
+                        </button>
+                    </div>
+                    <!--------------------TRANSLAÇÃO------------------------------------------------------------------------------------->
+                    <div id="translacao" hidden="true">
+                        <legend>Translação</legend>
+                            <input type="number" id="tx" style="width: 100%" class="form-control" placeholder="Tx">
+                            <input type="number" id="ty" style="width: 100%" class="form-control" placeholder="Ty">
+
+                        <button id="transladebutton" style="width: 100%" class="btn btn-sm btn-info">
+                            Transladar
+                        </button>
+                        <button id="transladeOrigbutton" style="width: 100%" class="btn btn-sm btn-info">
+                            Transladar para a origem
+                        </button>
+                    </div>
+                    <!--------------------REFLEXÃO---------------------------------------------------------------------------------------->
+                    <div id="reflexao" hidden="false">
+                        <legend>Reflexão</legend>
+                        <button id="refletirXbutton" style="width: 100%" class="btn btn-sm btn-info">
+                            Refletir em X
+                        </button>
+                        <button id="refletirYbutton" style="width: 100%" class="btn btn-sm btn-info">
+                            Refletir em Y
+                        </button>
+                        <button id="refletirXYbutton" style="width: 100%" class="btn btn-sm btn-info">
+                            Refletir em XY
+                        </button>
+                    </div>
+                    <!--------------------ROTAÇÃO----------------------------------------------------------------------------------------->
+                    <div id="rotacao" hidden="true">
+                        <legend>Rotação</legend>
+                        <button id="rotacaoPbutton" style="width: 100%" class="btn btn-sm btn-info">
+                            Rotacao Positiva
+                        </button>
+                        <button id="rotacaoNbutton" style="width: 100%" class="btn btn-sm btn-info">
+                            Rotacao Negativa
+                        </button>
+                    </div>
+                    <!--------------------CISALHAR----------------------------------------------------------------------------------------->
+                    <div id="cisalhamento" hidden="true">
+                        <legend>Cisalhamento</legend>
+                        <input type="number" id="cx" style="width: 100%" class="form-control" placeholder="Cx">
+
+                        <button id="cisalharbutton" style="width: 100%" class="btn btn-sm btn-info">
+                            Cisalhar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <br>
+    <div class="row">
+        <div class="span6 offset3 well" style="text-align:center;">
+            <h2 class="center">Pontos Calculados</h2>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>X</th>
+                    <th>Y</th>
+                </tr>
+                </thead>
+                <tbody id="tablebody">
+                <!-- Aqui va el contenido de la tabla -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<!-- jQuery -->
+<script src="../assets/js/jquery.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="../assets/js/bootstrap.min.js"></script>
+<!--<!--Geral-->-->
+<script src="../assets/js/geral/setpixel.js"></script>
+<SCRIPT TYPE="text/javascript" src="../canvas/js/dda.js"></SCRIPT>
+<SCRIPT TYPE="text/javascript" src="../canvas/js/drawing.js"></SCRIPT>
+<SCRIPT TYPE="text/javascript" src="../canvas/js/jquery-1.7.2.js"></SCRIPT>
+<SCRIPT TYPE="text/javascript" src="../canvas/js/dynamictable.js"></SCRIPT>
+<SCRIPT TYPE="text/javascript" src="../canvas/js/transformacoes.js"></SCRIPT>
+<SCRIPT TYPE="text/javascript">
+    var canvas;
+    var context;
+    var width;
+    var height;
+    var data;
+    var points = [];
+    var table;
+    $(document).ready(function () {
+
+        //inicializa o html
+        table = $("#pointtable");
+        canvas = document.getElementById("canvas");
+        context = canvas.getContext("2d");
+        width = parseInt(canvas.getAttribute("width"));
+        height = parseInt(canvas.getAttribute("height"));
+        initializecanvas(context);
+        table = $("#tablebody");
+
+        //limpa tudo
+        $("#erasebutton").click(function () {
+            initializecanvas(context);
+            initializeTable(table);
+            return false;
+        });
+
+        //limpa tudo
+        $("#transladebutton").click(function () {
+            initializecanvas(context);
+            var auxX = $('#tx').val();
+            var auxY = $('#ty').val();
+
+            transladado = transladar(rec, auxX, auxY);
+
+            rec = retanguloTransformado(transladado, context);
+
+            initializeTable(table);
+            return false;
+        });
+        $("#transladeOrigbutton").click(function () {
+            initializecanvas(context);
+            var auxX = $('#x1').val();
+            var auxY = $('#y1').val();
+
+
+            transladado = transladar(rec, -auxX, -auxY);
+
+            retanguloTransformado(transladado, context);
+
+            initializeTable(table);
+            return false;
+        });
+
+        $("#refletirXbutton").click(function () {
+            initializecanvas(context);
+
+            reflexaox = reflexaoX(rec);
+
+            rec = retanguloTransformado(reflexaox, context);  //fazer x e y
+
+            initializeTable(table);
+            return false;
+        });
+        $("#refletirYbutton").click(function () {
+            initializecanvas(context);
+
+            reflexaoy = reflexaoY(rec);
+
+            rec = retanguloTransformado(reflexaoy, context);  //fazer x e y
+
+            initializeTable(table);
+            return false;
+        });
+        $("#refletirXYbutton").click(function () {
+            initializecanvas(context);
+
+            reflexaoxy = reflexaoXY(rec);
+
+            rec = retanguloTransformado(reflexaoxy, context);  //fazer x e y
+
+            initializeTable(table);
+            return false;
+        });
+        $("#rotacaoPbutton").click(function () {
+
+            var auxX = $('#x1').val();
+            var auxY = $('#y1').val();
+
+            initializecanvas(context);
+
+            transladado = transladar(rec, -auxX, -auxY);
+            rec = retanguloTransformado(transladado, context);
+            initializecanvas(context);
+
+            rotacaoPositiva = rotacaoP(rec, 45);
+            rec = retanguloTransformado(rotacaoPositiva, context);  //fazer x e y
+            initializecanvas(context);
+
+            transladado2 = transladar(rec, auxX, auxY);
+            rec = retanguloTransformado(transladado2, context);
+
+            initializeTable(table);
+            return false;
+        });
+        $("#rotacaoNbutton").click(function () {
+
+            var auxX = $('#x1').val();
+            var auxY = $('#y1').val();
+
+            initializecanvas(context);
+
+            transladado = transladar(rec, -auxX, -auxY);
+            rec = retanguloTransformado(transladado, context);
+            initializecanvas(context);
+
+            rotacaoNegativa = rotacaoN(rec, 45);
+            rec = retanguloTransformado(rotacaoNegativa, context);  //fazer x e y
+            initializecanvas(context);
+
+            transladado2 = transladar(rec, auxX, auxY);
+            rec = retanguloTransformado(transladado2, context);
+
+            initializeTable(table);
+            return false;
+        });
+
+
+        //limpa tudo
+        $("#escalebutton").click(function () {
+
+            var auxX = $('#x1').val();
+            var auxY = $('#y1').val();
+
+            var auxSx = $('#sx').val();
+            var auxSy = $('#sy').val();
+
+
+            initializecanvas(context);
+
+            transladado = transladar(rec, -auxX, -auxY);
+            rec = retanguloTransformado(transladado, context);
+            initializecanvas(context);
+
+            escalado = escalacao(rec, auxSx, auxSy);
+            rec = retanguloTransformado(escalado, context);
+            initializecanvas(context);
+
+            transladado2 = transladar(rec, auxX, auxY);
+            rec = retanguloTransformado(transladado2, context);
+
+
+            initializeTable(table);
+            return false;
+        });
+
+        $("#cisalharbutton").click(function () {
+
+            initializecanvas(context);
+
+            var auxCx = $('#cx').val();
+
+            cisalhado = cisalhamento(rec, auxCx);
+            rec = retanguloTransformado(cisalhado, context);
+
+            initializeTable(table);
+            return false;
+        });
+
+        $("#botaodesenhar").click(function () {
+
+            //pega os pontos pelo id
+            x1 = parseInt($("#x1").val());
+            x2 = parseInt($("#x2").val());
+            y1 = parseInt($("#y1").val());
+            y2 = parseInt($("#y2").val());
+
+
+            //funçoes que recebem dois valores de x e y e transforma em um só valor...
+            point1 = new Point(x1, y1);
+            point2 = new Point(x2, y2);
+
+            rec = retangulo(point1, point2, context);
+
+            initializeTable(table);
+
+            //adiciona os pontos na tabela
+            addToTable(table, points);
+
+        });
+    });
+</SCRIPT>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
